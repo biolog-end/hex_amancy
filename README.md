@@ -1,9 +1,3 @@
-<!-- IMAGE SLOT: wide banner / title art, ~1280x400. Drop the file in images/ and uncomment.
-<p align="center">
-  <img src="https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/banner.png" alt="Hex: Amancy" width="900">
-</p>
--->
-
 <h1 align="center">Hex: Amancy</h1>
 
 <p align="center"><i>Hexamancy reads what a creature wants, not merely what its body can move.</i></p>
@@ -21,6 +15,8 @@ An addon for **Hex Casting** about attachment, jealousy, vows, and what a world 
 
 Fourteen new patterns, and everything that grows out of them: charmed beasts that follow you into a fight, jealous guards, marriages sealed at an altar, offspring that should not exist, and a world that slowly learns to answer.
 
+![A charmed creature follows its beloved](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/charm.png)
+
 Feelings live on the creature itself, not in a list somewhere on the server. A bond survives chunk unloads, restarts, dimension changes, and being picked up and carried across the map.
 
 ---
@@ -35,17 +31,13 @@ It will not protect anyone from gravity, lava, a creeper or a stray arrow. The w
 
 And every strong bond has an answer. **Heartbreak** ends everything a creature feels and closes its heart for a while. Grief only closes the door outward: the heartbroken can still be adored and still be guarded. They simply cannot love back.
 
-<!-- IMAGE SLOT: a charmed mob following the player, pink particles + the heart line. ~1280x720
-![A charmed creature follows its beloved](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/charm.png)
--->
-
 ---
 
 ## The patterns
 
 Two of them are Great Spells, with a shape that is different in every world.
 
-**Cupid's Charm** *(Great Spell)* — ties one heart to another. Strength of feeling decides how long it holds, how stubborn a heart it can reach, and whether it ever lets go. Bosses refuse outright, and no player is held forever.
+**Cupid's Charm** *(Great Spell)* — ties one heart to another. Strength of feeling decides how long it holds, how stubborn a heart it can reach, and whether it ever lets go.
 
 **Succubus' Tithe** *(Great Spell)* — takes health from everything that loves you and returns it to you as healing. A lover too far away, asleep in another world, or simply not loaded still owes its share, and pays when it next turns up.
 
@@ -63,7 +55,7 @@ Two of them are Great Spells, with a shape that is different in every world.
 
 **Breath Exchange** — two vowed souls trade one breath: every status effect, and their hunger with it. Across worlds, if need be.
 
-**Animal Passion** — hurries a willing animal along towards its next litter. Refuses calves.
+**Animal Passion** — hurries a willing animal along towards its next litter.
 
 **Matchmaker's Purification** — asks whether an animal would breed right now.
 
@@ -73,23 +65,15 @@ Two of them are Great Spells, with a shape that is different in every world.
 
 **Heart's Reflection** — returns your living spouse, or Null.
 
-<!-- IMAGE SLOT: pattern spread from the in-game book, or a grid of the new runes. ~1280x720
-![New patterns](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/patterns.png)
--->
-
 ---
 
 ## Courtship, and what comes of it
 
 Charm two grown animals of the same kind and they will court and bear a litter, the ordinary way.
 
-Charm two of *different* kinds and you get one **Chimera**: a creature with a blended pedigree, whose size and constitution are inherited, so no two are quite alike. It walks on three legs and a fourth that hangs. It hunts pigs, cows and sheep. Grown ones will occasionally look at a player instead — though a single solid hit buys you a truce.
+Charm two of *different* kinds and you get one **Chimera**: a creature with a blended pedigree, whose size and constitution are inherited, so no two are quite alike. It walks on three legs and a fourth that hangs. It hunts pigs, cows and sheep, and a grown one will occasionally look at a player instead.
 
-Chimeras breed true with other Chimeras, and they will not eat their own kind. Their raw meat is a bad idea. Cooked, it is edible, and unpredictable.
-
-<!-- IMAGE SLOT: the Chimera, ideally mid-stride or mid-headbutt. ~1280x720
 ![Chimera](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/chimera.png)
--->
 
 ---
 
@@ -99,33 +83,23 @@ A **Soulbound Ring** is a personal talisman. Woken by Soulbind, it takes your na
 
 Two woken rings, two owners standing quietly at a **Vow Altar**, and the altar writes each of them into the other. The two colours merge into a single moving gradient that runs across the ring's lit facets — and in third person, a small shifting pixel sits at your wrist.
 
-While both spouses carry their rings:
-
-- neither heart can be directed elsewhere by anyone
-- pets and admirers stop attacking the other spouse
-- in the same world, spouses share one widened casting ambit
-- a tenth of the harm done to one is carried by the other
-- Breath Exchange becomes possible
-
-Undoing a vow takes one ring and one decision, and works even if the other person is nowhere to be found.
-
-<!-- IMAGE SLOT: the Vow Altar mid-ritual — petals, intertwining threads, the golden knot. ~1280x720
 ![Vow Altar](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/vow_altar.png)
--->
+
+While both spouses carry their rings, neither heart can be turned by anyone else, their pets stop fighting, they share one widened casting ambit, and harm done to one is carried in part by the other.
 
 ---
 
 ## Keepsakes
 
-**Amethyst Rose, Dandelion and Tulip** — glowing crystal flowers, each shedding motes of its own colour. They will grow in dirt, on amethyst, or in a pot.
+Things worth building around.
 
-**Amethyst Heart** — a crystal reliquary that catches traces of love-media whenever animals breed near it, and slowly fills with amethyst dust. Light travels across its facets while it works; a full one lights a four-coloured crown.
+**Amethyst Rose, Dandelion and Tulip** — glowing crystal flowers, each shedding motes of its own colour.
 
-**Candles of Infatuation** — bright pink crystalline candles. Every Hex: Amancy spell cast near them costs noticeably less media. The discount does not stack, and it will not help with anything outside this addon.
+**Amethyst Heart** — a crystal reliquary that catches traces of love-media whenever animals breed near it. Light travels across its facets while it works.
 
-<!-- IMAGE SLOT: a lit ritual space — candles, amethyst flowers, a working Amethyst Heart. ~1280x720
+**Candles of Infatuation** — bright pink crystalline candles that make this addon's magic cheaper to work beside.
+
 ![Keepsakes](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/keepsakes.png)
--->
 
 ---
 
@@ -135,13 +109,11 @@ Somewhere past all of that is an altar that listens to kindness done in the worl
 
 Build its courtyard correctly and it wakes: the facets begin to shift, and colour drifts up off the heart at its top. Attune your ring to it — a rite of its own, and not a marriage — and from then on the world quietly keeps count. Killing what preys on people, seeing animals fed and born, taming, trading: all of it accrues, and a spouse shares in what you earn.
 
-The first attunement is answered with a day's blessing. After that, the charge can be spent to condense **Crystallized Affection**, and a crystal can be broken open.
+![Heart of the World](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/world_soul.png)
+
+The charge can be spent to condense **Crystallized Affection**, and a crystal can be broken open.
 
 What the world offers back varies. Most days it is small — a shard, some flowers, a little warmth. Sometimes it is a handful of things out of old, forgotten vaults. And very rarely the world hands over something an Author left sealed: a Focus already carrying a finished work, and the grimoire that explains it.
-
-<!-- IMAGE SLOT: the awakened Heart of the World courtyard, ideally during the attunement rite. ~1280x720
-![Heart of the World](https://raw.githubusercontent.com/biolog-end/hex_amancy/main/images/world_soul.png)
--->
 
 ---
 
@@ -157,16 +129,12 @@ Eighteen advancements track the path from your first amethyst flower to the Auth
 
 ## Compatibility
 
-- **Carry On** — picking a creature up is not counted as its death. Bonds, jealousy and courtship all survive the trip. If you are carrying the one you love, the game treats it as standing next to you.
-- **Trinkets** *(Fabric)* / **Curios** *(Forge)* — the ring can be worn in a proper accessory slot, with the same effect as carrying it.
+- **Carry On** — picking a creature up is not counted as its death. Bonds, jealousy and courtship all survive the trip.
+- **Trinkets** *(Fabric)* / **Curios** *(Forge)* — the ring can be worn in a proper accessory slot.
 
 All three are optional. Without them, nothing here stops working.
 
----
-
-## Configuration
-
-Servers decide the rules: prices, durations, charm strength, breeding and Chimera behaviour, attraction radii, jealousy, Siren's Song, Pheromone Mist, Phantom Ideal, Heartbreak, and a set of feature switches. Clients only choose their own comfort — the love and jealousy overlays, and how firmly the camera follows a beloved.
+Servers can retune the prices, durations and strengths, and switch individual mechanics off.
 
 ---
 
