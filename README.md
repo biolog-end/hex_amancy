@@ -57,7 +57,7 @@ Two of them are Great Spells, with a shape that is different in every world.
 
 **Animal Passion** — hurries a willing animal along towards its next litter.
 
-**Matchmaker's Purification** — asks whether an animal would breed right now.
+**Matchmaker Purification** — asks whether an animal would breed right now.
 
 **Weaver's Purification** — lists everyone tied to a creature: what it has tamed, whom it has charmed, whom it married.
 
