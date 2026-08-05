@@ -15,10 +15,16 @@ resource_dirs = [  # top takes priority
 ]
 export_dir = "src/hexdoc_hexlove/_export/generated"
 
-[textures]
-# spawn eggs have no texture of their own: the model is a vanilla template and the
-# colours come from the item, so there is nothing for the web book to render
-missing = ["hexlove:chimera_spawn_egg"]
+[textures.override]
+# The Amethyst Heart is a Blockbench block model with rotated elements. hexdoc
+# only draws simple cube-shaped block models, so it would fall back to raw
+# particle texture. Point it at the already-shipped 16x16 inventory icon.
+"hexlove:amethyst_heart" = { texture = "hexlove:textures/item/amethyst_heart.png" }
+
+# The Chimera spawn egg uses vanilla's template_spawn_egg model, whose colours
+# come from the entity data at runtime. The web book cannot render that either;
+# reuse the entity render that already ships for the Chimera book entry.
+"hexlove:chimera_spawn_egg" = { texture = "hexlove:textures/entities/chimera.png" }
 
 [template]
 icon = "{$_common.src}/main/resources/assets/hexlove/icon.png"
