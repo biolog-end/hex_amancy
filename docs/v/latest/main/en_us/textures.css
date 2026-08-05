@@ -1313,7 +1313,7 @@
   .texture-hexlove-textures-block-candles_of_infatuation_crystal-png {
     animation: texture-hexlove-textures-block-candles_of_infatuation_crystal-png 2.4s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_crystal.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_crystal.png");
   }
   @keyframes texture-hexlove-textures-block-candles_of_infatuation_crystal-png {
       0%, 12.49% { background-position-y: 0% }
@@ -1328,7 +1328,7 @@
   .texture-hexlove-textures-block-candles_of_infatuation_crystal_shadow-png {
     animation: texture-hexlove-textures-block-candles_of_infatuation_crystal_shadow-png 2.4s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_crystal_shadow.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_crystal_shadow.png");
   }
   @keyframes texture-hexlove-textures-block-candles_of_infatuation_crystal_shadow-png {
       0%, 12.49% { background-position-y: 0% }
@@ -1343,7 +1343,7 @@
   .texture-hexlove-textures-block-candles_of_infatuation_facet-png {
     animation: texture-hexlove-textures-block-candles_of_infatuation_facet-png 2.4s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_facet.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/candles_of_infatuation_facet.png");
   }
   @keyframes texture-hexlove-textures-block-candles_of_infatuation_facet-png {
       0%, 12.49% { background-position-y: 0% }
@@ -1358,49 +1358,49 @@
   .texture-hexlove-textures-block-world_soul_altar_active_front-png {
     animation: texture-hexlove-textures-block-world_soul_altar_active_front-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_front.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_front.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_active_front-png {
   }
   .texture-hexlove-textures-block-world_soul_altar_active_side-png {
     animation: texture-hexlove-textures-block-world_soul_altar_active_side-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_side.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_side.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_active_side-png {
   }
   .texture-hexlove-textures-block-world_soul_altar_active_top-png {
     animation: texture-hexlove-textures-block-world_soul_altar_active_top-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_top.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_active_top.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_active_top-png {
   }
   .texture-hexlove-textures-block-world_soul_altar_front-png {
     animation: texture-hexlove-textures-block-world_soul_altar_front-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_front.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_front.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_front-png {
   }
   .texture-hexlove-textures-block-world_soul_altar_side-png {
     animation: texture-hexlove-textures-block-world_soul_altar_side-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_side.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_side.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_side-png {
   }
   .texture-hexlove-textures-block-world_soul_altar_top-png {
     animation: texture-hexlove-textures-block-world_soul_altar_top-png 0.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_top.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/block/world_soul_altar_top.png");
   }
   @keyframes texture-hexlove-textures-block-world_soul_altar_top-png {
   }
   .texture-hexlove-textures-item-crystallized_affection-png {
     animation: texture-hexlove-textures-item-crystallized_affection-png 1.0s steps(1, start) infinite;
     background-size: 100%;
-    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/a0c985d671a15dc9b40a465afd7b738319868e41/common/src/main/resources/assets/hexlove/textures/item/crystallized_affection.png");
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/item/crystallized_affection.png");
   }
   @keyframes texture-hexlove-textures-item-crystallized_affection-png {
       0%, 24.99% { background-position-y: 0% }
@@ -1410,4 +1410,25 @@
       45%, 54.99% { background-position-y: -400% }
       55%, 69.99% { background-position-y: -500% }
       70%, 100% { background-position-y: -600% }
+  }
+  .texture-hexlove-textures-item-resonant_meat-png {
+    animation: texture-hexlove-textures-item-resonant_meat-png 0.0s steps(1, start) infinite;
+    background-size: 100%;
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png");
+  }
+  @keyframes texture-hexlove-textures-item-resonant_meat-png {
+  }
+  .texture-hexlove-textures-item-stew_of_ferocity-png {
+    animation: texture-hexlove-textures-item-stew_of_ferocity-png 0.0s steps(1, start) infinite;
+    background-size: 100%;
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/item/stew_of_ferocity.png");
+  }
+  @keyframes texture-hexlove-textures-item-stew_of_ferocity-png {
+  }
+  .texture-hexlove-textures-item-stew_of_serenity-png {
+    animation: texture-hexlove-textures-item-stew_of_serenity-png 0.0s steps(1, start) infinite;
+    background-size: 100%;
+    background-image: url("https://raw.githubusercontent.com/biolog-end/hex_amancy/ce0098944ff0f292333756ebaa0d80b7fe5e6360/common/src/main/resources/assets/hexlove/textures/item/stew_of_serenity.png");
+  }
+  @keyframes texture-hexlove-textures-item-stew_of_serenity-png {
   }
