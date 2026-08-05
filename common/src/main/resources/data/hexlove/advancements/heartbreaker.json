@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:love_is_blind",
+  "display": {
+    "icon": { "item": "minecraft:echo_shard" },
+    "title": { "translate": "advancements.hexlove.heartbreaker.title" },
+    "description": { "translate": "advancements.hexlove.heartbreaker.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "bond_broken": { "trigger": "minecraft:impossible" } }
+}

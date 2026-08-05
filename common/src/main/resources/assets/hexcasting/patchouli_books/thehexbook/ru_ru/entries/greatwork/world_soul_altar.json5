@@ -1,0 +1,70 @@
+{
+  name: "hexlove.book.patterns.items.world_soul_altar",
+  category: "hexcasting:greatwork",
+  icon: "hexlove:world_soul_altar",
+  advancement: "hexcasting:enlightenment",
+  entry_color: "D98BFF",
+  sortnum: 6,
+  pages: [
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.world_soul_altar.intro.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.intro",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:world_soul_altar",
+      title: "hexlove.book.patterns.items.world_soul_altar.crafting.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.crafting",
+    },
+    {
+      type: "patchouli:multiblock",
+      name: "hexlove.book.patterns.items.world_soul_altar.structure.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.structure",
+      multiblock: {
+        mapping: {
+          A: "minecraft:amethyst_block",
+          R: "hexlove:amethyst_rose",
+          D: "hexlove:amethyst_dandelion",
+          T: "hexlove:amethyst_tulip",
+          C: "hexlove:candles_of_infatuation",
+          "0": "hexlove:world_soul_altar",
+        },
+        pattern: [
+          ["       ", "       ", "       ", "       ", "       ", "       ", "      C"],
+          ["      C", "       ", "       ", "       ", "       ", "       ", "C     A"],
+          ["C     A", "       ", "       ", "       ", "       ", "       ", "A     A"],
+          ["A     A", "       ", "       ", "       ", "       ", "       ", "A     A"],
+          ["A     A", "   R   ", "       ", " T 0 D ", "       ", "   T   ", "A     A"],
+          ["A     A", " AAAAA ", " AAAAA ", " AAAAA ", " AAAAA ", " AAAAA ", "A     A"],
+        ],
+      },
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.world_soul_altar.structure_details.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.structure_details",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.world_soul_altar.ring.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.ring",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.world_soul_altar.ring_charge.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.ring_charge",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.world_soul_altar.embrace.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.embrace",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:crystallized_affection",
+      title: "hexlove.book.patterns.items.world_soul_altar.crystal.title",
+      text: "hexlove.book.patterns.items.world_soul_altar.crystal",
+    },
+  ],
+}

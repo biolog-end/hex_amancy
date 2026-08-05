@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:cupids_arrow",
+  "display": {
+    "icon": { "item": "minecraft:dragon_breath" },
+    "title": { "translate": "advancements.hexlove.love_is_in_the_air.title" },
+    "description": { "translate": "advancements.hexlove.love_is_in_the_air.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "hostile_calmed": { "trigger": "minecraft:impossible" } }
+}

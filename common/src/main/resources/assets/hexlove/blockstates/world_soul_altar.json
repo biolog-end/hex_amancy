@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "active=false,facing=north": { "model": "hexlove:block/world_soul_altar" },
+    "active=false,facing=east": { "model": "hexlove:block/world_soul_altar", "y": 90 },
+    "active=false,facing=south": { "model": "hexlove:block/world_soul_altar", "y": 180 },
+    "active=false,facing=west": { "model": "hexlove:block/world_soul_altar", "y": 270 },
+    "active=true,facing=north": { "model": "hexlove:block/world_soul_altar_active" },
+    "active=true,facing=east": { "model": "hexlove:block/world_soul_altar_active", "y": 90 },
+    "active=true,facing=south": { "model": "hexlove:block/world_soul_altar_active", "y": 180 },
+    "active=true,facing=west": { "model": "hexlove:block/world_soul_altar_active", "y": 270 }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "PSP",
+    "DDD"
+  ],
+  "key": {
+    "A": { "item": "hexcasting:charged_amethyst" },
+    "P": { "item": "minecraft:pink_stained_glass" },
+    "S": { "item": "hexcasting:amethyst_sconce" },
+    "D": { "item": "minecraft:diamond" }
+  },
+  "result": { "item": "hexlove:candles_of_infatuation" }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AIA",
+    " A "
+  ],
+  "key": {
+    "A": { "item": "minecraft:amethyst_shard" },
+    "I": { "item": "hexcasting:focus" }
+  },
+  "result": { "item": "hexlove:soulbound_ring" }
+}

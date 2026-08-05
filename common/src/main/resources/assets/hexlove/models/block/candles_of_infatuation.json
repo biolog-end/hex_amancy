@@ -1,0 +1,62 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "base": "hexlove:block/candles_of_infatuation_base",
+    "base_side": "hexlove:block/candles_of_infatuation_base_side",
+    "base_bottom": "hexlove:block/candles_of_infatuation_base_bottom",
+    "crystal": "hexlove:block/candles_of_infatuation_crystal",
+    "crystal_shadow": "hexlove:block/candles_of_infatuation_crystal_shadow",
+    "facet": "hexlove:block/candles_of_infatuation_facet",
+    "particle": "hexlove:block/candles_of_infatuation_crystal"
+  },
+  "elements": [
+    {
+      "from": [2, 0, 2],
+      "to": [14, 2, 14],
+      "faces": {
+        "down": { "uv": [0, 0, 12, 12], "texture": "#base_bottom" },
+        "up": { "uv": [0, 0, 12, 12], "texture": "#base" },
+        "north": { "uv": [0, 0, 12, 2], "texture": "#base_side" },
+        "south": { "uv": [0, 0, 12, 2], "texture": "#base_side" },
+        "west": { "uv": [0, 0, 12, 2], "texture": "#base_side" },
+        "east": { "uv": [0, 0, 12, 2], "texture": "#base_side" }
+      }
+    },
+    {
+      "from": [3, 2, 4],
+      "to": [6, 10, 7],
+      "faces": {
+        "down": { "uv": [0, 0, 3, 3], "texture": "#facet" },
+        "up": { "uv": [0, 0, 3, 3], "texture": "#facet" },
+        "north": { "uv": [0, 0, 3, 8], "texture": "#crystal_shadow" },
+        "south": { "uv": [0, 0, 3, 8], "texture": "#crystal" },
+        "west": { "uv": [0, 0, 3, 8], "texture": "#crystal_shadow" },
+        "east": { "uv": [0, 0, 3, 8], "texture": "#crystal" }
+      }
+    },
+    {
+      "from": [7, 2, 7],
+      "to": [10, 13, 10],
+      "faces": {
+        "down": { "uv": [4, 0, 7, 3], "texture": "#facet" },
+        "up": { "uv": [4, 0, 7, 3], "texture": "#facet" },
+        "north": { "uv": [4, 0, 7, 11], "texture": "#crystal_shadow" },
+        "south": { "uv": [4, 0, 7, 11], "texture": "#crystal" },
+        "west": { "uv": [4, 0, 7, 11], "texture": "#crystal_shadow" },
+        "east": { "uv": [4, 0, 7, 11], "texture": "#crystal" }
+      }
+    },
+    {
+      "from": [10, 2, 3],
+      "to": [13, 8, 6],
+      "faces": {
+        "down": { "uv": [8, 0, 11, 3], "texture": "#facet" },
+        "up": { "uv": [8, 0, 11, 3], "texture": "#facet" },
+        "north": { "uv": [8, 0, 11, 6], "texture": "#crystal_shadow" },
+        "south": { "uv": [8, 0, 11, 6], "texture": "#crystal" },
+        "west": { "uv": [8, 0, 11, 6], "texture": "#crystal_shadow" },
+        "east": { "uv": [8, 0, 11, 6], "texture": "#crystal" }
+      }
+    }
+  ]
+}

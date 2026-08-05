@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:root",
+  "display": {
+    "icon": { "item": "minecraft:arrow" },
+    "title": { "translate": "advancements.hexlove.cupids_arrow.title" },
+    "description": { "translate": "advancements.hexlove.cupids_arrow.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "became_beloved": { "trigger": "minecraft:impossible" } }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OQO",
+    "BCB",
+    "OBO"
+  ],
+  "key": {
+    "O": { "item": "minecraft:obsidian" },
+    "Q": { "item": "hexcasting:quenched_allay_shard" },
+    "B": { "item": "minecraft:blaze_rod" },
+    "C": { "item": "hexlove:crystallized_affection" }
+  },
+  "result": {
+    "item": "hexlove:world_soul_altar"
+  }
+}

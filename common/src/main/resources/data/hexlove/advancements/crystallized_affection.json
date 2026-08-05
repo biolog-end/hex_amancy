@@ -1,0 +1,15 @@
+{
+  "parent": "hexlove:heart_of_the_world",
+  "display": {
+    "icon": { "item": "hexlove:crystallized_affection" },
+    "title": { "translate": "advancements.hexlove.crystallized_affection.title" },
+    "description": { "translate": "advancements.hexlove.crystallized_affection.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": {
+    "has_crystallized_affection": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [{ "items": ["hexlove:crystallized_affection"] }] }
+    }
+  }
+}

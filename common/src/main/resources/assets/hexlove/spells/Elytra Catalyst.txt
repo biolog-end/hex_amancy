@@ -1,0 +1,19 @@
+[
+    NORTH_EAST qaq
+    EAST aadaa
+    NORTH_EAST awq
+    SOUTH_EAST aqaaw
+    SOUTH_WEST q
+    WEST qqq
+    EAST aadaa
+    EAST wa
+    SOUTH_EAST aqaawa
+    SOUTH_EAST waqaw
+    SOUTH_WEST awqqqwaqw
+    EAST eee
+    WEST qqq
+    NORTH_WEST qaqedwdwewdq
+    EAST eee
+    SOUTH_EAST awdd
+    SOUTH_EAST deaqq
+]

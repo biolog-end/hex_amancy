@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hexlove:item/stew_of_ferocity"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hexlove:item/soulbound_ring_linked_fates"
+  }
+}

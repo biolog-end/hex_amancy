@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:cupids_arrow",
+  "display": {
+    "icon": { "item": "minecraft:tinted_glass" },
+    "title": { "translate": "advancements.hexlove.flawless_illusion.title" },
+    "description": { "translate": "advancements.hexlove.flawless_illusion.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "five_distracted": { "trigger": "minecraft:impossible" } }
+}

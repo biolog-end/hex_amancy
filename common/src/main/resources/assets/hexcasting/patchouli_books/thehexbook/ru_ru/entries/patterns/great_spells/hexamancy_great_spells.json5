@@ -1,0 +1,16 @@
+{
+  name: "hexcasting.action.hexlove:cupids_charm/great",
+  category: "hexcasting:patterns/great_spells",
+  icon: "minecraft:red_dye",
+  advancement: "hexcasting:root",
+  read_by_default: true,
+  sortnum: 20,
+  pages: [
+    { type: "hexcasting:pattern", op_id: "hexlove:cupids_charm/great", anchor: "hexlove:cupids_charm/great", input: "entity, entity, number", output: "number", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.cupids_charm_iotas" },
+    { type: "patchouli:text", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.cupids_charm" },
+    { type: "patchouli:text", title: "hexlove.book.patterns.great_spells.hexamancy_great_spells.strength.title", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.strength" },
+    { type: "patchouli:text", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.price" },
+    { type: "patchouli:text", title: "hexlove.book.patterns.great_spells.hexamancy_great_spells.outcomes.title", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.outcomes" },
+    { type: "patchouli:text", text: "hexlove.book.patterns.great_spells.hexamancy_great_spells.scroll" },
+  ],
+}

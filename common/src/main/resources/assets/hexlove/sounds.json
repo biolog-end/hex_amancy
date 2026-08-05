@@ -1,0 +1,11 @@
+{
+  "love_heartbeat": {
+    "subtitle": "subtitles.hexlove.love_heartbeat",
+    "sounds": [
+      {
+        "name": "hexlove:love_heartbeat",
+        "stream": false
+      }
+    ]
+  }
+}

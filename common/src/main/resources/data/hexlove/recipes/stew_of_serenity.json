@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "hexlove:resonant_meat" },
+    { "item": "minecraft:wheat" },
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:oxeye_daisy" },
+    { "tag": "hexlove:seeds" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": { "item": "hexlove:stew_of_serenity" }
+}

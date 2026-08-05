@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "hexlove:block/vow_altar" },
+    "facing=east": { "model": "hexlove:block/vow_altar", "y": 90 },
+    "facing=south": { "model": "hexlove:block/vow_altar", "y": 180 },
+    "facing=west": { "model": "hexlove:block/vow_altar", "y": 270 }
+  }
+}

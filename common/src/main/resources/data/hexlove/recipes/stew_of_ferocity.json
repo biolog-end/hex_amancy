@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "hexlove:resonant_meat" },
+    { "item": "minecraft:rotten_flesh" },
+    { "item": "minecraft:spider_eye" },
+    { "item": "minecraft:bone" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": { "item": "hexlove:stew_of_ferocity" }
+}

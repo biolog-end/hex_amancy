@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:root",
+  "display": {
+    "icon": { "item": "hexlove:soulbound_ring" },
+    "title": { "translate": "advancements.hexlove.soulbound.title" },
+    "description": { "translate": "advancements.hexlove.soulbound.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "ring_bound": { "trigger": "minecraft:impossible" } }
+}

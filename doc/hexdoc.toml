@@ -1,0 +1,54 @@
+modid = "hexlove"
+book = "hexcasting:thehexbook"
+
+resource_dirs = [  # top takes priority
+    "resources",
+    "{$_common.src}/main/resources",
+    { path="{$_common.src}/generated/resources", required=false },
+    "{$_fabric.src}/main/resources",
+    { path="{$_fabric.src}/generated/resources", required=false },
+    "{$_forge.src}/main/resources",
+    { path="{$_forge.src}/generated/resources", required=false },
+    { modid="hexcasting" },
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+export_dir = "src/hexdoc_hexlove/_export/generated"
+
+[template]
+icon = "{$_common.src}/main/resources/assets/hexlove/icon.png"
+include = [
+    "hexlove",
+    "hexcasting",
+    "hexdoc",
+]
+
+[template.args]
+mod_name = "Hex: Amancy"
+author = "Teekas"
+show_landing_text = false
+
+[extra.hexcasting]
+# NOTE: "!Raw" means "don't apply variable interpolation to this value"
+_pattern_regex = { "!Raw"='make\("(?P<name>[^"]+)",\s*HexDir\.(?P<startdir>\w+),\s*"(?P<signature>[qweasd]+)"' }
+
+[[extra.hexcasting.pattern_stubs]]
+path = "{$_common.kotlin}/registry/HexloveActions.kt"
+regex = "{^_pattern_regex}"
+
+# platforms
+
+[_common]
+src = "../common/src"
+java = "{src}/main/java/io/github/teekas/hexlove"
+kotlin = "{src}/main/kotlin/io/github/teekas/hexlove"
+
+[_fabric]
+src = "../fabric/src"
+java = "{src}/main/java/io/github/teekas/hexlove/fabric"
+kotlin = "{src}/main/kotlin/io/github/teekas/hexlove/fabric"
+
+[_forge]
+src = "../forge/src"
+java = "{src}/main/java/io/github/teekas/hexlove/forge"
+kotlin = "{src}/main/kotlin/io/github/teekas/hexlove/forge"

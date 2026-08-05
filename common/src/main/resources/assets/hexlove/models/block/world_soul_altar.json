@@ -1,0 +1,12 @@
+{
+  "parent": "hexlove:block/world_soul_altar_base",
+  "textures": {
+    "particle": "hexlove:block/world_soul_altar_side",
+    "front": "hexlove:block/world_soul_altar_front",
+    "side": "hexlove:block/world_soul_altar_side",
+    "back": "hexlove:block/world_soul_altar_side",
+    "bottom": "hexlove:block/world_soul_altar_bottom",
+    "top": "hexlove:block/world_soul_altar_top",
+    "frame": "hexlove:block/world_soul_altar_frame"
+  }
+}

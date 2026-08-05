@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:block",
+  "pools": [{ "rolls": 1, "entries": [{ "type": "minecraft:item", "name": "hexlove:candles_of_infatuation" }], "conditions": [{ "condition": "minecraft:survives_explosion" }] }]
+}

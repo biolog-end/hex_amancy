@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "hexlove:block/amethyst_tulip",
+    "particle": "hexlove:block/amethyst_tulip"
+  }
+}

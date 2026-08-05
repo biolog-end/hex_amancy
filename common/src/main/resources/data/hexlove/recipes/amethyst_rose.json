@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AFA",
+    " A "
+  ],
+  "key": {
+    "A": { "item": "minecraft:amethyst_shard" },
+    "F": { "item": "minecraft:poppy" }
+  },
+  "result": { "item": "hexlove:amethyst_rose" }
+}

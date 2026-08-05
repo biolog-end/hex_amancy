@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "QGQ",
+    "GRG",
+    "QGQ"
+  ],
+  "key": {
+    "Q": { "item": "minecraft:quartz_block" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "R": { "item": "minecraft:amethyst_block" }
+  },
+  "result": { "item": "hexlove:vow_altar" }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:root",
+  "display": {
+    "icon": { "item": "hexlove:candles_of_infatuation" },
+    "title": { "translate": "advancements.hexlove.romantic_setting.title" },
+    "description": { "translate": "advancements.hexlove.romantic_setting.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "discounted_cast": { "trigger": "minecraft:impossible" } }
+}

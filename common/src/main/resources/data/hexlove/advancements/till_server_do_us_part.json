@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:soulbound",
+  "display": {
+    "icon": { "item": "hexlove:vow_altar" },
+    "title": { "translate": "advancements.hexlove.till_server_do_us_part.title" },
+    "description": { "translate": "advancements.hexlove.till_server_do_us_part.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "vow_completed": { "trigger": "minecraft:impossible" } }
+}

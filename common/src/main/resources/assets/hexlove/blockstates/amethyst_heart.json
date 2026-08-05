@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "attachment=up,facing=north": { "model": "hexlove:block/amethyst_heart" },
+    "attachment=up,facing=east": { "model": "hexlove:block/amethyst_heart", "y": 90 },
+    "attachment=up,facing=south": { "model": "hexlove:block/amethyst_heart", "y": 180 },
+    "attachment=up,facing=west": { "model": "hexlove:block/amethyst_heart", "y": 270 },
+    "attachment=down,facing=north": { "model": "hexlove:block/amethyst_heart", "x": 180 },
+    "attachment=down,facing=east": { "model": "hexlove:block/amethyst_heart", "x": 180, "y": 90 },
+    "attachment=down,facing=south": { "model": "hexlove:block/amethyst_heart", "x": 180, "y": 180 },
+    "attachment=down,facing=west": { "model": "hexlove:block/amethyst_heart", "x": 180, "y": 270 },
+    "attachment=north,facing=north": { "model": "hexlove:block/amethyst_heart", "x": 90 },
+    "attachment=north,facing=east": { "model": "hexlove:block/amethyst_heart", "x": 90 },
+    "attachment=north,facing=south": { "model": "hexlove:block/amethyst_heart", "x": 90 },
+    "attachment=north,facing=west": { "model": "hexlove:block/amethyst_heart", "x": 90 },
+    "attachment=south,facing=north": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 180 },
+    "attachment=south,facing=east": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 180 },
+    "attachment=south,facing=south": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 180 },
+    "attachment=south,facing=west": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 180 },
+    "attachment=east,facing=north": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 90 },
+    "attachment=east,facing=east": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 90 },
+    "attachment=east,facing=south": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 90 },
+    "attachment=east,facing=west": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 90 },
+    "attachment=west,facing=north": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 270 },
+    "attachment=west,facing=east": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 270 },
+    "attachment=west,facing=south": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 270 },
+    "attachment=west,facing=west": { "model": "hexlove:block/amethyst_heart", "x": 90, "y": 270 }
+  }
+}

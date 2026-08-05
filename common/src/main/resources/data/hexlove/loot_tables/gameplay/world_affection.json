@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/simple_dungeon", "weight": 12 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/abandoned_mineshaft", "weight": 10 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/desert_pyramid", "weight": 8 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/jungle_temple", "weight": 8 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/stronghold_corridor", "weight": 7 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/buried_treasure", "weight": 6 },
+        { "type": "minecraft:loot_table", "name": "minecraft:chests/bastion_treasure", "weight": 3 }
+      ]
+    }
+  ]
+}

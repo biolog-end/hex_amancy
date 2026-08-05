@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:root",
+  "display": {
+    "icon": { "item": "hexlove:chimera_spawn_egg" },
+    "title": { "translate": "advancements.hexlove.spawn_chimera.title" },
+    "description": { "translate": "advancements.hexlove.spawn_chimera.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "chimera_born": { "trigger": "minecraft:impossible" } }
+}

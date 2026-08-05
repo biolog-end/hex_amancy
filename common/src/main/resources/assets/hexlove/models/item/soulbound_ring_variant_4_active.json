@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hexlove:item/soulbound_ring_variant_4_active_base",
+    "layer1": "hexlove:item/soulbound_ring_variant_4_active_facet_0",
+    "layer2": "hexlove:item/soulbound_ring_variant_4_active_facet_1",
+    "layer3": "hexlove:item/soulbound_ring_variant_4_active_facet_2",
+    "layer4": "hexlove:item/soulbound_ring_variant_4_active_facet_3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:spawn_chimera",
+  "display": {
+    "icon": { "item": "hexlove:cooked_chimera_meat" },
+    "title": { "translate": "advancements.hexlove.bizarre_gourmand.title" },
+    "description": { "translate": "advancements.hexlove.bizarre_gourmand.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "ate_cooked_chimera": { "trigger": "minecraft:impossible" } }
+}

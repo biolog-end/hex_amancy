@@ -1,0 +1,729 @@
+{
+  subtitles: {
+    hexlove: {
+      love_heartbeat: "Heartbeat",
+    },
+  },
+
+  hexlove: {
+    book: {
+      patterns: {
+        spells: {
+          hexamancy_spells: {
+            "": "Hexamancy",
+
+            origin: {
+              title: "On Hexamancy",
+              "": "Hexamancy reads what a creature wants, not merely what its body can move.$(br2)These patterns let me read a heart, quicken it, guard it, call it, or close it.",
+            },
+
+            intro: "Every one of these needs its target inside my ambit. Nothing here reaches further than I can.$(br2)These are the only patterns in this book the world will not undo for me. A charm outlives the casting, and only one of these takes one back.",
+
+            matchmakers_purification_iotas: "Takes the creature to be examined. Returns true if it would breed right now, false otherwise.",
+            matchmakers_purification: "Asks whether a creature is ready to mate right now.$(br2)It answers yes only for a grown animal that breeds from food, is off its cooldown, and is not heartbroken. Nothing in the world is touched, which is why it costs a rounding error.",
+
+            weavers_purification_iotas: "Takes the creature whose threads I want. Returns a list of everyone tied to it, empty if there is nobody.",
+            weavers_purification: "Returns everyone tied to a creature by a thread of fate.$(br2)What it has tamed, whom it has charmed, whom it married. Only creatures loaded in this same world can be listed - a thread I cannot reach is a thread I cannot see. A broken heart holds no threads at all.",
+
+            hearts_purification_iotas: "Takes the creature whose lovers I seek. Returns their combined usable health as a number.",
+            hearts_purification: "Measures the usable strength of every creature that loves the named one.$(br2)A present lover contributes its current health. A heart sleeping in another world contributes the last strength the rite remembers; unpaid Tithe damage is already reserved and is not counted. The number is health points, not heart icons: a full vanilla player has twenty.",
+
+            animal_passion_iotas: "Takes the animal to hurry along. Returns nothing: the result is in the animal, not on the stack.",
+            animal_passion: "Hurries a willing animal along towards its next litter.$(br2)A tired parent forgets its cooldown; a willing one starts looking for a partner. Calves are refused outright: this is not a spell for children. The price never changes, so it tells me nothing about the beast.",
+
+            pheromone_mist_iotas: "Takes a vector, a positive radius, and a positive duration in seconds. Returns nothing.",
+            pheromone_mist: "Unfurls a pale pink perfume at the named point.$(br2)Hostile creatures in its radius become neutral if no love, jealousy, or heartbreak already holds their hearts. They give off faint pink-white motes until the duration ends — or until someone hurts them, when the calm breaks at once. Players only feel a brief blush at the edge of their sight; a thinking mind cannot be made harmless this way.",
+
+            phantom_ideal_iotas: "Takes a vector and a positive duration in seconds. Returns nothing.",
+            phantom_ideal: "Makes a transparent rose image of the caster at the named point. Three tendrils draw it into being, and it faces its maker without moving.$(br2)For its whole duration, every unbound creature within twelve paces forgets every other target and walks towards the image. It is no body to strike: it is a beautiful lie for gathering attention away from the living.",
+
+            breath_exchange_iotas: "Takes two married players. Returns nothing.",
+            breath_exchange: "Lets two vowed souls trade one breath.$(br2)Every active status effect changes owners: strength, poison, fire resistance and every other condition. Their hunger changes hands too, including the hidden fullness and exhaustion beneath the drumsticks.$(br2)Both spouses must carry their own matching Soulbound Ring. A spouse may cast it across worlds, but no stranger may reach through their vow.",
+
+            blinding_jealousy_iotas: "Takes the one to be made jealous, then the one it will guard, then how long to stay that way, in seconds. Returns nothing.",
+            blinding_jealousy: "Sets one creature to guard another, and to resent everyone else.$(br2)The jealous creature follows the one it guards and charges at anything that comes within six paces of them - but never at the object of its own love. A creature with no way to fight is given one for as long as it lasts.$(br2)A broken heart cannot be made jealous, though it can still be guarded.",
+
+            sirens_song_iotas: "Takes the creature to be lured, then the one calling it, then how long the song lasts, in seconds. Returns nothing.",
+            sirens_song: "Draws a creature towards whoever called it.$(br2)It walks towards the caller and nothing else about it changes. A player caught by the song is drawn along too, and cannot look away from the voice.",
+
+            heartbreak_iotas: "Takes the heart to be closed, then how long it stays closed, in seconds. Returns nothing.",
+            heartbreak: "Ends every feeling a creature carries, and lets nothing new take root.$(br2)Love and jealousy end at once, wheat stops working, and for a while the heart feels nothing of its own. It can still be adored, and still be guarded - grief only closes the door outward.$(br2)The only way out of a charm, my own included. It smokes while it lasts.",
+
+            soulbind_iotas: "Takes a player and a dropped Soulbound Ring. Returns nothing.",
+            soulbind: "Writes a player's name into an unbound ring, waking only its few coloured facets. The ring must be dropped: a promise cannot be made to something still hidden in a hand.$(br2)Two such rings are offered at a Vow Altar. When both owners remain beside it, the altar writes each other into the rings. While both rings are carried, neither spouse's heart may be directed to another.",
+
+            hearts_reflection_iotas: "Takes nothing. Adds the active, online spouse as an entity, or Null when there is none.",
+            hearts_reflection: "Returns the other half of a living vow without disturbing the rest of the stack.$(br2)It returns Null if the rings are inactive or the partner is away. The returned soul can be used by Breath Exchange even from another world; shared ambit itself remains limited to one world.",
+
+          },
+        },
+        great_spells: {
+          hexamancy_great_spells: {
+            "": "Cupid's Charm",
+
+            cupids_charm_iotas: "Takes the one who will love, then the one to be loved, then a strength of feeling. Returns the love's duration in seconds; -1 means forever.",
+            cupids_charm: "The strength is not a duration. It is how much feeling I pour in, and what comes of it depends on how stubborn the other heart is.$(br2)A charmed creature keeps to the one it loves the way a tamed wolf keeps to its master: it follows, it fights whoever they fight or whoever strikes them, and if the chase carries it more than twenty paces from them it drops the quarrel and comes back.",
+
+            strength: {
+              title: "Strength of Feeling",
+              "": "A heart resists a little under a quarter-point for every point of life; matching feeling holds it forever.$(br2)Thus two and a half binds a cow or sheep forever, and five a zombie, creeper, or skeleton. Less still works, but fades. Players resist a fixed amount and never yield forever.",
+            },
+            price: "Creatures with two hundred life or more refuse the spell. Below that, strength above five can reach tougher hearts.$(br2)Up to five, feeling is cheap - a flat price and a point. Past five the surcharge multiplies with every further point, so reaching further is arithmetically possible and practically a creative-mode stunt. There is no wall in front of the great monsters, only a bill; and in front of a boss, no amount of either.",
+
+            outcomes: {
+              title: "What Comes Of It",
+              "": "Two animals of the same species are betrothed instead of charmed: they walk to each other, stand together a while, and then there are many children. Two of different species make one child of blended blood. Two zombies, one zombie. Everything else simply falls in love and follows.$(br2)A courtship needs two whole hearts, so a grieving animal cannot be betrothed - but anything can be *loved*, grief and all. Pointing the spell at one creature twice is not a charm at all: no heart can be handed to itself.",
+            },
+            scroll: "Like every Great Spell, its shape differs in every world, and is found written on an Ancient Scroll.",
+          },
+          hexamancy_succubus_tithe: {
+            "": "Succubus' Tithe",
+            iotas: "Takes the living creature to heal, a list of sources, and a positive amount of health. Returns nothing.",
+            text: "Draws health from creatures already bound by love to the named recipient. Name sources directly to choose them; every named creature must still love that recipient. An empty list means every active heart in that creature's harem, even in a distant or sleeping world.$(br2)Requested health is shared evenly. Weak hearts pay what they can; the remainder is divided again. The rite still draws the full request when the recipient is nearly full; excess healing burns away. A sleeping source keeps its share as a debt and pays it on next load, even if the recipient is gone.$(br2)If the chosen hearts cannot pay in full, the rite fails and draws nothing.",
+          },
+        },
+        items: {
+          keepsakes: {
+            "": "Keepsakes",
+            intro: {
+              title: "Things That Remember",
+              "": "A little affection does not have to vanish when the spell ends. Given crystal, colour, and a place to rest, it lingers as a small kindness in the world.$(br2)These keepsakes are not merely ornaments: every one remembers some part of a tender moment.",
+            },
+            rose: {
+              title: "Amethyst Rose",
+              "": "Set a poppy in a cross of four amethyst shards. Its red petals become a vow caught in crystal. It grows on ordinary soil or amethyst, gives soft red conjure-motes, and can rest in a flower pot.",
+            },
+            dandelion: {
+              title: "Amethyst Dandelion",
+              "": "A dandelion in the same four-shard cross holds a wish too heavy for the wind to carry. It gives warm yellow conjure-motes and can be planted in soil, amethyst, or a flower pot.",
+            },
+            tulip: {
+              title: "Amethyst Tulip",
+              "": "A pink tulip in a cross of four shards folds a quiet secret into each faceted petal. Its pink conjure-motes remain small and gentle, even indoors in a pot.",
+            },
+            heart_crafting: {
+              title: "Amethyst Heart",
+              "": "Charged amethyst frames any amethyst flower. Obsidian anchors the vessel, and a gold ingot carries gathered feeling into the Heart.",
+            },
+            heart: {
+              title: "Gathering Love",
+              "": "Place the Heart on a sturdy floor, wall, or ceiling. When animals breed within twelve blocks, one nearby Heart gathers 1/7–1/2 of an amethyst dust; extra Hearts never multiply a birth.$(br2)Open it to store whole dust and watch the phial fill towards the next. At 64 dust plus a full phial, new love-media is lost and four coloured streams warn the parents.",
+            },
+            candles_crafting: {
+              title: "Candles of Infatuation",
+              "": "An amethyst sconce gives the candles their patient flame. Pink glass catches its colour, a charged amethyst holds the spell, and three diamonds keep the three rose crystals from fading. They turn towards the mage who places them.",
+            },
+            candles: {
+              title: "A Room Prepared",
+              "": "Within eight blocks of these bright pink crystals, every Hex: Amancy spell costs twenty percent less media. Their abundant rose-and-violet conjure-motes are a promise that the room is ready for a rite.",
+            },
+          },
+          chimera: {
+            "": "The Chimera",
+            intro: {
+              title: "An Error of Nature",
+              "": "When two unlike animals are joined by Cupid's Charm, nature may answer with a mistake that should have been impossible. The Chimera carries both bloodlines, but belongs to neither.$(br2)It is a carnivore, aggressive by instinct, and adults hunt livestock and may even stalk people.",
+            },
+            entity: {
+              "": "Its body remembers every animal in its ancestry. A carcass may yield leather, feathers, bone meal, or wool alongside meat.",
+            },
+            meat: {
+              title: "Flesh of Many Natures",
+              "": "Raw chimera meat is dreadful: stringy, nauseating, and revolting to taste. Even another Chimera refuses it; the beast breeds only when offered ordinary raw animal meat.",
+            },
+            cooked: {
+              title: "A Magical Supper",
+              "": "Fire makes the impossible flesh nourishing and awakens a random magical trace. Most are blessings; the only harmful answers left are Slowness and Weakness.",
+            },
+            resonance: {
+              title: "Too Much Feeling",
+              "": "I fed the vile stuff to an Amethyst Heart out of spite, expecting refusal. The Heart took it in place of the dust it had been about to shape.$(br2)Every mote of affection a birth had given me went into that one cut of flesh, and then the Heart spat it back at me, glittering. It had not made me a dust. It had made me something worse.",
+            },
+            resonant_meat: {
+              title: "Resonant Meat",
+              "": "Leave raw chimera meat in an Amethyst Heart where the dust would sit. Each whole dust the Heart gathers is spent soaking one cut, which it then spits out.$(br2)Eaten as it is, it fills like roast fowl and then punishes: the body reads it as an overdose of raw feeling. You will reel, you will glow with somebody else's love, and your gut will refuse to hold it.",
+            },
+            stews: {
+              title: "Directing the Surge",
+              "": "The fault was never the flesh. The fault was that I ate it undiluted.$(br2)Feeling this raw wants a shape, and a pot gives it one. What I stirred in beside the meat decided which way the surge would run: towards the quiet of a grazing beast, or towards the hunger of a thing that eats the dead.",
+            },
+            serenity: {
+              title: "Stew of Serenity",
+              "": "Wheat, a carrot, an oxeye daisy and any seed, boiled with the meat.$(br2)The surge settles into a grazing nature. Grass, wheat, seed and raw root become food, every vegetable feeds you further, and hunger creeps at half its usual pace. No beast will flee you now, not even one you struck.",
+            },
+            serenity_price: {
+              title: "The Price of Peace",
+              "": "Your arms lose a third of their force and your pick bites a fifth slower. Nothing but green things will go down at all.$(br2)And the herd will not merely tolerate you: it will count you as its own. Eat beside a grown cow, ewe or sow and then feed her, and she will come to you with intent. Whatever follows, you will not enjoy it, and you will be in no state to cast until the shame has passed.",
+            },
+            ferocity: {
+              title: "Stew of Ferocity",
+              "": "Rotten flesh, a spider's eye and a bone, boiled with the meat.$(br2)The surge turns outward and downward. The restless dead, the crawlers and the things that burst leave you alone — unless you strike first, and that one remembers. Endermen answer to elsewhere.",
+            },
+            ferocity_price: {
+              title: "The Ghoul's Bargain",
+              "": "Raw meat and carrion fill you like steak, a spider's eye is honest food, a bone can be gnawed with patience. Poison, rot and dizziness cannot touch you, the dark opens up a little, and both arms and stride grow surer.$(br2)But healing burns and harming soothes, hunger drains thrice as fast even at rest, and no cooked thing, no bread, no vegetable will pass your lips. Villagers flee, and golems see a monster.",
+            },
+            one_nature: {
+              title: "One Nature at a Time",
+              "": "A body holds only one of these. Eat the other stew and the first lets go at once.$(br2)A draught of milk ends either, as it ends everything else. The bowl always comes back.",
+            },
+          },
+          world_soul_altar: {
+            "": "Heart of the World",
+            intro: {
+              title: "A World That Answers",
+              "": "The Heart of the World is not one block but a place prepared for the world itself. When its flowers, pillars, and four Candles of Infatuation agree, the central stone wakes in rose-violet light.",
+            },
+            crafting: {
+              title: "The Central Heart",
+              "": "Crystallized Affection is sometimes found in old dungeon chests. Set it at the centre, with obsidian at the corners, blaze rods at the sides and below, and a quenched allay shard above. The Heart remains dormant until the whole court is built.",
+            },
+            structure: {
+              title: "The Ritual Court",
+              "": "Build the shown seven-by-seven court. The Heart rests on a solid five-by-five amethyst dais; every outer pillar needs its own base.",
+            },
+            structure_details: {
+              title: "Completing the Court",
+              "": "Place an amethyst flower at every cardinal mark. Together they must include a Rose, Dandelion, and Tulip; the fourth may repeat.$(br2)Each corner pillar may be two to four amethyst blocks tall and must end in an upright Candle of Infatuation. The whole court may be rotated.",
+            },
+            ring: {
+              title: "The World's Memory",
+              "": "Place your own soul-bound ring in the right slot and choose Attune. Four streams enter the rising ring. Press the same button again to sever the link; its streams then flow back toward the candles. Stored affection remains dormant in the ring and returns when it is attuned again.$(br2)This bond belongs to the world. It is not a marriage and never replaces one.",
+            },
+            ring_charge: {
+              title: "Gathering Affection",
+              "": "Carry the linked ring to gather fractional affection from hostile kills, feeding and breeding adult animals, taming companions, and villager trades. It stores up to sixty-four.$(br2)Feeding young animals does not count.",
+            },
+            embrace: {
+              title: "World's Embrace",
+              "": "Only the ring's first attunement grants World's Embrace for one Minecraft day: a little speed and luck, and greater damage only against hostile creatures. Severing and reconnecting never grants that first blessing again. Every Crystallized Affection embodied later adds five minutes.$(br2)An active spouse receives half the blessing and contributes half charge to the linked ring.",
+            },
+            crystal: {
+              title: "Crystallized Affection",
+              "": "Put ordinary amethyst shards in the left slot. Embody consumes one whole charge and one shard for each crystal. Hold use to break a crystal open.$(br2)Its answer may be quiet, practical, ancient, or legendary. Forgotten echoes draw only one or two useful finds from old treasure chests.",
+            },
+          },
+        },
+        vows: {
+          soulbound: {
+            "": "Soulbound Vows",
+            intro: {
+              title: "On Making a Vow",
+              "": "A Soulbound Ring begins as a quiet personal token. Soulbind writes one player's soul into a dropped ring and gives it a colour of its own.$(br2)A person may have only one living vow. Binding another ring while already married gives it that same vow and its shared living gradient; it cannot become a second marriage.",
+            },
+            ring_crafting: {
+              title: "Soulbound Ring",
+              "": "This ring is inert until Soulbind gives it an owner.$(br2)Drop it first, then name the ring and its owner. Their order does not matter.",
+            },
+            altar_crafting: {
+              title: "Vow Altar",
+              "": "Offer two soul-bound rings here. When both owners stand close, the altar joins them and returns the rings.$(br2)Only an owner may place or take a ring.",
+            },
+            ring: {
+              title: "The Ring",
+              "": "A bound ring shows its owner's name in bright colour. Once joined, both rings share a gradient made from their two souls.$(br2)Caster's Glamour changes only its appearance. Only the owner may place their ring in an altar slot.",
+            },
+            altar: {
+              title: "The Vow Altar",
+              "": "Use the altar to open its rite. Place the two bound, unwed rings in its two slots. The rings are also visible on the altar itself. When both owners remain within four blocks for five seconds, the spiral ends in a burst and the joined rings return to their owners.",
+            },
+            sever: {
+              title: "Unmaking a Vow",
+              "": "A vow can be ended without destroying either soul. Place your own married ring in either altar slot, leave the other slot empty, then choose End This Vow. It removes the union for both people, including an offline spouse; their ring becomes soul-bound again when they next return.",
+            },
+            benefits: "While both owners keep a matching ring, their hearts cannot be directed to anyone except each other, their pets and ordinary admirers will not turn on the other spouse, they share ambit in the same world, and ten percent of one spouse's incoming damage passes to the other.$(br2)Putting a ring away suspends these benefits; it never creates a second marriage.",
+          },
+        },
+      },
+    },
+
+    mishap: {
+      self_love: "%1$s cannot be handed its own heart",
+      no_feeling: "there was no feeling to give: %1$s",
+      broken_heart: {
+        "": "%1$s is heartbroken and can feel nothing yet",
+        beloved: "%1$s is heartbroken, and a courtship needs two whole hearts",
+      },
+      too_strong: "%1$s is far too strong to be moved by any feeling",
+      out_of_reach: "%1$s is too strong for this much feeling",
+      forbidden_union: "this world does not allow a union of %1$s and %2$s",
+      bound_heart: {
+        "": "%1$s has already vowed their heart",
+        with_spouse: "%1$s has already vowed their heart to %2$s",
+      },
+      soulbind: {
+        format: "Soulbind needs one player and one dropped Soulbound Ring. Name the player and the ring; their order does not matter.",
+        ring: "Soulbind needs a dropped Soulbound Ring. Throw the ring onto the ground, then name it and its player.",
+        belongs_elsewhere: "That Soulbound Ring has already been bound to another soul.",
+      },
+      tithe: {
+        no_sources: "%1$s has no living hearts bound to them to pay the tithe",
+        insufficient_health: "%1$s's devoted hearts do not have enough health to pay this tithe",
+        unbound_source: "One or more chosen creatures no longer loves %1$s",
+      },
+      breath_exchange: {
+        not_spouses: "%1$s and %2$s do not share a Soulbound Vow",
+        rings: "%1$s and %2$s must both carry their matching Soulbound Rings",
+      },
+    },
+  },
+
+  entity: {
+    hexlove: {
+      chimera: "Chimera",
+      phantom_ideal: "Phantom Ideal",
+    },
+  },
+
+  item: {
+    hexlove: {
+      soulbound_ring: {
+        "": "Soulbound Ring",
+        owner: "Bound to %1$s",
+        spouse: "Vowed to %1$s",
+        awaiting_vow: "Awaiting a second vow",
+        unknown: "an unknown soul",
+        world_linked: "Linked to the Soul of the World",
+        world_charge: "World affection: %s / %s",
+      },
+      chimera_spawn_egg: "Chimera Spawn Egg",
+      chimera_meat: "Raw Chimera Meat",
+      cooked_chimera_meat: "Cooked Chimera Meat",
+      resonant_meat: "Resonant Meat",
+      stew_of_serenity: "Stew of Serenity",
+      stew_of_ferocity: "Stew of Ferocity",
+      vow_altar: "Vow Altar",
+      legendary_focus: "Legendary Focus: %s",
+      crystallized_affection: {
+        "": "Crystallized Affection",
+        tier: {
+          silence: "The world is too tired to answer today.",
+          small_spark: "Simple joys matter too.",
+          world_response: "Your deeds warm someone's soul.",
+          forgotten_echo: "The echo of forgotten ages answers your call.",
+          authors_legacy: "Legacy of the Author",
+        },
+        tier_message: {
+          silence: {
+            "1": "The world is tired, but still tried to help however it could…",
+            "2": "Forgive me, traveler. This is all I can share for now.",
+            "3": "You worked hard and hoped for a reward, but even the world needs rest sometimes…",
+            "4": "Thank you. This little gift is all I have right now.",
+            "5": "Everyone grows tired. Even the world.",
+            "6": "The stones are quiet today, but one shard still heard you.",
+            "7": "The answer came softly. Not every gift needs to be grand.",
+            "8": "The world is saving its strength. Take this small spark for now.",
+          },
+          small_spark: {
+            "1": "Well done!",
+            "2": "Thank you. This is for you!",
+            "3": "I know you hoped for something greater. But this is not so bad, is it?",
+            "4": "Trust me, this will come in handy.",
+            "5": "This is not all the world has prepared for you!",
+            "6": "A modest gift, but given with all the world's heart.",
+            "7": "May this spark help you on your journey.",
+            "8": "The world noticed your efforts. Keep going.",
+            "9": "Fortune is modest today, but it is still on your side.",
+          },
+          world_response: {
+            "1": "The world heard you—and answered with something truly precious.",
+            "2": "Your kindness has returned to you, strengthened by the world's echo.",
+            "3": "Not every deed goes unnoticed. This one did not.",
+            "4": "The heart of the world beats in time with yours.",
+            "5": "Take this. You earned more than a simple spark.",
+            "6": "The world remembers the warmth of your hands.",
+            "7": "Today, the answer rings clear.",
+            "8": "Your patience has crystallized into strength.",
+            "9": "Let this gift remind you: the world knows how to answer.",
+            "10": "The amethyst flared brighter. The world truly heard you.",
+          },
+          forgotten_echo: {
+            "1": "WOW! This, this... Something cool dropped, right? I don't know Ahem,",
+            "2": "The world hopes that you were given a worthy reward!",
+            "3": "Next time the world will give you a reward of an even higher rank  (✿◠‿◠)",
+            "4": "Hoorayyy ( •̀ ω •́ )✧ !",
+            "5": "So coooool o((>ω< ))o Yes?",
+            "6": "(´▽`ʃ♡ƪ)",
+            "7": "Let's gooooo┗|｀O′|┛",
+            "8": "⫷⨈Coolꙮ⫸",
+            "9": "Open your inventory slowly. For dramatic effect.",
+            "10": "This was definitely in the loot table. Probably.",
+            "11": "Do not look at the world like that. It tried.",
+            "12": "The echo of an old treasure room brought you a forgotten gift.",
+            "13": "The world opened one of the doors that had remained locked for far too long.",
+            "14": "This find remembers the hands of those whose names have long been erased.",
+            "15": "Something that had been waiting specifically for you rose from the world's depths.",
+            "16": "Not every treasure shines. But every one of them holds a story.",
+            "17": "Today, the past decided not to remain forgotten.",
+            "18": "The world preserved this thing among stone and silence.",
+            "19": "May this ancient find serve a new path.",
+            "20": "Chance brought your hand together with the echo of an age long gone.",
+            "21": "Dungeons rarely surrender their secrets willingly.",
+            "22": "You heard the call of a treasure that had been silent for far too long.",
+            "23": "The world's memory took the form of a reward.",
+            "24": "Sometimes an answer comes not as light, but as an item from a forgotten chest.",
+            "25": "Take this carefully: even chance finds become part of history.",
+            "26": "The ancient echo proved more generous than the world expected.",
+            "27": "Things outlive their creators. Today, one of them found a new keeper.",
+            "28": "The world did not forget this gift. It was merely waiting for the right moment.",
+            "29": "The old stones parted and allowed this find to return to the light.",
+            "30": "May what was lost to the past become useful to the future.",
+            "31": "The treasure room is one secret emptier, and your path is richer.",
+          },
+        },
+        quote: {
+          "0": "Kindness is the one spell the world remembers without a pattern.",
+          "1": "Build gently. Even stone notices the hands that place it.",
+          "2": "A heart is strongest when it still has room for wonder.",
+          "3": "The world answered because, for once, someone listened first.",
+          "4": "What we protect becomes part of the story that protects us.",
+        },
+      },
+      author_grimoire: {
+        title: "Grimoire of the World Heart",
+        section: {
+          functional: "How the Spell Works",
+          usage: "How to Use It",
+        },
+        page: {
+          "1": "To %s, who taught a silent world to answer.",
+          spell: "In this grimoire, the world preserved the spell “%s”. The Focus beside it already remembers its shape.",
+          "2": "No pattern is written here yet. The page is warm, and waits for a future hand.",
+          "3": "Keep the empty focus beside this book. One day, the missing spell may remember its shape.",
+        },
+      },
+      legendary_spell: {
+        frieren_flowers: {
+          name: "Frieren Flowers",
+          functional: {
+            "1": "This macro iterates over an X and Z coordinate grid around the caster. For each column, it raycasts downwards to find the ground.",
+            "2": "Upon hitting valid soil, it evaluates random entropy and modulo math to break specific blocks and place flora, finishing by applying Overgrow. Heavy stack management is handled via Ravenmind. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "Creates a large circular field of flowers around the caster! The flowers must be in the hotbar: the spell takes them from there for planting.",
+            "2": "The default radius is 10 blocks. You can change the size by holding an item capable of storing a number, such as an abacus, in your off hand.",
+          },
+          message: "1. Congratulations! You did well, you got such a cool spell of mine. It is my favorite. Thank you for downloading my mod and playing it, it makes me incredibly happy 🥳 Tell your friends about it and all that (｡･∀･)ﾉﾞ",
+        },
+        excavation_protocol: {
+          name: "Excavation Protocol",
+          functional: {
+            "1": "Extracts the caster's eye position and look vector, coercing the look vector to the nearest primary axis (X, Y, or Z). Using Thoth's Gambits, it loops through a grid relative to the axis of movement, executing Break Block.",
+            "2": "Uses a Modulo operation to trigger Conjure Light exactly every 9 blocks. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "A very practical spell! It creates a lit 3×3 tunnel in the direction the caster is looking.",
+            "2": "Its default length is 28 blocks. An item containing a number in the off hand, such as an abacus, can change its length.",
+            "3": "If the spell is used while crouching, it creates a 2×1 tunnel. This saves amethyst and avoids digging too much.",
+          },
+          message: "2. Congratulations! I am glad that you are playing my mod. Here, take a cool spell, dig everything out here. By the way, the song is great, and the video is atmospheric, I recommend watching it during a break from the game, I hope you like it - %s . I really like it, it is a hidden gem of sorts",
+        },
+        math_heart_outline: {
+          name: "Math Heart Outline",
+          functional: {
+            "1": "Evaluates parametric equations involving sine and cosine to calculate coordinates for a perfect heart outline. The scale dynamically adjusts based on the caster's height and checks whether the caster is crouching.",
+            "2": "It can also read numerical input from an external Focus or Abacus. It is highly optimized for low media consumption. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "A beautiful spell that draws a heart from blocks in the direction you look. Its size can be customized with an item containing a number, such as an abacus.",
+            "2": "When used while standing, the size is 8. When used while crouching, it is 15.",
+          },
+          message: "3. Congratulations! Thank you for playing with my mod, it makes me very, very happy. I hope you like it. Here, have a heart, it is beautiful, cool, you can make them huge. And, here is a very powerful song from me, not everyone may like it, but give it a chance, it is rock %1$s There is also an unusual video for one of the songs - %2$s Check it out",
+        },
+        math_heart_solid_core: {
+          name: "Math Heart Solid Core",
+          functional: {
+            "1": "Uses parametric sine and cosine equations, but relies on nested Thoth's Gambits (for_each) to iterate and fill the internal volume of the shape.",
+            "2": "It will rapidly drain media reserves due to the sheer volume of Place Block operations. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "Creates a solid block heart facing the direction you look. Its size can be changed with an item containing a number, such as an abacus.",
+            "2": "Without a numerical item, the default size is 6. Keep the high cost of filling the entire volume in mind.",
+          },
+          message: "4. Congratulations! Thank you for playing with my mod... Have I already said this? I hope you like this spell, it creates cool little hearts! You can decorate your base, make someone happy. %s - a cool Kikuo song. In general, he has many cool songs, but I decided to send you this one, it is the most melodic. But Kikuo has very interesting, thought-provoking song lyrics, and often cool videos too. Watch it! Perhaps the world keeps more links to his songs. who knows?.. ",
+        },
+        omnidirectional_spatial_plane: {
+          name: "Omnidirectional Spatial Plane",
+          functional: {
+            "1": "Reads numerical input to determine the radius (defaults to 5, but can scale up to 20 if sneaking or reading from an Abacus or Focus). It maps a 2D grid transposed into 3D space using the caster's look vector and position.",
+            "2": "The macro clears intersecting blocks with Break Block and solidifies the structure with Place Block. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "Creates a plane of a specified size in three-dimensional space. The radius is read from an item containing a number, such as an abacus.",
+            "2": "Without one, the radius is 5, making an 11×11 wall. While crouching the radius is 15, making it 31×31. Useful for landscaping and purely functional structures.",
+          },
+          message: "5. Congratulations! How do you like the mod? I hope you are having fun (｡･∀･)ﾉﾞ. Have fun, have fun... And yet we will inevitably die someday, this thought scares me very, very much... After death there is nothing... And there will not be... And for endless time there will be nothing.. I will not be able to think, there will no longer be a \"me\" Nothing I am doing now during my life has any meaning.., just like this mod... It is scary.. But anywaaay. A cool plane spell, I tried hard, enjoy 😎",
+        },
+        ethereal_sanctuary_sphere: {
+          name: "Ethereal Sanctuary Sphere",
+          functional: {
+            "1": "Calculates a spherical volume around the caster based on the input radius. It clears the interior using Break Block and solidifies the outer shell.",
+            "2": "A dedicated subroutine constructs a 3×3 floor of Conjured Blocks exactly at the caster's feet. Random entropy conditionally triggers Conjure Light along the inner surface. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "Creates, or more precisely excavates, a sphere with a radius set by an item containing a number, such as an abacus. The default radius is 5.",
+            "2": "It creates a 3×3 platform around the caster and fully lights the sphere from within. Useful for a quick underground mini-base or decorative spheres, though expensive.",
+          },
+          message: "6. Congratulations! Thank you for playing with my mod, tell your friends about it. If you have suggestions - then write, I do not know whether I can post my contacts, but I am in the official Hexcasting Discord server. By the way, I wanted to share my favorite musical artist with you - %s all of his songs are masterpieces, visually too, super cool videos, with their own unique style in which you can feel a soul. And in the lyrics, which raise difficult subjects and do not require you to decipher what the author wanted to say yourself, as many do.. And I like the music too. In short, I hope you like it",
+        },
+        illuminated_spiral_descent: {
+          name: "Illuminated Spiral Descent",
+          functional: {
+            "1": "Reads length from the stack. Checks the caster's height (get_entity_height) to determine vertical direction: builds upward if crouching, downward if standing. It maps an array of cardinal directional offsets, stepping the Y-axis incrementally.",
+            "2": "A modulo operation (num_4, modulo) perfectly spaces Conjured Lights along the outer edge of the spiral. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "A practical spell that creates a lit spiral staircase downward or upward. Its length can be set with an item containing a number, such as an abacus.",
+            "2": "The default path length is 30 blocks, producing a height difference of about 26 blocks. Crouching builds upward; standing builds downward.",
+          },
+          message: "7. Congratulations! This spell should help you conquer Minecraft. And this playlist %s will help with everything else. I use it for studying, I used it while working on this mod, while 3D modeling my course project, and simply for relaxing. It is wonderful, soft, beautiful, and outright addictive. I really hope that you like it (*^▽^*). Enjoy the game! I hope you are having fun, have a good day, week, month, year, and in general, I hope that your whole life will be good, and turn out in the best possible way!",
+        },
+        blueprint_architect: {
+          name: "Blueprint Architect (Maker)",
+          functional: {
+            "1": "Requires a Focus initialized with Null. When casting on a block, it calculates the block's offset relative to the caster's starting anchor coordinate and look vector. This ensures the blueprint is independent of world coordinates.",
+            "2": "It prevents recording duplicate blocks, checks out-of-bounds ambit limits, and uses Make Note to provide distinct audio feedback upon success or error. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "A very complex spell that creates blueprints for Blueprint Foreman (Builder). First, take a separate Focus and write Null into it.",
+            "2": "Stand on the anchor point where the blueprint will begin and cast this spell on the block beneath you. Then cast it on every block you want to include.",
+            "3": "You cannot record the same block twice. Different sounds report additions and errors. Blocks farther than 32 blocks from the anchor cannot be added, or construction would exceed the ambit.",
+            "4": "The spell cannot distinguish block types. Each material needs a separate blueprint made from the same anchor point.",
+          },
+          message: "8. Congratulations! I hope you find (or create yourself) the Blueprint Foreman (Builder) spell for building houses from your blueprints! Have a good day, I am glad that you are playing my love mod. And what is love? It is cool, cute, fun. And cute means cats, so here is a song about cats for you ^^ %s . Thank you for playing my mod, I appreciate it very much ヾ(≧▽≦*)o",
+        },
+        blueprint_foreman: {
+          name: "Blueprint Foreman (Builder)",
+          functional: {
+            "1": "Reads the coordinate array saved by the Architect. If the caster is sneaking (get_entity_height < 1.6), it intercepts the build process and prints the total number of blocks required for the structure.",
+            "2": "Otherwise, it uses arctan2, sine, and cosine to rotate the blueprint's relative coordinates to match the caster's look vector, placing blocks via Place Block. Multi-material structures require separate blueprints. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "Builds a structure from a blueprint created by Blueprint Architect (Maker). A completed blueprint is required.",
+            "2": "Hold the Focus containing the blueprint and use the spell. While crouching, it reports the number of blocks needed instead of building.",
+          },
+          message: "9. Congratulations! Thank you for playing my mod! And if you are also reading this text.. I am really happy. For this spell you need to have the \"Blueprint Architect (Maker)\" spell, or create it, I hope you will be able to do that.  %s here is a cool cute song to listen to. Good luck ^^",
+        },
+        elytra_catalyst: {
+          name: "Elytra Catalyst",
+          functional: {
+            "1": "Checks the caster's entity height. If the caster is standing normally (height > 1), it assumes they are grounded and invokes Altiora to deploy magical wings.",
+            "2": "If crouching or already gliding (height < 1), it extracts the look vector, multiplies its magnitude, and applies Impulse for a massive burst of speed. If you want to learn more, make the effort yourself!",
+          },
+          usage: {
+            "1": "A simple but useful spell. When used on the ground, it equips the player with magical elytra and throws them into the air.",
+            "2": "When used in the air, it accelerates the player forward like a firework.",
+          },
+          message: "10. Congratulations! Here, take a useful spell. Thank you for playing my mod. Here is a cool song, cool-sounding and cool-looking %s , probably the best animation I have ever seen in my life. Well, good luck to you, traveler. may luck always be on your side. Have fun, do not be sad, and do not overwork yourself. See you! I am @tteka_s",
+        },
+      },
+    },
+  },
+
+  block: {
+    hexlove: {
+      vow_altar: "Vow Altar",
+      world_soul_altar: {
+        "": "Heart of the World",
+        tooltip: "An altar that listens to kindness done in the world.",
+      },
+      amethyst_rose: {
+        "": "Amethyst Rose",
+        tooltip: "A red vow caught in a quiet crystal bloom.",
+      },
+      amethyst_dandelion: {
+        "": "Amethyst Dandelion",
+        tooltip: "Its yellow wishes glitter before the wind can take them.",
+      },
+      amethyst_tulip: {
+        "": "Amethyst Tulip",
+        tooltip: "A pink secret folded carefully into every faceted petal.",
+      },
+      amethyst_heart: {
+        "": "Amethyst Heart",
+        tooltip: "A crystal heart that gathers traces of love-media.",
+      },
+      candles_of_infatuation: {
+        "": "Candles of Infatuation",
+        tooltip: "Their rose crystals make every Hex: Amancy spell cost 20% less within eight blocks.",
+      },
+    },
+  },
+
+  effect: {
+    hexlove: {
+      worlds_embrace: "World's Embrace",
+      serene_chimera: "Serene Chimera",
+      ferocious_chimera: "Ferocious Chimera",
+      humiliation: "Humiliation",
+    },
+  },
+
+  screen: {
+    hexlove: {
+      vow_altar: {
+        sever: "End This Vow",
+        hint: "Offer two bound rings.",
+        first_slot: "First",
+        second_slot: "Second",
+        sever_hint: "One ring can end a vow.",
+      },
+      amethyst_heart: {
+        dust_slot: "Amethyst Dust",
+        progress: "%s%%",
+        overflow: "Overflow",
+        progress_tooltip: "The phial holds %s%% of the next amethyst dust.",
+        overflow_tooltip: "Full: new love-media will be lost until dust is removed.",
+        slot_tooltip: "Only amethyst dust belongs in this reliquary.",
+      },
+      world_soul_altar: {
+        attune: "Attune",
+        detach: "Sever from World",
+        embody: "Embody",
+        active: "The world is listening",
+        inactive: "The ritual court is incomplete",
+        incomplete_dais: "Check the 5x5 amethyst foundation",
+        incomplete_foundations: "Check the four outer foundations",
+        incomplete_flowers: "Check the four amethyst flowers",
+        incomplete_pillars: "Check the pillars and upright candles",
+        amethyst: "Amethyst",
+        ring: "Linked Ring",
+        charge_tooltip: "%s / 64 affection stored in this ring.",
+        structure_incomplete: "The Heart of the World remains dormant: the ritual court is incomplete.",
+        needs_bound_ring: "Place your own soul-bound ring in the right slot.",
+        needs_unlinked_ring: "Place your own soul-bound, unattuned ring in the right slot.",
+        needs_linked_ring: "Place your own world-linked ring in the right slot.",
+        not_enough_affection: "The ring needs one whole affection and the altar needs one amethyst.",
+        world_greeting: "The world recognizes your soul and folds you into its embrace.",
+        world_return: "The world remembers this soul, but its first embrace does not return.",
+        world_parting: "The world's hold opens. The ring keeps the affection it gathered in silence.",
+        embodied: "%s affection crystallized.",
+      },
+    },
+  },
+
+  advancements: {
+    hexlove: {
+      amantia: { title: "Amantia", description: "Obtain one of Hex: Amancy's amethyst flowers." },
+      romantic_setting: { title: "Romantic Setting", description: "Cast a Hex: Amancy spell close enough to Candles of Infatuation to receive their discount." },
+      energy_of_passion: { title: "Energy of Passion", description: "Collect amethyst dust gathered by an Amethyst Heart after animals breed nearby." },
+      spawn_chimera: { title: "Playing God", description: "Cross two different animal species and create something new." },
+      bizarre_gourmand: { title: "Bizarre Gourmand", description: "Eat cooked chimera meat and endure its magical aftertaste." },
+      double_mutation: { title: "Double Mutation", description: "Breed two Chimeras with ordinary raw meat." },
+      cupids_arrow: { title: "Cupid's Arrow", description: "Become the object of another creature's love through Cupid's Charm." },
+      love_is_blind: { title: "Love Is Blind...", description: "Use Blinding Jealousy to make a hostile monster guard another creature." },
+      heartbreaker: { title: "Heartbreaker", description: "Use Heartbreak to sever an active bond." },
+      flawless_illusion: { title: "Flawless Illusion", description: "Draw at least five creatures to one Phantom Ideal at once." },
+      love_is_in_the_air: { title: "Love Is in the Air", description: "Calm at least one hostile creature with Pheromone Mist." },
+      soulbound: { title: "Soulbound", description: "Bind a Soulbound Ring to a player's name with Soulbind." },
+      till_server_do_us_part: { title: "Till Server Do Us Part", description: "Complete a vow ritual with another player at a Vow Altar." },
+      in_sickness_and_in_health: { title: "In Sickness and in Health", description: "Exchange effects and hunger with your spouse while you are in different dimensions." },
+      succubus: { title: "The Price of Love", description: "Restore more than twenty health in a single Succubus' Tithe." },
+      heart_of_the_world: { title: "Heart of the World", description: "Complete the attunement ritual at an awakened Heart of the World." },
+      crystallized_affection: { title: "Crystallized Affection", description: "Obtain affection crystallized by the world." },
+      secrets_of_the_ancients: { title: "Secrets of the Ancients", description: "Break open Crystallized Affection and receive the legendary sealed Focus and grimoire." },
+    },
+  },
+
+  hexcasting: {
+    action: {
+      "hexlove:": {
+        "cupids_charm/great": "Cupid's Charm",
+        "succubus_tithe/great": "Succubus' Tithe",
+        matchmakers_purification: "Matchmaker Purification",
+        animal_passion: "Animal Passion",
+        breath_exchange: "Breath Exchange",
+        pheromone_mist: "Pheromone Mist",
+        phantom_ideal: "Phantom Ideal",
+        blinding_jealousy: "Blinding Jealousy",
+        weavers_purification: "Weaver's Purification",
+        hearts_purification: "Heart's Purification",
+        heartbreak: "Heartbreak",
+        sirens_song: "Siren's Song",
+        soulbind: "Soulbind",
+        hearts_reflection: "Heart's Reflection",
+      },
+
+      // Keep the Matchmaker name singular so the book's contents list fits cleanly.
+    },
+  },
+
+  text: {
+    "autoconfig.hexlove": {
+      title: "Hex: Amancy Config",
+
+      category: {
+        client: "Client",
+        server: "Server",
+      },
+
+      option: {
+        client: {
+          loveOverlay: {
+            "": "Love Overlay",
+            "@Tooltip": "Pink vignette while you are charmed.",
+          },
+          jealousyOverlay: {
+            "": "Jealousy Overlay",
+            "@Tooltip": "Red-pink vignette while you are jealous.",
+          },
+          smoothCameraNudge: {
+            "": "Smooth Camera Nudge",
+            "@Tooltip": "Gently turns your view towards the object of your love instead of snapping it.",
+          },
+        },
+
+        server: {
+          configVersion: {
+            "": "Config Version",
+            "@Tooltip": "Written automatically. Lowering it resets the gameplay sections to their defaults.",
+          },
+          costs: {
+            "": "Costs",
+            "@Tooltip": "Media costs of every action, in amethyst dust units.",
+          },
+          charm: {
+            "": "Charm",
+            "@Tooltip": "Strength of feeling versus stubbornness of the heart.",
+          },
+          breeding: {
+            "": "Breeding",
+            "@Tooltip": "Litter size, courtship timing, cooldowns and Chimera limits.",
+          },
+          jealousy: {
+            "": "Jealousy",
+            "@Tooltip": "Guard radius, chase speed, ultimatum timing and reflected damage.",
+          },
+          love: {
+            "": "Love",
+            "@Tooltip": "How strongly, and how gradually, a charmed player is drawn to their beloved.",
+          },
+          tithe: {
+            "": "Tithe",
+            "@Tooltip": "Limits of Succubus' Tithe.",
+          },
+          siren: {
+            "": "Siren",
+            "@Tooltip": "Limits of Siren's Song, including how it leads players.",
+          },
+          pheromones: {
+            "": "Pheromones",
+            "@Tooltip": "Radius and duration limits for Pheromone Mist.",
+          },
+          phantomIdeal: {
+            "": "Phantom Ideal",
+            "@Tooltip": "Duration, lure radius and movement speed for the summoned image.",
+          },
+          heartbreak: {
+            "": "Heartbreak",
+            "@Tooltip": "Limits of Heartbreak.",
+          },
+          toggles: {
+            "": "Toggles",
+            "@Tooltip": "Switches for gameplay features you would rather not have.",
+          },
+        },
+      },
+    },
+  },
+}

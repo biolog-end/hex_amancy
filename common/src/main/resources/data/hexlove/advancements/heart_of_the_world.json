@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:till_server_do_us_part",
+  "display": {
+    "icon": { "item": "hexlove:world_soul_altar" },
+    "title": { "translate": "advancements.hexlove.heart_of_the_world.title" },
+    "description": { "translate": "advancements.hexlove.heart_of_the_world.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "world_attuned": { "trigger": "minecraft:impossible" } }
+}

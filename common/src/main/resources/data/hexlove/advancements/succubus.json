@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:till_server_do_us_part",
+  "display": {
+    "icon": { "item": "minecraft:glistering_melon_slice" },
+    "title": { "translate": "advancements.hexlove.succubus.title" },
+    "description": { "translate": "advancements.hexlove.succubus.description" },
+    "frame": "challenge", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "twenty_health": { "trigger": "minecraft:impossible" } }
+}

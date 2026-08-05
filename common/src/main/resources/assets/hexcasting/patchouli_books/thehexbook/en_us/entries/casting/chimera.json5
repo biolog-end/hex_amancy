@@ -1,0 +1,78 @@
+{
+  name: "hexlove.book.patterns.items.chimera",
+  category: "hexcasting:casting",
+  icon: "hexlove:chimera_spawn_egg",
+  advancement: "hexlove:spawn_chimera",
+  read_by_default: false,
+  sortnum: 25,
+  pages: [
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.intro.title",
+      text: "hexlove.book.patterns.items.chimera.intro",
+    },
+    {
+      type: "patchouli:entity",
+      entity: "hexlove:chimera",
+      scale: 0.62,
+      offset: -0.1,
+      rotate: true,
+      text: "hexlove.book.patterns.items.chimera.entity",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:chimera_meat",
+      title: "hexlove.book.patterns.items.chimera.meat.title",
+      text: "hexlove.book.patterns.items.chimera.meat",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:cooked_chimera_meat",
+      title: "hexlove.book.patterns.items.chimera.cooked.title",
+      text: "hexlove.book.patterns.items.chimera.cooked",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.resonance.title",
+      text: "hexlove.book.patterns.items.chimera.resonance",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:resonant_meat",
+      title: "hexlove.book.patterns.items.chimera.resonant_meat.title",
+      text: "hexlove.book.patterns.items.chimera.resonant_meat",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.stews.title",
+      text: "hexlove.book.patterns.items.chimera.stews",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:stew_of_serenity",
+      title: "hexlove.book.patterns.items.chimera.serenity.title",
+      text: "hexlove.book.patterns.items.chimera.serenity",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.serenity_price.title",
+      text: "hexlove.book.patterns.items.chimera.serenity_price",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:stew_of_ferocity",
+      title: "hexlove.book.patterns.items.chimera.ferocity.title",
+      text: "hexlove.book.patterns.items.chimera.ferocity",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.ferocity_price.title",
+      text: "hexlove.book.patterns.items.chimera.ferocity_price",
+    },
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.chimera.one_nature.title",
+      text: "hexlove.book.patterns.items.chimera.one_nature",
+    },
+  ],
+}

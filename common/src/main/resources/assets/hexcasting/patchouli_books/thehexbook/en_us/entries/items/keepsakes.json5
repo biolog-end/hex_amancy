@@ -1,0 +1,57 @@
+{
+  name: "hexlove.book.patterns.items.keepsakes",
+  category: "hexcasting:items",
+  icon: "hexlove:amethyst_heart",
+  advancement: "hexcasting:root",
+  read_by_default: true,
+  sortnum: 23,
+  pages: [
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.items.keepsakes.intro.title",
+      text: "hexlove.book.patterns.items.keepsakes.intro",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:amethyst_rose",
+      title: "hexlove.book.patterns.items.keepsakes.rose.title",
+      text: "hexlove.book.patterns.items.keepsakes.rose",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:amethyst_dandelion",
+      title: "hexlove.book.patterns.items.keepsakes.dandelion.title",
+      text: "hexlove.book.patterns.items.keepsakes.dandelion",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:amethyst_tulip",
+      title: "hexlove.book.patterns.items.keepsakes.tulip.title",
+      text: "hexlove.book.patterns.items.keepsakes.tulip",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:amethyst_heart",
+      title: "hexlove.book.patterns.items.keepsakes.heart_crafting.title",
+      text: "hexlove.book.patterns.items.keepsakes.heart_crafting",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:amethyst_heart",
+      title: "hexlove.book.patterns.items.keepsakes.heart.title",
+      text: "hexlove.book.patterns.items.keepsakes.heart",
+    },
+    {
+      type: "patchouli:crafting",
+      recipe: "hexlove:candles_of_infatuation",
+      title: "hexlove.book.patterns.items.keepsakes.candles_crafting.title",
+      text: "hexlove.book.patterns.items.keepsakes.candles_crafting",
+    },
+    {
+      type: "patchouli:spotlight",
+      item: "hexlove:candles_of_infatuation",
+      title: "hexlove.book.patterns.items.keepsakes.candles.title",
+      text: "hexlove.book.patterns.items.keepsakes.candles",
+    },
+  ],
+}

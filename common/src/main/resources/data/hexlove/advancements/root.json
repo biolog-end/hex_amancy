@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": { "item": "hexlove:amethyst_rose" },
+    "title": { "translate": "advancements.hexlove.amantia.title" },
+    "description": { "translate": "advancements.hexlove.amantia.description" },
+    "background": "hexlove:textures/block/amethyst_heart_base.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "amethyst_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [{ "tag": "hexlove:amethyst_flowers" }] }
+    }
+  }
+}

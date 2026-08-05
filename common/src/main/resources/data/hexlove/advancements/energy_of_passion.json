@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:romantic_setting",
+  "display": {
+    "icon": { "item": "hexcasting:amethyst_dust" },
+    "title": { "translate": "advancements.hexlove.energy_of_passion.title" },
+    "description": { "translate": "advancements.hexlove.energy_of_passion.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "harvest_breeding_dust": { "trigger": "minecraft:impossible" } }
+}

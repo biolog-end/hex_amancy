@@ -1,0 +1,11 @@
+{
+  "priority": 100,
+  "object": {
+    "entity": {
+      "name": "hexlove:chimera"
+    }
+  },
+  "render": {
+    "translation": "y=-0.35"
+  }
+}

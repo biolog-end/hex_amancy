@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:rotten_flesh",
+    "minecraft:beef",
+    "minecraft:porkchop",
+    "minecraft:mutton",
+    "minecraft:chicken",
+    "minecraft:rabbit",
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish",
+    "minecraft:spider_eye",
+    "hexlove:chimera_meat",
+    "hexlove:resonant_meat",
+    "minecraft:bone",
+    "hexlove:stew_of_serenity",
+    "hexlove:stew_of_ferocity"
+  ]
+}

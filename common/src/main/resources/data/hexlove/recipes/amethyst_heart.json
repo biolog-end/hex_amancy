@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "CFC",
+    "OGO"
+  ],
+  "key": {
+    "F": { "tag": "hexlove:amethyst_flowers" },
+    "C": { "item": "hexcasting:charged_amethyst" },
+    "O": { "item": "minecraft:obsidian" },
+    "G": { "item": "minecraft:gold_ingot" }
+  },
+  "result": { "item": "hexlove:amethyst_heart" }
+}

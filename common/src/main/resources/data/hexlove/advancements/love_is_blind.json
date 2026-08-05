@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:cupids_arrow",
+  "display": {
+    "icon": { "item": "minecraft:fermented_spider_eye" },
+    "title": { "translate": "advancements.hexlove.love_is_blind.title" },
+    "description": { "translate": "advancements.hexlove.love_is_blind.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "hostile_guard": { "trigger": "minecraft:impossible" } }
+}

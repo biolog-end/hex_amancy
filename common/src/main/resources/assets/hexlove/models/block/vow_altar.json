@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "hexlove:block/vow_altar_side",
+    "down": "hexlove:block/vow_altar_bottom",
+    "up": "hexlove:block/vow_altar",
+    "north": "hexlove:block/vow_altar_side",
+    "south": "hexlove:block/vow_altar_side",
+    "east": "hexlove:block/vow_altar_side",
+    "west": "hexlove:block/vow_altar_side"
+  }
+}

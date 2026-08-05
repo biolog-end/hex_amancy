@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AFA",
+    " A "
+  ],
+  "key": {
+    "A": { "item": "minecraft:amethyst_shard" },
+    "F": { "item": "minecraft:pink_tulip" }
+  },
+  "result": { "item": "hexlove:amethyst_tulip" }
+}

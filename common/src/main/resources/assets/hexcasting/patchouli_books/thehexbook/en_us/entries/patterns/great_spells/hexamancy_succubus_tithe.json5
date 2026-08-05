@@ -1,0 +1,22 @@
+{
+  name: "hexcasting.action.hexlove:succubus_tithe/great",
+  category: "hexcasting:patterns/great_spells",
+  icon: "minecraft:ghast_tear",
+  advancement: "hexcasting:root",
+  read_by_default: true,
+  sortnum: 21,
+  pages: [
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:succubus_tithe/great",
+      anchor: "hexlove:succubus_tithe/great",
+      input: "entity, list, number",
+      output: "",
+      text: "hexlove.book.patterns.great_spells.hexamancy_succubus_tithe.iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.great_spells.hexamancy_succubus_tithe.text",
+    },
+  ],
+}

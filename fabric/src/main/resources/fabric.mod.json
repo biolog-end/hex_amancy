@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "hexlove",
+  "version": "${version}",
+  "name": "Hex: Amancy",
+  "description": "Hex: Amancy addon for Hex Casting",
+  "authors": [
+    "Teekas"
+  ],
+  "contact": {
+    "homepage": "https://teekas.github.io/hexlove",
+    "sources": "https://github.com/Teekas/hexlove"
+  },
+  "license": "MIT",
+  "icon": "assets/hexlove/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [{
+      "adapter": "kotlin",
+      "value": "io.github.teekas.hexlove.fabric.FabricHexlove"
+    }],
+    "client": [{
+      "adapter": "kotlin",
+      "value": "io.github.teekas.hexlove.fabric.FabricHexloveClient"
+    }],
+    "server": [{
+      "adapter": "kotlin",
+      "value": "io.github.teekas.hexlove.fabric.FabricHexloveServer"
+    }],
+    "fabric-datagen": [{
+      "adapter": "kotlin",
+      "value": "io.github.teekas.hexlove.fabric.datagen.FabricHexloveDatagen"
+    }],
+    "modmenu": [{
+      "adapter": "kotlin",
+      "value": "io.github.teekas.hexlove.fabric.FabricHexloveModMenu"
+    }]
+  },
+  "mixins": [
+    "hexlove-common.mixins.json",
+    "hexlove-fabric.mixins.json"
+  ],
+  "accessWidener": "hexlove.accesswidener",
+  "depends": {
+    "minecraft": "${versions.minecraft}",
+    "fabricloader": ">=${versions.fabric_loader}",
+    "fabric-api": ">=${versions.fabric_api}",
+    "fabric-language-kotlin": ">=${versions.kotlin_fabric}",
+    "architectury": ">=${versions.architectury}",
+    "hexcasting": ">=${versions.hexcasting}",
+    "cloth-config": ">=${versions.clothConfig}"
+  },
+  "suggests": {
+    "modmenu": ">=${versions.modMenu}",
+    "carryon": ">=${versions.carryon}",
+    "trinkets": ">=${versions.trinkets}"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  name: "hexlove.book.patterns.vows.soulbound",
+  category: "hexcasting:items",
+  icon: "hexlove:soulbound_ring",
+  advancement: "hexcasting:root",
+  read_by_default: true,
+  sortnum: 22,
+  pages: [
+    { type: "patchouli:text", title: "hexlove.book.patterns.vows.soulbound.intro.title", text: "hexlove.book.patterns.vows.soulbound.intro" },
+    { type: "patchouli:crafting", recipe: "hexlove:soulbound_ring", title: "hexlove.book.patterns.vows.soulbound.ring_crafting.title", text: "hexlove.book.patterns.vows.soulbound.ring_crafting" },
+    { type: "patchouli:crafting", recipe: "hexlove:vow_altar", title: "hexlove.book.patterns.vows.soulbound.altar_crafting.title", text: "hexlove.book.patterns.vows.soulbound.altar_crafting" },
+    { type: "patchouli:spotlight", item: "hexlove:soulbound_ring", title: "hexlove.book.patterns.vows.soulbound.ring.title", text: "hexlove.book.patterns.vows.soulbound.ring" },
+    { type: "patchouli:spotlight", item: "hexlove:vow_altar", title: "hexlove.book.patterns.vows.soulbound.altar.title", text: "hexlove.book.patterns.vows.soulbound.altar" },
+    { type: "patchouli:text", title: "hexlove.book.patterns.vows.soulbound.sever.title", text: "hexlove.book.patterns.vows.soulbound.sever" },
+    { type: "patchouli:text", text: "hexlove.book.patterns.vows.soulbound.benefits" },
+  ],
+}

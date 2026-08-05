@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": {
+    "item": "hexlove:chimera_meat"
+  },
+  "result": "hexlove:cooked_chimera_meat",
+  "experience": 0.35,
+  "cookingtime": 600
+}

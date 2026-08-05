@@ -1,0 +1,10 @@
+{
+  "parent": "hexlove:spawn_chimera",
+  "display": {
+    "icon": { "item": "minecraft:rabbit" },
+    "title": { "translate": "advancements.hexlove.double_mutation.title" },
+    "description": { "translate": "advancements.hexlove.double_mutation.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": { "chimeras_bred": { "trigger": "minecraft:impossible" } }
+}

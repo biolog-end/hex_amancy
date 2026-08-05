@@ -1,0 +1,49 @@
+{
+  "required": true,
+  "package": "io.github.teekas.hexlove.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "MixinFerociousNightVision",
+    "MixinFirstPersonRitual",
+    "MixinHideHeldOpeningHeart",
+    "MixinHumanoidRitualPose",
+    "MixinNatureHungerIcons"
+  ],
+  "mixins": [
+    "MixinAnimalHeartbreak",
+    "MixinAnimalBreedingHeart",
+    "MixinAnimalWorldAffection",
+    "MixinCreativeUnlockerAdvancements",
+    "MixinDatagenMain",
+    "MixinDisplayAccess",
+    "MixinEntityBondStorage",
+    "MixinItemDisplayAccess",
+    "MixinMobSetTarget",
+    "MixinNatureAnimalAdvance",
+    "MixinNatureAvoidGoal",
+    "MixinNatureChew",
+    "MixinNatureDestroySpeed",
+    "MixinNatureEffectImmunity",
+    "MixinNatureExhaustion",
+    "MixinNatureInvertedHeal",
+    "MixinNatureItemUse",
+    "MixinNatureLastHurtBy",
+    "MixinNaturePlayerEat",
+    "MixinNatureStartUsing",
+    "MixinNatureVillagerSensor",
+    "MixinNatureVillagerTrade",
+    "MixinPerWorldPatternBackfill",
+    "MixinScrollPatternGuard",
+    "MixinSlimeMoveControl",
+    "MixinSlimeSplitBond",
+    "MixinServerPlayerRestore",
+    "MixinTamingWorldAffection",
+    "MixinTradeWorldAffection",
+    "MixinWorldsEmbraceDamage"
+  ],
+  "plugin": "io.github.teekas.hexlove.mixin.HexloveMixinConfigPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

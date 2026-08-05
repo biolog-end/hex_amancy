@@ -1,0 +1,167 @@
+{
+  name: "hexlove.book.patterns.spells.hexamancy_spells",
+  category: "hexcasting:patterns/spells",
+  icon: "minecraft:poppy",
+  advancement: "hexcasting:root",
+  read_by_default: true,
+  sortnum: 20,
+  // Patchouli shows two pages at once, so the order matters more than the count. Each spell is a
+  // spread: the rune on the left, carrying its own title and a note on what the iotas are, and the
+  // long description facing it on the right with no title of its own. Keep the number of pages before
+  // the pairs even, or every spread slides apart by one.
+  pages: [
+    {
+      type: "patchouli:text",
+      title: "hexlove.book.patterns.spells.hexamancy_spells.origin.title",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.origin",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.intro",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:matchmakers_purification",
+      anchor: "hexlove:matchmakers_purification",
+      input: "entity",
+      output: "bool",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.matchmakers_purification_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.matchmakers_purification",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:weavers_purification",
+      anchor: "hexlove:weavers_purification",
+      input: "entity",
+      output: "list",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.weavers_purification_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.weavers_purification",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:hearts_purification",
+      anchor: "hexlove:hearts_purification",
+      input: "entity",
+      output: "number",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.hearts_purification_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.hearts_purification",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:animal_passion",
+      anchor: "hexlove:animal_passion",
+      input: "entity",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.animal_passion_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.animal_passion",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:pheromone_mist",
+      anchor: "hexlove:pheromone_mist",
+      input: "vector, number, number",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.pheromone_mist_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.pheromone_mist",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:phantom_ideal",
+      anchor: "hexlove:phantom_ideal",
+      input: "vector, number",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.phantom_ideal_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.phantom_ideal",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:blinding_jealousy",
+      anchor: "hexlove:blinding_jealousy",
+      input: "entity, entity, number",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.blinding_jealousy_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.blinding_jealousy",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:sirens_song",
+      anchor: "hexlove:sirens_song",
+      input: "entity, entity, number",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.sirens_song_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.sirens_song",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:heartbreak",
+      anchor: "hexlove:heartbreak",
+      input: "entity, number",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.heartbreak_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.heartbreak",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:soulbind",
+      anchor: "hexlove:soulbind",
+      input: "entity, entity",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.soulbind_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.soulbind",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:breath_exchange",
+      anchor: "hexlove:breath_exchange",
+      input: "entity, entity",
+      output: "",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.breath_exchange_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.breath_exchange",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hexlove:hearts_reflection",
+      anchor: "hexlove:hearts_reflection",
+      input: "",
+      output: "entity | null",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.hearts_reflection_iotas",
+    },
+    {
+      type: "patchouli:text",
+      text: "hexlove.book.patterns.spells.hexamancy_spells.hearts_reflection",
+    },
+  ],
+}
