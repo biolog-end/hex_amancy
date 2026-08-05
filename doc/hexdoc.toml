@@ -15,6 +15,11 @@ resource_dirs = [  # top takes priority
 ]
 export_dir = "src/hexdoc_hexlove/_export/generated"
 
+[textures]
+# spawn eggs have no texture of their own: the model is a vanilla template and the
+# colours come from the item, so there is nothing for the web book to render
+missing = ["hexlove:chimera_spawn_egg"]
+
 [template]
 icon = "{$_common.src}/main/resources/assets/hexlove/icon.png"
 include = [
@@ -30,7 +35,7 @@ show_landing_text = false
 
 [extra.hexcasting]
 # NOTE: "!Raw" means "don't apply variable interpolation to this value"
-_pattern_regex = { "!Raw"='make\("(?P<name>[^"]+)",\s*HexDir\.(?P<startdir>\w+),\s*"(?P<signature>[qweasd]+)"' }
+_pattern_regex = { "!Raw"='make\(\s*"(?P<name>[^"]+)",\s*HexDir\.(?P<startdir>\w+),\s*"(?P<signature>[qweasd]+)"' }
 
 [[extra.hexcasting.pattern_stubs]]
 path = "{$_common.kotlin}/registry/HexloveActions.kt"
