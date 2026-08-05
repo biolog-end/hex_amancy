@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.BaseEntityBlock
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.RenderShape
+import net.minecraft.core.particles.BlockParticleOption
+import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.entity.BlockEntityTicker
 import net.minecraft.world.level.block.entity.BlockEntityType
@@ -106,6 +108,16 @@ class AmethystHeartBlock(properties: Properties) : BaseEntityBlock(properties) {
         if (!state.`is`(newState.block) && level is ServerLevel) {
             val dust = (level.getBlockEntity(pos) as? AmethystHeartBlockEntity)?.takeDustForDrop()
             if (dust != null && !dust.isEmpty) popResource(level, pos, dust)
+            // The heart's own body is amethyst-and-obsidian: vanilla only shows one particle
+            // texture per model, and it is already the amethyst face. Sprinkle a few obsidian
+            // block particles on top so the shatter reads as both stones at once.
+            val cx = pos.x + 0.5
+            val cy = pos.y + 0.5
+            val cz = pos.z + 0.5
+            level.sendParticles(
+                BlockParticleOption(ParticleTypes.BLOCK, Blocks.OBSIDIAN.defaultBlockState()),
+                cx, cy, cz, 10, 0.28, 0.28, 0.28, 0.0,
+            )
         }
         super.onRemove(state, level, pos, newState, moved)
     }

@@ -1,0 +1,15 @@
+{
+  "parent": "hexlove:bizarre_gourmand",
+  "display": {
+    "icon": { "item": "hexlove:stew_of_serenity" },
+    "title": { "translate": "advancements.hexlove.stew_of_serenity.title" },
+    "description": { "translate": "advancements.hexlove.stew_of_serenity.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": {
+    "ate_stew_of_serenity": {
+      "trigger": "minecraft:consume_item",
+      "conditions": { "item": { "items": ["hexlove:stew_of_serenity"] } }
+    }
+  }
+}

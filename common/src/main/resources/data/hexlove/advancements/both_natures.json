@@ -1,0 +1,23 @@
+{
+  "parent": "hexlove:stew_of_ferocity",
+  "display": {
+    "icon": { "item": "hexlove:resonant_meat" },
+    "title": { "translate": "advancements.hexlove.both_natures.title" },
+    "description": { "translate": "advancements.hexlove.both_natures.description" },
+    "frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": {
+    "ate_stew_of_serenity": {
+      "trigger": "minecraft:consume_item",
+      "conditions": { "item": { "items": ["hexlove:stew_of_serenity"] } }
+    },
+    "ate_stew_of_ferocity": {
+      "trigger": "minecraft:consume_item",
+      "conditions": { "item": { "items": ["hexlove:stew_of_ferocity"] } }
+    }
+  },
+  "requirements": [
+    ["ate_stew_of_serenity"],
+    ["ate_stew_of_ferocity"]
+  ]
+}

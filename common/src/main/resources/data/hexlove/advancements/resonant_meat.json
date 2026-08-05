@@ -1,0 +1,15 @@
+{
+  "parent": "hexlove:energy_of_passion",
+  "display": {
+    "icon": { "item": "hexlove:resonant_meat" },
+    "title": { "translate": "advancements.hexlove.resonant_meat.title" },
+    "description": { "translate": "advancements.hexlove.resonant_meat.description" },
+    "frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": false
+  },
+  "criteria": {
+    "ate_resonant_meat": {
+      "trigger": "minecraft:consume_item",
+      "conditions": { "item": { "items": ["hexlove:resonant_meat"] } }
+    }
+  }
+}

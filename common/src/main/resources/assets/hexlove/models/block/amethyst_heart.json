@@ -7,7 +7,7 @@
 	],
 	"textures": {
 		"5": "hexlove:block/amethyst_heart",
-		"particle": "hexlove:block/amethyst_heart"
+		"particle": "minecraft:block/amethyst_block"
 	},
 	"elements": [
 		{
