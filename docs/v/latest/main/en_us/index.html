@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+      <title>Hex: Amancy Book</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Hex: Amancy addon for Hex Casting" />
+      <meta name="author" content="Teekas" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hex: Amancy Book" />
+<meta property="og:image" content="https://biolog-end.github.io/hex_amancy/v/latest/main/en_us/icon.png" />
+<meta property="og:url" content="https://biolog-end.github.io/hex_amancy/v/latest/main/en_us" />
+<meta property="og:description" content="Hex: Amancy addon for Hex Casting" />
+<meta property="og:site_name" content="Hex: Amancy (latest/main)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Hex: Amancy Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+            <li>
+    <a
+      href="https://github.com/biolog-end/hex_amancy/tree/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf"
+        target="_blank"
+      class="navbar-link"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >GitHub <i class="bi bi-box-arrow-up-right external-link-icon"></i></a>
+  </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >latest/main <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >English (United States) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>This is the online version of the Hex: Amancy documentation.</p></h1>
+        <p>This page is built from the latest code on GitHub. It may describe <strong>newer</strong> features that you may not necessarily have, even on the latest Modrinth/CurseForge version!</p>
+      <p><strong>Entries which are blurred are spoilers</strong>. Click to reveal them, but be aware that they may spoil endgame progression. Alternatively, click <a href="?nospoiler">here</a> to get a version with all spoilers showing.</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>The past is a foreign country; they do things differently there.</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    Table of <span class="nobr">Contents<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="Toggle all"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#casting" class="toc-elem "><img
+      title="Oak Staff"
+      alt="Oak Staff"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/staff/oak.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Hex Casting</a></summary>
+      <ul>
+          <li><a href="#casting/chimera" class="toc-elem "><img
+      title="Chimera Spawn Egg"
+      alt="Chimera Spawn Egg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > The Chimera</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#items" class="toc-elem "><img
+      title="Focus"
+      alt="Focus"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Items</a></summary>
+      <ul>
+          <li><a href="#items/soulbound_vows" class="toc-elem "><img
+      title="Soulbound Ring"
+      alt="Soulbound Ring"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Soulbound Vows</a></li>
+          <li><a href="#items/keepsakes" class="toc-elem "><img
+      title="Amethyst Heart"
+      alt="Amethyst Heart"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Keepsakes</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#greatwork" class="toc-elem spoilered"><img
+      title="Music Disc"
+      alt="Music Disc"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/music_disc_11.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > The Great Work</a></summary>
+      <ul>
+          <li><a href="#greatwork/world_soul_altar" class="toc-elem spoilered"><img
+      title="Heart of the World"
+      alt="Heart of the World"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Heart of the World</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="Enchanted Book"
+      alt="Enchanted Book"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Spells</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/hexamancy_spells" class="toc-elem "><img
+      title="Poppy"
+      alt="Poppy"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Hexamancy</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/great_spells" class="toc-elem "><img
+      title="Conduit Power"
+      alt="Conduit Power"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Great Spells</a></summary>
+      <ul>
+          <li><a href="#patterns/great_spells/hexamancy_great_spells" class="toc-elem "><img
+      title="Red Dye"
+      alt="Red Dye"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/red_dye.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Cupid&#39;s Charm</a></li>
+          <li><a href="#patterns/great_spells/hexamancy_succubus_tithe" class="toc-elem "><img
+      title="Ghast Tear"
+      alt="Ghast Tear"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/ghast_tear.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Succubus&#39; Tithe</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="casting">
+    <h2 class="category-title page-header">
+    <img
+      title="Oak Staff"
+      alt="Oak Staff"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/staff/oak.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Hex Casting<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#casting"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>I&#39;ve started to understand how the old masters cast their <span style="color: #b38ef3">Hexes</span>! It&#39;s a bit complicated, but I&#39;m sure I can figure it out. Let&#39;s see...</p>
+<div id="casting/chimera" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Chimera Spawn Egg"
+      alt="Chimera Spawn Egg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >The Chimera<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#casting/chimera"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>An Error of Nature</h4>
+    <p>When two unlike animals are joined by Cupid&#39;s Charm, nature may answer with a mistake that should have been impossible. The Chimera carries both bloodlines, but belongs to neither.</p><p>It is a carnivore, aggressive by instinct, and adults hunt livestock and may even stalk people.</p>
+<br />
+    <h4>Chimera</h4>
+    <p class="image-wrapper">
+      <img
+      title="Chimera"
+      alt="Chimera"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/doc/resources/assets/hexlove/textures/entities/chimera.png"
+      loading="lazy"
+      class="entity-display texture pixelated"
+    >
+    </p>
+  <p>Its body remembers every animal in its ancestry. A carcass may yield leather, feathers, bone meal, or wool alongside meat.</p>
+<br />
+  <h4 class="spotlight-title page-header">Flesh of Many Natures</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Raw Chimera Meat"
+      alt="Raw Chimera Meat"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/chimera_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Raw chimera meat is dreadful: stringy, nauseating, and revolting to taste. Even another Chimera refuses it; the beast breeds only when offered ordinary raw animal meat.</p>
+<br />
+  <h4 class="spotlight-title page-header">A Magical Supper</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Cooked Chimera Meat"
+      alt="Cooked Chimera Meat"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/cooked_chimera_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Fire makes the impossible flesh nourishing and awakens a random magical trace. Most are blessings; the only harmful answers left are Slowness and Weakness.</p>
+<br />
+  <h4>Too Much Feeling</h4>
+    <p>I fed the vile stuff to an Amethyst Heart out of spite, expecting refusal. The Heart took it in place of the dust it had been about to shape.</p><p>Every mote of affection a birth had given me went into that one cut of flesh, and then the Heart spat it back at me, glittering. It had not made me a dust. It had made me something worse.</p>
+<br />
+  <h4 class="spotlight-title page-header">Resonant Meat</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Resonant Meat"
+      alt="Resonant Meat"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Leave raw chimera meat in an Amethyst Heart where the dust would sit. Each whole dust the Heart gathers is spent soaking one cut, which it then spits out.</p><p>Eaten as it is, it fills like roast fowl and then punishes: the body reads it as an overdose of raw feeling. You will reel, you will glow with somebody else&#39;s love, and your gut will refuse to hold it.</p>
+<br />
+  <h4>Directing the Surge</h4>
+    <p>The fault was never the flesh. The fault was that I ate it undiluted.</p><p>Feeling this raw wants a shape, and a pot gives it one. What I stirred in beside the meat decided which way the surge would run: towards the quiet of a grazing beast, or towards the hunger of a thing that eats the dead.</p>
+<br />
+  <h4>Stew of Serenity</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Stew of Serenity</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Resonant Meat"
+      alt="Resonant Meat"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Wheat"
+      alt="Wheat"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wheat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Carrot"
+      alt="Carrot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/carrot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Oxeye Daisy"
+      alt="Oxeye Daisy"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/oxeye_daisy.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Tag: Seeds"
+      alt="Tag: Seeds"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAC4jAAAuIwF4pT92AAAANUlEQVQ4y2NgGJRAXV39v7q6+n9cfGTARKllFBvAiOxMUjTevHmTkSouGPhAHA0DWnmBrgAANLIZgSXEQxIAAAAASUVORK5CYII="
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+      <img
+      title="Wheat Seeds"
+      alt="Wheat Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wheat_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Beetroot Seeds"
+      alt="Beetroot Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/beetroot_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Melon Seeds"
+      alt="Melon Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/melon_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Pumpkin Seeds"
+      alt="Pumpkin Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/pumpkin_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Torchflower Seeds"
+      alt="Torchflower Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/torchflower_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Pitcher Pod"
+      alt="Pitcher Pod"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/pitcher_pod.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Bowl"
+      alt="Bowl"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bowl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Stew of Serenity"
+      alt="Stew of Serenity"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/stew_of_serenity.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Wheat, a carrot, an oxeye daisy and any seed, boiled with the meat.</p><p>The surge settles into a grazing nature. Grass, wheat, seed and raw root become food, every vegetable feeds you further, and hunger creeps at half its usual pace. No beast will flee you now, not even one you struck.</p>
+<br />
+  <h4>The Price of Peace</h4>
+    <p>Your arms lose a third of their force and your pick bites a fifth slower. Nothing but green things will go down at all.</p><p>And the herd will not merely tolerate you: it will count you as its own. Eat beside a grown cow, ewe or sow and then feed her, and she will come to you with intent. Whatever follows, you will not enjoy it, and you will be in no state to cast until the shame has passed.</p>
+<br />
+  <h4>Stew of Ferocity</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Stew of Ferocity</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Resonant Meat"
+      alt="Resonant Meat"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Rotten Flesh"
+      alt="Rotten Flesh"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/rotten_flesh.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Spider Eye"
+      alt="Spider Eye"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/spider_eye.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Bone"
+      alt="Bone"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bone.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Bowl"
+      alt="Bowl"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bowl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Stew of Ferocity"
+      alt="Stew of Ferocity"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/stew_of_ferocity.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Rotten flesh, a spider&#39;s eye and a bone, boiled with the meat.</p><p>The surge turns outward and downward. The restless dead, the crawlers and the things that burst leave you alone — unless you strike first, and that one remembers. Endermen answer to elsewhere.</p>
+<br />
+  <h4>The Ghoul&#39;s Bargain</h4>
+    <p>Raw meat and carrion fill you like steak, a spider&#39;s eye is honest food, a bone can be gnawed with patience. Poison, rot and dizziness cannot touch you, the dark opens up a little, and both arms and stride grow surer.</p><p>But healing burns and harming soothes, hunger drains thrice as fast even at rest, and no cooked thing, no bread, no vegetable will pass your lips. Villagers flee, and golems see a monster.</p>
+<br />
+  <h4>One Nature at a Time</h4>
+    <p>A body holds only one of these. Eat the other stew and the first lets go at once.</p><p>A draught of milk ends either, as it ends everything else. The bowl always comes back.</p>
+<br />
+</div>
+</section>
+<section id="items">
+    <h2 class="category-title page-header">
+    <img
+      title="Focus"
+      alt="Focus"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Items<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>I devote this section to the magical and mysterious items I might encounter in my studies.</p>
+<div id="items/soulbound_vows" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Soulbound Ring"
+      alt="Soulbound Ring"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Soulbound Vows<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items/soulbound_vows"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>On Making a Vow</h4>
+    <p>A Soulbound Ring begins as a quiet personal token. Soulbind writes one player&#39;s soul into a dropped ring and gives it a colour of its own.</p><p>A person may have only one living vow. Binding another ring while already married gives it that same vow and its shared living gradient; it cannot become a second marriage.</p>
+<br />
+  <h4>Soulbound Ring</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Soulbound Ring</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Focus"
+      alt="Focus"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Soulbound Ring"
+      alt="Soulbound Ring"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>This ring is inert until Soulbind gives it an owner.</p><p>Drop it first, then name the ring and its owner. Their order does not matter.</p>
+<br />
+  <h4>Vow Altar</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Vow Altar</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Quartz"
+      alt="Block of Quartz"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Gold Ingot"
+      alt="Gold Ingot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Quartz"
+      alt="Block of Quartz"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Gold Ingot"
+      alt="Gold Ingot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Amethyst"
+      alt="Block of Amethyst"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/amethyst_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Gold Ingot"
+      alt="Gold Ingot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Quartz"
+      alt="Block of Quartz"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Gold Ingot"
+      alt="Gold Ingot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Quartz"
+      alt="Block of Quartz"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Vow Altar"
+      alt="Vow Altar"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/vow_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Offer two soul-bound rings here. When both owners stand close, the altar joins them and returns the rings.</p><p>Only an owner may place or take a ring.</p>
+<br />
+  <h4 class="spotlight-title page-header">The Ring</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Soulbound Ring"
+      alt="Soulbound Ring"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>A bound ring shows its owner&#39;s name in bright colour. Once joined, both rings share a gradient made from their two souls.</p><p>Caster&#39;s Glamour changes only its appearance. Only the owner may place their ring in an altar slot.</p>
+<br />
+  <h4 class="spotlight-title page-header">The Vow Altar</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Vow Altar"
+      alt="Vow Altar"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/vow_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>Use the altar to open its rite. Place the two bound, unwed rings in its two slots. The rings are also visible on the altar itself. When both owners remain within four blocks for five seconds, the spiral ends in a burst and the joined rings return to their owners.</p>
+<br />
+  <h4>Unmaking a Vow</h4>
+    <p>A vow can be ended without destroying either soul. Place your own married ring in either altar slot, leave the other slot empty, then choose End This Vow. It removes the union for both people, including an offline spouse; their ring becomes soul-bound again when they next return.</p>
+<br />
+    <p>While both owners keep a matching ring, their hearts cannot be directed to anyone except each other, their pets and ordinary admirers will not turn on the other spouse, they share ambit in the same world, and ten percent of one spouse&#39;s incoming damage passes to the other.</p><p>Putting a ring away suspends these benefits; it never creates a second marriage.</p>
+<br />
+</div>
+<div id="items/keepsakes" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Amethyst Heart"
+      alt="Amethyst Heart"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Keepsakes<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items/keepsakes"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>Things That Remember</h4>
+    <p>A little affection does not have to vanish when the spell ends. Given crystal, colour, and a place to rest, it lingers as a small kindness in the world.</p><p>These keepsakes are not merely ornaments: every one remembers some part of a tender moment.</p>
+<br />
+  <h4>Amethyst Rose</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Amethyst Rose</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Poppy"
+      alt="Poppy"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Amethyst Rose"
+      alt="Amethyst Rose"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Set a poppy in a cross of four amethyst shards. Its red petals become a vow caught in crystal. It grows on ordinary soil or amethyst, gives soft red conjure-motes, and can rest in a flower pot.</p>
+<br />
+  <h4>Amethyst Dandelion</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Amethyst Dandelion</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Dandelion"
+      alt="Dandelion"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/dandelion.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Amethyst Dandelion"
+      alt="Amethyst Dandelion"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>A dandelion in the same four-shard cross holds a wish too heavy for the wind to carry. It gives warm yellow conjure-motes and can be planted in soil, amethyst, or a flower pot.</p>
+<br />
+  <h4>Amethyst Tulip</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Amethyst Tulip</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Pink Tulip"
+      alt="Pink Tulip"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/pink_tulip.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Shard"
+      alt="Amethyst Shard"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Amethyst Tulip"
+      alt="Amethyst Tulip"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>A pink tulip in a cross of four shards folds a quiet secret into each faceted petal. Its pink conjure-motes remain small and gentle, even indoors in a pot.</p>
+<br />
+  <h4>Amethyst Heart</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Amethyst Heart</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Tag: Amethyst Flowers"
+      alt="Tag: Amethyst Flowers"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAC4jAAAuIwF4pT92AAAANUlEQVQ4y2NgGJRAXV39v7q6+n9cfGTARKllFBvAiOxMUjTevHmTkSouGPhAHA0DWnmBrgAANLIZgSXEQxIAAAAASUVORK5CYII="
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+      <img
+      title="Amethyst Rose"
+      alt="Amethyst Rose"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Amethyst Dandelion"
+      alt="Amethyst Dandelion"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Amethyst Tulip"
+      alt="Amethyst Tulip"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Gold Ingot"
+      alt="Gold Ingot"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Amethyst Heart"
+      alt="Amethyst Heart"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Charged amethyst frames any amethyst flower. Obsidian anchors the vessel, and a gold ingot carries gathered feeling into the Heart.</p>
+<br />
+  <h4 class="spotlight-title page-header">Gathering Love</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Amethyst Heart"
+      alt="Amethyst Heart"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>Place the Heart on a sturdy floor, wall, or ceiling. When animals breed within twelve blocks, one nearby Heart gathers 1/7–1/2 of an amethyst dust; extra Hearts never multiply a birth.</p><p>Open it to store whole dust and watch the phial fill towards the next. At 64 dust plus a full phial, new love-media is lost and four coloured streams warn the parents.</p>
+<br />
+  <h4>Candles of Infatuation</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Candles of Infatuation</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Pink Stained Glass"
+      alt="Pink Stained Glass"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/pink_stained_glass.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Amethyst Sconce"
+      alt="Amethyst Sconce"
+      src="https://hexcasting.hexxy.media/v/0.11.3/1.0/assets/hexcasting/textures/block/amethyst_sconce.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Pink Stained Glass"
+      alt="Pink Stained Glass"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/pink_stained_glass.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Diamond"
+      alt="Diamond"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Diamond"
+      alt="Diamond"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Diamond"
+      alt="Diamond"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Candles of Infatuation"
+      alt="Candles of Infatuation"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>An amethyst sconce gives the candles their patient flame. Pink glass catches its colour, a charged amethyst holds the spell, and three diamonds keep the three rose crystals from fading. They turn towards the mage who places them.</p>
+<br />
+  <h4 class="spotlight-title page-header">A Room Prepared</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Candles of Infatuation"
+      alt="Candles of Infatuation"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>Within eight blocks of these bright pink crystals, every Hex: Amancy spell costs twenty percent less media. Their abundant rose-and-violet conjure-motes are a promise that the room is ready for a rite.</p>
+<br />
+</div>
+</section>
+<section id="greatwork">
+    <div class="spoilered">
+      <h2 class="category-title page-header">
+    <img
+      title="Music Disc"
+      alt="Music Disc"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/music_disc_11.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >The Great Work<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#greatwork"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>I have seen... so much. I have... experienced... annihilation and deconstruction and reconstruction. I have seen the atoms of the world screaming as they were inverted and subverted and demoted to energy. I have seen I have seen I have s<span class="obfuscated">get stick bugged lmao</span></p>
+    </div>
+<div id="greatwork/world_soul_altar" class="entry">
+    <div class="spoilered">
+      <h3 class="entry-title page-header">
+    <img
+      title="Heart of the World"
+      alt="Heart of the World"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Heart of the World<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#greatwork/world_soul_altar"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>A World That Answers</h4>
+    <p>The Heart of the World is not one block but a place prepared for the world itself. When its flowers, pillars, and four Candles of Infatuation agree, the central stone wakes in rose-violet light.</p>
+<br />
+  <h4>The Central Heart</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Heart of the World</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <div
+      class="texture item-texture multi-textures gaslight-textures multi-texture-active"
+    >
+        <img
+      title="Shard of Quenched Allay"
+      alt="Shard of Quenched Allay"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_0.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        <img
+      title="Shard of Quenched Allay"
+      alt="Shard of Quenched Allay"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_1.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        <img
+      title="Shard of Quenched Allay"
+      alt="Shard of Quenched Allay"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_2.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        <img
+      title="Shard of Quenched Allay"
+      alt="Shard of Quenched Allay"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_3.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+    </div>
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Blaze Rod"
+      alt="Blaze Rod"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <div
+      role="img"
+      title="Crystallized Affection"
+      aria-label="Crystallized Affection (animated)"
+      class="item-texture multi-texture-active texture animated-sync texture-hexlove-textures-item-crystallized_affection-png pixelated"
+    ></div>
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Blaze Rod"
+      alt="Blaze Rod"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Blaze Rod"
+      alt="Blaze Rod"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Obsidian"
+      alt="Obsidian"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Heart of the World"
+      alt="Heart of the World"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Crystallized Affection is sometimes found in old dungeon chests. Set it at the centre, with obsidian at the corners, blaze rods at the sides and below, and a quenched allay shard above. The Heart remains dormant until the whole court is built.</p>
+<br />
+  <h5 class="multiblock-name">
+    The Ritual Court
+  </h5>
+  <details class="details-collapsible multiblock-details">
+    <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show multiblock</span>
+    <span class="collapse-recipe-hide">Click to hide multiblock</span>
+  </summary>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Block of Amethyst"
+      alt="Block of Amethyst"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/amethyst_block.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">41x Block of Amethyst</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Candles of Infatuation"
+      alt="Candles of Infatuation"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">4x Candles of Infatuation</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Amethyst Tulip"
+      alt="Amethyst Tulip"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">2x Amethyst Tulip</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Amethyst Dandelion"
+      alt="Amethyst Dandelion"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Amethyst Dandelion</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Amethyst Rose"
+      alt="Amethyst Rose"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Amethyst Rose</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Heart of the World"
+      alt="Heart of the World"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Heart of the World</span>
+        </div>
+  </details>
+      <p>Build the shown seven-by-seven court. The Heart rests on a solid five-by-five amethyst dais; every outer pillar needs its own base.</p>
+<br />
+  <h4>Completing the Court</h4>
+    <p>Place an amethyst flower at every cardinal mark. Together they must include a Rose, Dandelion, and Tulip; the fourth may repeat.</p><p>Each corner pillar may be two to four amethyst blocks tall and must end in an upright Candle of Infatuation. The whole court may be rotated.</p>
+<br />
+  <h4>The World&#39;s Memory</h4>
+    <p>Place your own soul-bound ring in the right slot and choose Attune. Four streams enter the rising ring. Press the same button again to sever the link; its streams then flow back toward the candles. Stored affection remains dormant in the ring and returns when it is attuned again.</p><p>This bond belongs to the world. It is not a marriage and never replaces one.</p>
+<br />
+  <h4>Gathering Affection</h4>
+    <p>Carry the linked ring to gather fractional affection from hostile kills, feeding and breeding adult animals, taming companions, and villager trades. It stores up to sixty-four.</p><p>Feeding young animals does not count.</p>
+<br />
+  <h4>World&#39;s Embrace</h4>
+    <p>Only the ring&#39;s first attunement grants World&#39;s Embrace for one Minecraft day: a little speed and luck, and greater damage only against hostile creatures. Severing and reconnecting never grants that first blessing again. Every Crystallized Affection embodied later adds five minutes.</p><p>An active spouse receives half the blessing and contributes half charge to the linked ring.</p>
+<br />
+  <h4 class="spotlight-title page-header">Crystallized Affection</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <div
+      role="img"
+      title="Crystallized Affection"
+      aria-label="Crystallized Affection (animated)"
+      class="item-texture  texture animated-sync texture-hexlove-textures-item-crystallized_affection-png pixelated"
+    ></div>
+  </div>
+      <p>Put ordinary amethyst shards in the left slot. Embody consumes one whole charge and one shard for each crystal. Hold use to break a crystal open.</p><p>Its answer may be quiet, practical, ancient, or legendary. Forgotten echoes draw only one or two useful finds from old treasure chests.</p>
+<br />
+    </div>
+</div>
+</section>
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Enchanted Book"
+      alt="Enchanted Book"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Spells<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Patterns and actions that perform a magical effect on the world.</p>
+<div id="patterns/spells/hexamancy_spells" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Poppy"
+      alt="Poppy"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Hexamancy<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/hexamancy_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>On Hexamancy</h4>
+    <p>Hexamancy reads what a creature wants, not merely what its body can move.</p><p>These patterns let me read a heart, quicken it, guard it, call it, or close it.</p>
+<br />
+    <p>Every one of these needs its target inside my ambit. Nothing here reaches further than I can.</p><p>These are the only patterns in this book the world will not undo for me. A charm outlives the casting, and only one of these takes one back.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:matchmakers_purification" class="">
+<h4 class="pattern-title">Matchmaker Purification (entity → bool)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:matchmakers_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadeq"
+        data-start="north_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wedadeq</canvas>
+  </details>
+      <p>Takes the creature to be examined. Returns true if it would breed right now, false otherwise.</p>
+  </div>
+<br />
+    <p>Asks whether a creature is ready to mate right now.</p><p>It answers yes only for a grown animal that breeds from food, is off its cooldown, and is not heartbroken. Nothing in the world is touched, which is why it costs a rounding error.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:weavers_purification" class="">
+<h4 class="pattern-title">Weaver&#39;s Purification (entity → list)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:weavers_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dqdqdqdqdqd"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: dqdqdqdqdqd</canvas>
+  </details>
+      <p>Takes the creature whose threads I want. Returns a list of everyone tied to it, empty if there is nobody.</p>
+  </div>
+<br />
+    <p>Returns everyone tied to a creature by a thread of fate.</p><p>What it has tamed, whom it has charmed, whom it married. Only creatures loaded in this same world can be listed - a thread I cannot reach is a thread I cannot see. A broken heart holds no threads at all.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:hearts_purification" class="">
+<h4 class="pattern-title">Heart&#39;s Purification (entity → number)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:hearts_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dqdqdqdqdqdeeddwdd"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: dqdqdqdqdqdeeddwdd</canvas>
+  </details>
+      <p>Takes the creature whose lovers I seek. Returns their combined usable health as a number.</p>
+  </div>
+<br />
+    <p>Measures the usable strength of every creature that loves the named one.</p><p>A present lover contributes its current health. A heart sleeping in another world contributes the last strength the rite remembers; unpaid Tithe damage is already reserved and is not counted. The number is health points, not heart icons: a full vanilla player has twenty.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:animal_passion" class="">
+<h4 class="pattern-title">Animal Passion (entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:animal_passion"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadew"
+        data-start="north_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wedadew</canvas>
+  </details>
+      <p>Takes the animal to hurry along. Returns nothing: the result is in the animal, not on the stack.</p>
+  </div>
+<br />
+    <p>Hurries a willing animal along towards its next litter.</p><p>A tired parent forgets its cooldown; a willing one starts looking for a partner. Calves are refused outright: this is not a spell for children. The price never changes, so it tells me nothing about the beast.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:pheromone_mist" class="">
+<h4 class="pattern-title">Pheromone Mist (vector, number, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:pheromone_mist"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqwedadew"
+        data-start="north_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qqqqqwedadew</canvas>
+  </details>
+      <p>Takes a vector, a positive radius, and a positive duration in seconds. Returns nothing.</p>
+  </div>
+<br />
+    <p>Unfurls a pale pink perfume at the named point.</p><p>Hostile creatures in its radius become neutral if no love, jealousy, or heartbreak already holds their hearts. They give off faint pink-white motes until the duration ends — or until someone hurts them, when the calm breaks at once. Players only feel a brief blush at the edge of their sight; a thinking mind cannot be made harmless this way.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:phantom_ideal" class="">
+<h4 class="pattern-title">Phantom Ideal (vector, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:phantom_ideal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadewqeeqq"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wedadewqeeqq</canvas>
+  </details>
+      <p>Takes a vector and a positive duration in seconds. Returns nothing.</p>
+  </div>
+<br />
+    <p>Makes a transparent rose image of the caster at the named point. Three tendrils draw it into being, and it faces its maker without moving.</p><p>For its whole duration, every unbound creature within twelve paces forgets every other target and walks towards the image. It is no body to strike: it is a beautiful lie for gathering attention away from the living.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:blinding_jealousy" class="">
+<h4 class="pattern-title">Blinding Jealousy (entity, entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:blinding_jealousy"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaeeqad"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qaeeqad</canvas>
+  </details>
+      <p>Takes the one to be made jealous, then the one it will guard, then how long to stay that way, in seconds. Returns nothing.</p>
+  </div>
+<br />
+    <p>Sets one creature to guard another, and to resent everyone else.</p><p>The jealous creature follows the one it guards and charges at anything that comes within six paces of them - but never at the object of its own love. A creature with no way to fight is given one for as long as it lasts.</p><p>A broken heart cannot be made jealous, though it can still be guarded.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:sirens_song" class="">
+<h4 class="pattern-title">Siren&#39;s Song (entity, entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:sirens_song"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeqqee"
+        data-start="north_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eeqqee</canvas>
+  </details>
+      <p>Takes the creature to be lured, then the one calling it, then how long the song lasts, in seconds. Returns nothing.</p>
+  </div>
+<br />
+    <p>Draws a creature towards whoever called it.</p><p>It walks towards the caller and nothing else about it changes. A player caught by the song is drawn along too, and cannot look away from the voice.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:heartbreak" class="">
+<h4 class="pattern-title">Heartbreak (entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:heartbreak"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="deedadewd"
+        data-start="south_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: deedadewd</canvas>
+  </details>
+      <p>Takes the heart to be closed, then how long it stays closed, in seconds. Returns nothing.</p>
+  </div>
+<br />
+    <p>Ends every feeling a creature carries, and lets nothing new take root.</p><p>Love and jealousy end at once, wheat stops working, and for a while the heart feels nothing of its own. It can still be adored, and still be guarded - grief only closes the door outward.</p><p>The only way out of a charm, my own included. It smokes while it lasts.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:soulbind" class="">
+<h4 class="pattern-title">Soulbind (entity, entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:soulbind"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadqdadewdw"
+        data-start="west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wedadqdadewdw</canvas>
+  </details>
+      <p>Takes a player and a dropped Soulbound Ring. Returns nothing.</p>
+  </div>
+<br />
+    <p>Writes a player&#39;s name into an unbound ring, waking only its few coloured facets. The ring must be dropped: a promise cannot be made to something still hidden in a hand.</p><p>Two such rings are offered at a Vow Altar. When both owners remain beside it, the altar writes each other into the rings. While both rings are carried, neither spouse&#39;s heart may be directed to another.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:breath_exchange" class="">
+<h4 class="pattern-title">Breath Exchange (entity, entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:breath_exchange"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadewwqee"
+        data-start="north_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wedadewwqee</canvas>
+  </details>
+      <p>Takes two married players. Returns nothing.</p>
+  </div>
+<br />
+    <p>Lets two vowed souls trade one breath.</p><p>Every active status effect changes owners: strength, poison, fire resistance and every other condition. Their hunger changes hands too, including the hidden fullness and exhaustion beneath the drumsticks.</p><p>Both spouses must carry their own matching Soulbound Ring. A spouse may cast it across worlds, but no stranger may reach through their vow.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:hearts_reflection" class="">
+<h4 class="pattern-title">Heart&#39;s Reflection (→ entity | null)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:hearts_reflection"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="adewdwe"
+        data-start="south_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: adewdwe</canvas>
+  </details>
+      <p>Takes nothing. Adds the active, online spouse as an entity, or Null when there is none.</p>
+  </div>
+<br />
+    <p>Returns the other half of a living vow without disturbing the rest of the stack.</p><p>It returns Null if the rings are inactive or the partner is away. The returned soul can be used by Breath Exchange even from another world; shared ambit itself remains limited to one world.</p>
+<br />
+</div>
+</section>
+<section id="patterns/great_spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Conduit Power"
+      alt="Conduit Power"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Great Spells<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>The spells catalogued here are purported to be of legendary difficulty and power. They seem to have been recorded only <a href="https://hexcasting.hexxy.media/v/0.11.3/1.0/en_us#items/scroll">sparsely</a> (for good reason, the texts claim). It&#39;s probably just the ramblings of extinct traditionalists, though -- a pattern&#39;s a pattern.</p><p>What could possibly go wrong?</p>
+<div id="patterns/great_spells/hexamancy_great_spells" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Red Dye"
+      alt="Red Dye"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/red_dye.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Cupid&#39;s Charm<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/hexamancy_great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/hexamancy_great_spells@hexlove:cupids_charm/great" class="">
+<h4 class="pattern-title">Cupid&#39;s Charm (entity, entity, number → number)<a
+    href="#patterns/great_spells/hexamancy_great_spells@hexlove:cupids_charm/great"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aewdadwewwdwdww"
+        data-start="east"
+        data-per-world="True"
+      >Your browser does not support visualizing patterns. Pattern code: aewdadwewwdwdww</canvas>
+  </details>
+      <p>Takes the one who will love, then the one to be loved, then a strength of feeling. Returns the love&#39;s duration in seconds; -1 means forever.</p>
+  </div>
+<br />
+    <p>The strength is not a duration. It is how much feeling I pour in, and what comes of it depends on how stubborn the other heart is.</p><p>A charmed creature keeps to the one it loves the way a tamed wolf keeps to its master: it follows, it fights whoever they fight or whoever strikes them, and if the chase carries it more than twenty paces from them it drops the quarrel and comes back.</p>
+<br />
+  <h4>Strength of Feeling</h4>
+    <p>A heart resists a little under a quarter-point for every point of life; matching feeling holds it forever.</p><p>Thus two and a half binds a cow or sheep forever, and five a zombie, creeper, or skeleton. Less still works, but fades. Players resist a fixed amount and never yield forever.</p>
+<br />
+    <p>Creatures with two hundred life or more refuse the spell. Below that, strength above five can reach tougher hearts.</p><p>Up to five, feeling is cheap - a flat price and a point. Past five the surcharge multiplies with every further point, so reaching further is arithmetically possible and practically a creative-mode stunt. There is no wall in front of the great monsters, only a bill; and in front of a boss, no amount of either.</p>
+<br />
+  <h4>What Comes Of It</h4>
+    <p>Two animals of the same species are betrothed instead of charmed: they walk to each other, stand together a while, and then there are many children. Two of different species make one child of blended blood. Two zombies, one zombie. Everything else simply falls in love and follows.</p><p>A courtship needs two whole hearts, so a grieving animal cannot be betrothed - but anything can be *loved*, grief and all. Pointing the spell at one creature twice is not a charm at all: no heart can be handed to itself.</p>
+<br />
+    <p>Like every Great Spell, its shape differs in every world, and is found written on an Ancient Scroll.</p>
+<br />
+</div>
+<div id="patterns/great_spells/hexamancy_succubus_tithe" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Ghast Tear"
+      alt="Ghast Tear"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/ghast_tear.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Succubus&#39; Tithe<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/hexamancy_succubus_tithe"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/hexamancy_succubus_tithe@hexlove:succubus_tithe/great" class="">
+<h4 class="pattern-title">Succubus&#39; Tithe (entity, list, number →)<a
+    href="#patterns/great_spells/hexamancy_succubus_tithe@hexlove:succubus_tithe/great"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="weweewewwweeweweeeqqqqqdqqwqeqqqd"
+        data-start="north_west"
+        data-per-world="True"
+      >Your browser does not support visualizing patterns. Pattern code: weweewewwweeweweeeqqqqqdqqwqeqqqd</canvas>
+  </details>
+      <p>Takes the living creature to heal, a list of sources, and a positive amount of health. Returns nothing.</p>
+  </div>
+<br />
+    <p>Draws health from creatures already bound by love to the named recipient. Name sources directly to choose them; every named creature must still love that recipient. An empty list means every active heart in that creature&#39;s harem, even in a distant or sleeping world.</p><p>Requested health is shared evenly. Weak hearts pay what they can; the remainder is divided again. The rite still draws the full request when the recipient is nearly full; excess healing burns away. A sleeping source keeps its share as a debt and pays it on next load, even if the recipient is gone.</p><p>If the chosen hearts cannot pay in full, the rite fails and draws nothing.</p>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p><p>Minecraft content and materials are the intellectual property of their respective owners.</p><p>Made with ❤️ using <a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>.</p>
+        </div>
+      </footer>
+  </body>
+</html>

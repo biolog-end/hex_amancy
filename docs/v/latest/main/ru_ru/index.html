@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+      <title>Книга Hex: Amancy</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Аддон Hex: Amancy для Hex Casting" />
+      <meta name="author" content="Teekas" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Книга Hex: Amancy" />
+<meta property="og:image" content="https://biolog-end.github.io/hex_amancy/v/latest/main/ru_ru/icon.png" />
+<meta property="og:url" content="https://biolog-end.github.io/hex_amancy/v/latest/main/ru_ru" />
+<meta property="og:description" content="Аддон Hex: Amancy для Hex Casting" />
+<meta property="og:site_name" content="Hex: Amancy (latest/main)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Книга Hex: Amancy</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+            <li>
+    <a
+      href="https://github.com/biolog-end/hex_amancy/tree/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf"
+        target="_blank"
+      class="navbar-link"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >GitHub <i class="bi bi-box-arrow-up-right external-link-icon"></i></a>
+  </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >latest/main <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Русский (Россия) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>Онлайн версия документации для Hex: Amancy.</p></h1>
+        <p>Эта страница собрана из последней версии кода на GitHub. Здесь могут описываться <strong>новые</strong> вещи, которые могут у вас и не быть, даже на последней версии с Modrinth/CurseForge!</p>
+      <p><strong>Размытие записи являются спойлерами</strong>. Нажмите на них, чтобы убрать размытие, но будьте осторожны - эти записи могут заспойлерить конечные стадии игры. В качестве альтернативы, нажмите <a href="?nospoiler">сюда</a>, чтобы открыть версию без размытия спойлеров.</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>Прошлое - это другая страна. Там всё иначе.</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    <span class="nobr">Содержание<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="Переключить все"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#casting" class="toc-elem "><img
+      title="Дубовый посох"
+      alt="Дубовый посох"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/staff/oak.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Hex Casting</a></summary>
+      <ul>
+          <li><a href="#casting/chimera" class="toc-elem "><img
+      title="Яйцо призыва химеры"
+      alt="Яйцо призыва химеры"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Химера</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#items" class="toc-elem "><img
+      title="Талисман"
+      alt="Талисман"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Предметы</a></summary>
+      <ul>
+          <li><a href="#items/soulbound_vows" class="toc-elem "><img
+      title="Кольцо Души"
+      alt="Кольцо Души"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Клятвы, связанные с душой</a></li>
+          <li><a href="#items/keepsakes" class="toc-elem "><img
+      title="Аметистовое Сердце"
+      alt="Аметистовое Сердце"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Памятные вещи</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#greatwork" class="toc-elem spoilered"><img
+      title="Пластинка"
+      alt="Пластинка"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/music_disc_11.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Великая работа</a></summary>
+      <ul>
+          <li><a href="#greatwork/world_soul_altar" class="toc-elem spoilered"><img
+      title="Алтарь Души Мира"
+      alt="Алтарь Души Мира"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Алтарь Души мира</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="Чародейская книга"
+      alt="Чародейская книга"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Продвинутые Руны</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/hexamancy_spells" class="toc-elem "><img
+      title="Мак"
+      alt="Мак"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Заклинания привязанности</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/great_spells" class="toc-elem "><img
+      title="Сила источника"
+      alt="Сила источника"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Великие Руны</a></summary>
+      <ul>
+          <li><a href="#patterns/great_spells/hexamancy_great_spells" class="toc-elem "><img
+      title="Красный краситель"
+      alt="Красный краситель"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/red_dye.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Чары Купидона</a></li>
+          <li><a href="#patterns/great_spells/hexamancy_succubus_tithe" class="toc-elem "><img
+      title="Слеза гаста"
+      alt="Слеза гаста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/ghast_tear.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Дань Суккуба</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="casting">
+    <h2 class="category-title page-header">
+    <img
+      title="Дубовый посох"
+      alt="Дубовый посох"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/staff/oak.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Hex Casting<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#casting"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Я начал понимать, как старые мастера создавали свои Заклинания! Это немного сложно, но я уверен, что смогу с этим разобраться. Давайте посмотрим...</p>
+<div id="casting/chimera" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Яйцо призыва химеры"
+      alt="Яйцо призыва химеры"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Химера<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#casting/chimera"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>Ошибка природы</h4>
+    <p>Когда Чары Купидона соединяют животных разных видов, природа иногда отвечает невозможным потомком. Химера наследует черты обоих родителей, но не принадлежит ни к одному виду.</p><p>Это плотоядное и агрессивное существо: взрослая химера охотится на скот и способна преследовать людей.</p>
+<br />
+    <h4>Химера</h4>
+    <p class="image-wrapper">
+      <img
+      title="Химера"
+      alt="Химера"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/doc/resources/assets/hexlove/textures/entities/chimera.png"
+      loading="lazy"
+      class="entity-display texture pixelated"
+    >
+    </p>
+  <p>В её теле смешаны черты всех животных, записанных в родословной. После смерти из химеры можно получить мясо, кожу, перья, костную муку или шерсть.</p>
+<br />
+  <h4 class="spotlight-title page-header">Плоть многоликой природы</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Сырое мясо химеры"
+      alt="Сырое мясо химеры"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/chimera_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Сырое мясо химеры жилистое, отвратительное и совершенно несъедобное. Его не ест даже другая химера: для размножения ей нужно обычное сырое мясо животных.</p>
+<br />
+  <h4 class="spotlight-title page-header">Магический ужин</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Жареное мясо химеры"
+      alt="Жареное мясо химеры"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/cooked_chimera_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Огонь делает невозможную плоть съедобной и пробуждает в ней случайное магическое свойство. Большинство эффектов полезны; из неприятных остались только Слабость и Замедление.</p>
+<br />
+  <h4>Слишком много чувства</h4>
+    <p>Я скормил эту мерзость Аметистовому Сердцу со злости, ожидая отказа. Сердце приняло её вместо пылинки, которую как раз собиралось сложить.</p><p>Вся любовь, что дало мне рождение приплода, ушла в один кусок плоти, а потом Сердце выплюнуло его обратно, сверкающим. Оно сделало мне не пылинку. Оно сделало нечто худшее.</p>
+<br />
+  <h4 class="spotlight-title page-header">Резонирующее мясо</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Резонирующее мясо"
+      alt="Резонирующее мясо"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>Положи сырое мясо химеры в Аметистовое Сердце, туда же, где лежала бы пыль. Каждую собранную целую пылинку Сердце тратит на пропитку одного куска и выплёвывает его наружу.</p><p>Съеденное как есть, оно насыщает как жареная птица, а затем наказывает: тело принимает его за передозировку сырым чувством. Тебя поведёт, ты засветишься чужой любовью, и нутро откажется это удержать.</p>
+<br />
+  <h4>Направить всплеск</h4>
+    <p>Вина была не в плоти. Вина была в том, что я ел её неразбавленной.</p><p>Такому сырому чувству нужна форма, и котёл её даёт. То, что я клал рядом с мясом, и решало, куда пойдёт всплеск: к покою пасущегося зверя или к голоду того, кто ест мёртвых.</p>
+<br />
+  <h4>Рагу Безмятежности</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Рагу Безмятежности</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Резонирующее мясо"
+      alt="Резонирующее мясо"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Пшеница"
+      alt="Пшеница"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wheat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Морковь"
+      alt="Морковь"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/carrot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Ромашка"
+      alt="Ромашка"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/oxeye_daisy.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Tag: Seeds"
+      alt="Tag: Seeds"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAC4jAAAuIwF4pT92AAAANUlEQVQ4y2NgGJRAXV39v7q6+n9cfGTARKllFBvAiOxMUjTevHmTkSouGPhAHA0DWnmBrgAANLIZgSXEQxIAAAAASUVORK5CYII="
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+      <img
+      title="Семена пшеницы"
+      alt="Семена пшеницы"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wheat_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Семена свёклы"
+      alt="Семена свёклы"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/beetroot_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Семена арбуза"
+      alt="Семена арбуза"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/melon_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Семена тыквы"
+      alt="Семена тыквы"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/pumpkin_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Torchflower Seeds"
+      alt="Torchflower Seeds"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/torchflower_seeds.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Pitcher Pod"
+      alt="Pitcher Pod"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/pitcher_pod.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Миска"
+      alt="Миска"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bowl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Рагу Безмятежности"
+      alt="Рагу Безмятежности"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/stew_of_serenity.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Пшеница, морковь, ромашка и семена, сваренные с мясом.</p><p>Всплеск оседает травоядной природой. Трава, пшеница, семена и корни идут в еду, всякий овощ насыщает сильнее, а голод подступает вдвое медленнее. Ни один зверь не убежит от тебя, даже раненый.</p>
+<br />
+  <h4>Цена покоя</h4>
+    <p>Руки теряют треть силы, кирка вгрызается на пятую часть медленнее. Ничего, кроме зелени, вообще не проглотишь.</p><p>А стадо не просто стерпит тебя: оно сочтёт тебя своим. Поешь рядом со взрослой коровой, овцой или свиньёй, а затем покорми её — и она подойдёт к тебе с намерением. Что бы ни вышло дальше, тебе это не понравится, и колдовать ты не сможешь, пока позор не сойдёт.</p>
+<br />
+  <h4>Рагу Свирепости</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Рагу Свирепости</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Резонирующее мясо"
+      alt="Резонирующее мясо"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/resonant_meat.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Гнилая плоть"
+      alt="Гнилая плоть"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/rotten_flesh.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Паучий глаз"
+      alt="Паучий глаз"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/spider_eye.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Кость"
+      alt="Кость"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bone.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Миска"
+      alt="Миска"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bowl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Рагу Свирепости"
+      alt="Рагу Свирепости"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/stew_of_ferocity.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Гнилая плоть, паучий глаз и кость, сваренные с мясом.</p><p>Всплеск идёт наружу и вниз. Мертвецы, ползучие и то, что взрывается, оставят тебя в покое, пока ты не ударил первым — и тогда именно тот запомнит. Эндермены отвечают не отсюда.</p>
+<br />
+  <h4>Сделка гуля</h4>
+    <p>Сырое мясо и падаль насыщают как стейк, паучий глаз — честная еда, кость можно разгрызть терпением. Яд, гниль и головокружение не берут, темнота чуть расступается, а рука и шаг стали вернее.</p><p>Но лечение жжёт, урон исцеляет, голод берёт втрое быстрее даже стоймя, и ни жареное, ни хлеб, ни овощ в рот не пойдут. Жители бегут, големы видят чудовище.</p>
+<br />
+  <h4>По одной природе</h4>
+    <p>Тело держит только одну из них. Съешь другое рагу — первая отпустит тотчас.</p><p>Глоток молока обрывает любую, как обрывает всё прочее. Миска возвращается всегда.</p>
+<br />
+</div>
+</section>
+<section id="items">
+    <h2 class="category-title page-header">
+    <img
+      title="Талисман"
+      alt="Талисман"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Предметы<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Я посвящаю этот раздел магическим и таинственным предметам, с которыми я могу столкнуться в ходе своих исследований.</p>
+<div id="items/soulbound_vows" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Кольцо Души"
+      alt="Кольцо Души"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Клятвы, связанные с душой<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items/soulbound_vows"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>Как принести клятву</h4>
+    <p>Кольцо Души начинается как тихий личный талисман. Связь Душ вписывает душу игрока в выброшенное кольцо и окрашивает его собственным цветом.</p><p>У человека может быть только одна действующая брачная клятва. Если связать новое кольцо уже после свадьбы, оно получит ту же клятву и общий живой градиент, но не создаст второй брак.</p>
+<br />
+  <h4>Кольцо Души</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Кольцо Души</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Талисман"
+      alt="Талисман"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Кольцо Души"
+      alt="Кольцо Души"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>До обряда Связи Душ это кольцо остаётся без владельца.</p><p>Сначала выбросьте его, затем укажите кольцо и игрока. Порядок аргументов не важен.</p>
+<br />
+  <h4>Алтарь Клятв</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Алтарь Клятв</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Кварцевый блок"
+      alt="Кварцевый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Золотой слиток"
+      alt="Золотой слиток"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Кварцевый блок"
+      alt="Кварцевый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Золотой слиток"
+      alt="Золотой слиток"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Аметистовый блок"
+      alt="Аметистовый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/amethyst_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Золотой слиток"
+      alt="Золотой слиток"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Кварцевый блок"
+      alt="Кварцевый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Золотой слиток"
+      alt="Золотой слиток"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Кварцевый блок"
+      alt="Кварцевый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/quartz_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Алтарь Клятв"
+      alt="Алтарь Клятв"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/vow_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Принесите сюда два кольца, связанных с душами. Когда оба владельца подойдут достаточно близко, алтарь соединит их и вернёт кольца.</p><p>Положить кольцо в алтарь или забрать его может только владелец.</p>
+<br />
+  <h4 class="spotlight-title page-header">Кольцо</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Кольцо Души"
+      alt="Кольцо Души"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/item/soulbound_ring_base.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+      <p>На связанном кольце имя владельца сияет собственным цветом. После свадьбы оба кольца получают общий градиент, составленный из двух душ.</p><p>Очарование заклинателя меняет только внешний вид кольца. Положить кольцо в слот алтаря может только его владелец.</p>
+<br />
+  <h4 class="spotlight-title page-header">Алтарь Клятв</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Алтарь Клятв"
+      alt="Алтарь Клятв"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/vow_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>Используйте алтарь, чтобы открыть ритуал. Положите два связанных, но ещё не обручённых кольца в его слоты. Кольца появятся и на самом алтаре. Если оба владельца остаются в пределах 4 блоков в течение 5 секунд, спираль завершится вспышкой, а соединённые кольца вернутся к хозяевам.</p>
+<br />
+  <h4>Расторжение клятвы</h4>
+    <p>Клятву можно расторгнуть, не уничтожая ни одну душу. Положите своё обручальное кольцо в любой слот алтаря, оставьте второй слот пустым и нажмите «Расторгнуть клятву». Союз исчезнет у обоих супругов, даже если второй сейчас не в сети; при следующем возвращении его кольцо снова станет связанным только с его душой.</p>
+<br />
+    <p>Пока оба супруга носят свои кольца, их сердца нельзя направить ни к кому, кроме друг друга. Питомцы и обычные поклонники не нападут на другого супруга, в одном мире супруги разделяют амбит, а 10% входящего урона одного супруга передаётся другому.</p><p>Если убрать кольцо, эти преимущества приостанавливаются. Второй брак от этого не появляется.</p>
+<br />
+</div>
+<div id="items/keepsakes" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Аметистовое Сердце"
+      alt="Аметистовое Сердце"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Памятные вещи<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items/keepsakes"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>Вещи, которые помнят</h4>
+    <p>Даже после окончания заклинания крупица любви может остаться в мире. Дайте ей кристалл, цвет и место, где можно укорениться, — и она станет маленьким, но настоящим проявлением доброты.</p><p>Памятные вещи — не просто украшения. Каждая хранит частицу нежного мгновения.</p>
+<br />
+  <h4>Аметистовая роза</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Аметистовая роза</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Мак"
+      alt="Мак"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Аметистовая роза"
+      alt="Аметистовая роза"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Положите мак в крест из четырёх аметистовых осколков. Красные лепестки превратятся в клятву, заключённую в кристалле. Роза растёт на обычной земле или аметисте, испускает мягкие красные частицы Сотворения и помещается в цветочный горшок.</p>
+<br />
+  <h4>Аметистовый одуванчик</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Аметистовый одуванчик</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Одуванчик"
+      alt="Одуванчик"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/dandelion.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Аметистовый одуванчик"
+      alt="Аметистовый одуванчик"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Положите одуванчик в такой же крест из четырёх осколков. Он удержит желание, слишком тяжёлое для ветра, и будет испускать тёплые жёлтые частицы Сотворения. Одуванчик можно посадить в землю, аметист или цветочный горшок.</p>
+<br />
+  <h4>Аметистовый тюльпан</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Аметистовый тюльпан</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Розовый тюльпан"
+      alt="Розовый тюльпан"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/pink_tulip.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Осколок аметиста"
+      alt="Осколок аметиста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Аметистовый тюльпан"
+      alt="Аметистовый тюльпан"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Розовый тюльпан в кресте из четырёх осколков складывает тихую тайну в каждом гранёном лепестке. Его розовые частицы Сотворения остаются маленькими и нежными даже в горшке.</p>
+<br />
+  <h4>Аметистовое сердце</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Аметистовое Сердце</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Заряженный аметист"
+      alt="Заряженный аметист"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Заряженный аметист"
+      alt="Заряженный аметист"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Tag: Amethyst Flowers"
+      alt="Tag: Amethyst Flowers"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAC4jAAAuIwF4pT92AAAANUlEQVQ4y2NgGJRAXV39v7q6+n9cfGTARKllFBvAiOxMUjTevHmTkSouGPhAHA0DWnmBrgAANLIZgSXEQxIAAAAASUVORK5CYII="
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+      <img
+      title="Аметистовая роза"
+      alt="Аметистовая роза"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Аметистовый одуванчик"
+      alt="Аметистовый одуванчик"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+      <img
+      title="Аметистовый тюльпан"
+      alt="Аметистовый тюльпан"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Заряженный аметист"
+      alt="Заряженный аметист"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Золотой слиток"
+      alt="Золотой слиток"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/gold_ingot.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Аметистовое Сердце"
+      alt="Аметистовое Сердце"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Окружите любой аметистовый цветок заряженным аметистом. Обсидиан станет оболочкой сосуда, а золотой слиток направит собранную любовь в сердце.</p>
+<br />
+  <h4 class="spotlight-title page-header">Сбор любви</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Аметистовое Сердце"
+      alt="Аметистовое Сердце"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/amethyst_heart.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>Поставьте сердце на твёрдый пол, стену или потолок. Когда в радиусе 12 блоков животные успешно размножаются, одно сердце получает от 1/7 до 1/2 аметистовой пыли. Дополнительные сердца не увеличивают награду.</p><p>Откройте сердце, чтобы забрать накопившуюся полную единицу пыли и проверить заполнение колбы.</p>
+<br />
+  <h4>Свечи влюблённости</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Свечи Влюблённости</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Заряженный аметист"
+      alt="Заряженный аметист"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Розовое стекло"
+      alt="Розовое стекло"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/pink_stained_glass.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Аметистовый подсвечник"
+      alt="Аметистовый подсвечник"
+      src="https://hexcasting.hexxy.media/v/0.11.3/1.0/assets/hexcasting/textures/block/amethyst_sconce.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Розовое стекло"
+      alt="Розовое стекло"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/pink_stained_glass.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Алмаз"
+      alt="Алмаз"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Алмаз"
+      alt="Алмаз"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Алмаз"
+      alt="Алмаз"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/diamond.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Свечи Влюблённости"
+      alt="Свечи Влюблённости"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Аметистовый подсвечник даёт свечам ровное, терпеливое пламя. Розовое стекло окрашивает его свет, заряженный аметист удерживает заклинание, а три алмаза не дают трём розовым кристаллам потускнеть. Поставленные свечи поворачиваются к магу.</p>
+<br />
+  <h4 class="spotlight-title page-header">Комната готова</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <img
+      title="Свечи Влюблённости"
+      alt="Свечи Влюблённости"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+      <p>В радиусе восьми блоков от этих ярко-розовых кристаллов каждое заклинание Hex: Amancy стоит на 20% меньше медиа. Обильные розовые и фиолетовые частицы Сотворения напоминают: комната уже готова к ритуалу.</p>
+<br />
+</div>
+</section>
+<section id="greatwork">
+    <div class="spoilered">
+      <h2 class="category-title page-header">
+    <img
+      title="Пластинка"
+      alt="Пластинка"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/music_disc_11.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Великая работа<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#greatwork"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Я видел... так много. У меня есть... пережил... аннигиляцию, деконструкцию и реконструкцию. Я видел, как атомы мира кричали, когда их переворачивали, ниспровергали и превращали в энергию. Я видел, я видел, я видел с<span class="obfuscated">get stick bugged lmao</span></p>
+    </div>
+<div id="greatwork/world_soul_altar" class="entry">
+    <div class="spoilered">
+      <h3 class="entry-title page-header">
+    <img
+      title="Алтарь Души Мира"
+      alt="Алтарь Души Мира"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Алтарь Души мира<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#greatwork/world_soul_altar"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>Мир, который отвечает</h4>
+    <p>Алтарь Души мира — не просто блок, а место, подготовленное для самого мира. Когда цветы, столбы и четыре Свечи влюблённости собраны правильно, центральный камень вспыхивает розово-лиловым светом.</p>
+<br />
+  <h4>Сердце конструкции</h4>
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать рецепты</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть рецепты</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Алтарь Души Мира</h5>
+    <div class="crafting-table">
+        <img
+      title="Верстак"
+      alt="Верстак"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <div
+      class="texture item-texture multi-textures gaslight-textures multi-texture-active"
+    >
+        <img
+      title="Осколок погашенного сплава"
+      alt="Осколок погашенного сплава"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_0.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        <img
+      title="Осколок погашенного сплава"
+      alt="Осколок погашенного сплава"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_1.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        <img
+      title="Осколок погашенного сплава"
+      alt="Осколок погашенного сплава"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_2.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        <img
+      title="Осколок погашенного сплава"
+      alt="Осколок погашенного сплава"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/eefaf2d411b6360519c9f56fbfe6b0dfba047425/Common/src/main/resources/assets/hexcasting/textures/item/quenched_shard_3.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+    </div>
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Огненный стержень"
+      alt="Огненный стержень"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <div
+      role="img"
+      title="Кристаллизованная Любовь"
+      aria-label="Кристаллизованная Любовь (animated)"
+      class="item-texture multi-texture-active texture animated-sync texture-hexlove-textures-item-crystallized_affection-png pixelated"
+    ></div>
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Огненный стержень"
+      alt="Огненный стержень"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Огненный стержень"
+      alt="Огненный стержень"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/blaze_rod.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Обсидиан"
+      alt="Обсидиан"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/obsidian.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Алтарь Души Мира"
+      alt="Алтарь Души Мира"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Кристаллизованную любовь можно найти в старых сундуках подземелий. Поставьте её в центр рецепта, обсидиан — по углам, палочки ифрита — по бокам и снизу, а закалённый осколок Эллея — сверху. Сердце будет спать, пока ритуальный двор не собран.</p>
+<br />
+  <h5 class="multiblock-name">
+    Ритуальный двор
+  </h5>
+  <details class="details-collapsible multiblock-details">
+    <summary class="collapse-details">
+    <span class="collapse-recipe-show">Нажмите, чтобы показать мультиблочную структуру</span>
+    <span class="collapse-recipe-hide">Нажмите, чтобы скрыть мультиблочную структуру</span>
+  </summary>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Аметистовый блок"
+      alt="Аметистовый блок"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/amethyst_block.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">41x Аметистовый блок</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Свечи Влюблённости"
+      alt="Свечи Влюблённости"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/candles_of_infatuation.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">4x Свечи Влюблённости</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Аметистовый тюльпан"
+      alt="Аметистовый тюльпан"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_tulip.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">2x Аметистовый тюльпан</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Алтарь Души Мира"
+      alt="Алтарь Души Мира"
+      src="https://biolog-end.github.io/hex_amancy/v/latest/main/assets/hexlove/textures/block/world_soul_altar.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Алтарь Души Мира</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Аметистовая роза"
+      alt="Аметистовая роза"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_rose.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Аметистовая роза</span>
+        </div>
+        <div class="multiblock-ingredient">
+          <div class="item-slot">
+            <img
+              alt="Spotlight inventory slot"
+              src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+            >
+            <img
+      title="Аметистовый одуванчик"
+      alt="Аметистовый одуванчик"
+      src="https://raw.githubusercontent.com/biolog-end/hex_amancy/ea7eda774ac00d62421a01eab4c0bc7ad5a60aaf/common/src/main/resources/assets/hexlove/textures/block/amethyst_dandelion.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+          </div>
+          <span class="multiblock-ingredient-amount">1x Аметистовый одуванчик</span>
+        </div>
+  </details>
+      <p>Постройте показанный двор размером 7×7. Сердце должно стоять на сплошном аметистовом основании 5×5, а под каждым внешним столбом должно быть собственное основание.</p>
+<br />
+  <h4>Завершение двора</h4>
+    <p>Поставьте по аметистовому цветку с каждой стороны света. В конструкции должны быть роза, одуванчик и тюльпан; четвёртый цветок можно выбрать повторно.</p><p>Каждый угловой столб должен быть высотой от 2 до 4 аметистовых блоков и заканчиваться вертикальной Свечой влюблённости. Весь двор можно развернуть.</p>
+<br />
+  <h4>Память мира</h4>
+    <p>Положите своё привязанное к душе кольцо в правый слот и нажмите «Связать с миром». Четыре потока войдут в поднятое кольцо. Нажмите ту же кнопку ещё раз, чтобы отсоединиться: потоки устремятся обратно к свечам. Накопленная любовь сохранится в спящем кольце и вернётся после новой настройки.</p><p>Эта связь принадлежит миру. Она не является браком и не заменяет брачную клятву.</p>
+<br />
+  <h4>Накопление любви</h4>
+    <p>Носите связанное кольцо, чтобы накапливать дробную любовь за убийство врагов, кормление и размножение взрослых животных, приручение и торговлю с жителями. Максимальный заряд — 64.</p><p>Кормление детёнышей не учитывается.</p>
+<br />
+  <h4>Объятия мира</h4>
+    <p>Только самая первая связь этого кольца даёт благословение на одни игровые сутки: немного скорости, удачи и дополнительного урона против враждебных существ. Отсоединение и повторная связь больше не выдают это первое благословение. Каждая воплощённая Кристаллизованная любовь продлевает его ещё на пять минут.</p><p>Активный супруг получает половину благословения и передаёт кольцу половину своего заряда.</p>
+<br />
+  <h4 class="spotlight-title page-header">Кристаллизованная любовь</h4>
+  <div class="spotlight">
+    <img
+      alt="Spotlight inventory slot"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/e37c5d449995dd1f84b43079b91dfcca78a6fdde/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+    >
+    <div
+      role="img"
+      title="Кристаллизованная Любовь"
+      aria-label="Кристаллизованная Любовь (animated)"
+      class="item-texture  texture animated-sync texture-hexlove-textures-item-crystallized_affection-png pixelated"
+    ></div>
+  </div>
+      <p>Положите обычные аметистовые осколки в левый слот. Нажатие «Воплотить» тратит одну полную единицу заряда и один осколок на каждый кристалл. Чтобы вскрыть кристалл, удерживайте кнопку использования.</p><p>Ответ мира бывает тихим, полезным, древним или легендарным. Эхо прошлых эпох приносит одну или две находки из старых сокровищниц.</p>
+<br />
+    </div>
+</div>
+</section>
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Чародейская книга"
+      alt="Чародейская книга"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Продвинутые Руны<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Руны, которые оказывают магическое воздействие на окружающий мир.</p>
+<div id="patterns/spells/hexamancy_spells" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Мак"
+      alt="Мак"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/blocks/poppy.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Заклинания привязанности<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/hexamancy_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>О магии привязанности</h4>
+    <p>Магия привязанности читает желания существа, а не только возможности его тела.</p><p>Эти узоры позволяют услышать сердце, разжечь в нём чувство, защитить его, позвать к себе или запереть его от новых переживаний.</p>
+<br />
+    <p>Цель каждого заклинания должна находиться в пределах вашего амбита. Ни одно из них не достаёт дальше, чем можете достать вы.</p><p>Это единственные узоры в книге, которые мир не отменяет сам. Наложенные чары переживают момент применения, и только один из этих узоров способен их снять.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:matchmakers_purification" class="">
+<h4 class="pattern-title">Проверка Сводницы (entity → bool)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:matchmakers_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadeq"
+        data-start="north_west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: wedadeq</canvas>
+  </details>
+      <p>На вход подаётся существо для проверки. На выходе — истина, если оно прямо сейчас готово к размножению, и ложь в противном случае.</p>
+  </div>
+<br />
+    <p>Проверяет, готово ли существо найти пару.</p><p>Истина возвращается только для взрослого животного, которое размножается с помощью еды, вышло из перезарядки и не страдает от разбитого сердца. Мир при этом не меняется, поэтому заклинание почти ничего не стоит.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:weavers_purification" class="">
+<h4 class="pattern-title">Очищение Ткача (entity → list)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:weavers_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dqdqdqdqdqd"
+        data-start="east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: dqdqdqdqdqd</canvas>
+  </details>
+      <p>На вход подаётся существо, чьи связи нужно увидеть. На выходе — список всех, кто с ним связан, или пустой список, если связей нет.</p>
+  </div>
+<br />
+    <p>Показывает всех, кто связан с существом нитью судьбы.</p><p>В список входят приручённые существа, возлюбленные, цель любви и супруг. Отображаются только живые существа, загруженные в этом же мире: невидимая нить остаётся недостижимой. Разбитое сердце полностью обрывает такие связи.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:hearts_purification" class="">
+<h4 class="pattern-title">Очищение сердца (entity → number)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:hearts_purification"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dqdqdqdqdqdeeddwdd"
+        data-start="east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: dqdqdqdqdqdeeddwdd</canvas>
+  </details>
+      <p>На вход подаётся существо, чьих возлюбленных нужно найти. На выходе — их суммарное доступное здоровье.</p>
+  </div>
+<br />
+    <p>Подсчитывает, сколько здоровья можно получить от существ, любящих названную цель.</p><p>Загруженный возлюбленный вносит своё текущее здоровье. Для существа из другого мира используется последнее сохранённое значение. Урон, уже зарезервированный Дань суккуба, не учитывается. Результат измеряется в очках здоровья, а не в сердцах: полностью здоровый ванильный игрок имеет 20 очков.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:animal_passion" class="">
+<h4 class="pattern-title">Животная страсть (entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:animal_passion"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadew"
+        data-start="north_west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: wedadew</canvas>
+  </details>
+      <p>На вход подаётся животное, которое нужно поторопить. Заклинание ничего не возвращает: результат проявляется в самом животном.</p>
+  </div>
+<br />
+    <p>Помогает готовому животному быстрее перейти к следующему выводку.</p><p>Уставшее животное забывает о перезарядке, а готовое начинает искать пару. Детёнышам заклинание не помогает: оно предназначено только для взрослых животных. Цена фиксирована и не зависит от цели.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:pheromone_mist" class="">
+<h4 class="pattern-title">Феромоновый туман (vector, number, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:pheromone_mist"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqwedadew"
+        data-start="north_west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: qqqqqwedadew</canvas>
+  </details>
+      <p>На вход подаются вектор, положительный радиус и положительная длительность в секундах. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Раскрывает в указанной точке облако бледно-розового аромата.</p><p>Враждебные существа в облаке становятся нейтральными, если их сердца не заняты любовью, ревностью или разбитым сердцем. Они испускают слабые розово-белые частицы до конца действия или до первого удара — получив урон, существо немедленно возвращается к враждебности. Игрок почувствует лишь короткий румянец на краю зрения: разумное существо нельзя навсегда обезвредить этим способом.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:phantom_ideal" class="">
+<h4 class="pattern-title">Фантомный идеал (vector, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:phantom_ideal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadewqeeqq"
+        data-start="south_west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: wedadewqeeqq</canvas>
+  </details>
+      <p>На вход подаются вектор и положительная длительность в секундах. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Создаёт в указанной точке прозрачный розовый образ заклинателя. Три нити втягивают его в мир, после чего он навсегда застывает лицом к своему создателю.</p><p>Пока образ существует, каждое несвязанное существо в радиусе 12 блоков забывает обо всех других целях и направляется к нему. Фантом нельзя ранить: это красивая приманка, которая отвлекает внимание от живых.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:blinding_jealousy" class="">
+<h4 class="pattern-title">Ослепляющая ревность (entity, entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:blinding_jealousy"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaeeqad"
+        data-start="east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: qaeeqad</canvas>
+  </details>
+      <p>На вход подаются тот, кого нужно сделать ревнивым, тот, кого он будет охранять, и длительность эффекта в секундах. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Заставляет одно существо охранять другое и видеть угрозу в каждом, кто подойдёт слишком близко.</p><p>Ревнивец следует за подопечным и атакует всё, что приблизится к нему на шесть блоков, но никогда не нападает на собственную цель любви. Если существо не умело сражаться, заклинание временно научит его.</p><p>Разбитое сердце нельзя обратить в ревность, хотя охранять такое существо всё ещё можно.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:sirens_song" class="">
+<h4 class="pattern-title">Песнь сирены (entity, entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:sirens_song"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeqqee"
+        data-start="north_east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: eeqqee</canvas>
+  </details>
+      <p>На вход подаются тот, кого нужно позвать, тот, кто зовёт, и длительность песни в секундах. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Заставляет существо идти к тому, кто его позвал.</p><p>Оно движется к зовущему, но во всём остальном остаётся прежним. Если песня захватила игрока, его тоже потянет к голосу, и он не сможет отвернуть взгляд.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:heartbreak" class="">
+<h4 class="pattern-title">Разбитое сердце (entity, number →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:heartbreak"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="deedadewd"
+        data-start="south_east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: deedadewd</canvas>
+  </details>
+      <p>На вход подаются сердце, которое нужно закрыть, и длительность эффекта в секундах. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Гасит все чувства существа и не позволяет новым чувствам укорениться.</p><p>Любовь и ревность исчезают сразу, а корм для размножения перестаёт действовать. Некоторое время сердце ничего не чувствует само, но его всё ещё можно любить и охранять: горе закрывает дверь наружу, а не внутрь.</p><p>Это единственный способ снять чары, включая Чары Купидона. Пока эффект действует, сердце словно покрыто пеплом.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:soulbind" class="">
+<h4 class="pattern-title">Связь Душ (entity, entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:soulbind"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadqdadewdw"
+        data-start="west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: wedadqdadewdw</canvas>
+  </details>
+      <p>На вход подаются игрок и выброшенное Кольцо Души. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Записывает имя игрока в несвязанное кольцо и пробуждает несколько его цветных граней. Кольцо должно лежать на земле: обещание нельзя дать вещи, которую всё ещё держат в руке.</p><p>Два таких кольца можно принести на Алтарь Клятв. Когда оба владельца остаются рядом, алтарь записывает их имена друг в друга. Пока супруги носят кольца, их сердца нельзя направить к кому-то ещё.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:breath_exchange" class="">
+<h4 class="pattern-title">Обмен дыханием (entity, entity →)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:breath_exchange"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wedadewwqee"
+        data-start="north_west"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: wedadewwqee</canvas>
+  </details>
+      <p>На вход подаются два состоящих в браке игрока. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Позволяет двум супругам обменяться одним дыханием.</p><p>Все активные эффекты переходят от одного владельца к другому: сила, отравление, огнестойкость и любые другие состояния. Вместе с ними меняется и голод, включая скрытые сытость и истощение.</p><p>Оба супруга должны носить свои совпадающие Кольца Души. Применить заклинание можно даже между мирами, но чужой человек не сможет пройти сквозь брачную клятву.</p>
+<br />
+  <div id="patterns/spells/hexamancy_spells@hexlove:hearts_reflection" class="">
+<h4 class="pattern-title">Отражение сердца (→ entity | null)<a
+    href="#patterns/spells/hexamancy_spells@hexlove:hearts_reflection"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="adewdwe"
+        data-start="south_east"
+        data-per-world="False"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: adewdwe</canvas>
+  </details>
+      <p>Стек не получает аргументов. В него добавляется активный супруг, находящийся в сети, или Null, если супруга нет.</p>
+  </div>
+<br />
+    <p>Возвращает вторую половину действующей брачной клятвы, не затрагивая остальной стек.</p><p>Если кольца неактивны или партнёр отсутствует, возвращается Null. Полученную сущность можно передать в Обмен дыханием даже из другого мира; общий амбит супругов всё равно действует только в пределах одного мира.</p>
+<br />
+</div>
+</section>
+<section id="patterns/great_spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Сила источника"
+      alt="Сила источника"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Великие Руны<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Руны, перечисленные здесь, предположительно обладают легендарной сложностью и силой. Похоже, что они использовались очень редко (как утверждается в текстах, на то есть веские причины). Хотя, возможно, это просто бредни давно умерших стариков.</p><p>Что может пойти не так?</p>
+<div id="patterns/great_spells/hexamancy_great_spells" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Красный краситель"
+      alt="Красный краситель"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/red_dye.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Чары Купидона<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/hexamancy_great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/hexamancy_great_spells@hexlove:cupids_charm/great" class="">
+<h4 class="pattern-title">Чары Купидона (entity, entity, number → number)<a
+    href="#patterns/great_spells/hexamancy_great_spells@hexlove:cupids_charm/great"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aewdadwewwdwdww"
+        data-start="east"
+        data-per-world="True"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: aewdadwewwdwdww</canvas>
+  </details>
+      <p>На вход подаются тот, кто будет любить, тот, кого будут любить, и сила чувства. На выходе — длительность любви в секундах; значение −1 означает вечную связь.</p>
+  </div>
+<br />
+    <p>Сила заклинания — это не срок действия, а количество чувства, переданного чужому сердцу. Результат зависит от того, насколько это сердце упрямо.</p><p>Очарованное существо держится за возлюбленного, как приручённый волк за хозяина: следует за ним, сражается с его врагами и защищает его от нападающих. Если погоня уводит существо дальше чем на 20 блоков, оно прекращает преследование и возвращается.</p>
+<br />
+  <h4>Сила чувства</h4>
+    <p>Сила заклинания измеряется не временем действия, а тем, сколько чувства получает цель. Её сердце сопротивляется примерно на четверть единицы за каждое очко здоровья; если сила сравняется с сопротивлением, связь станет вечной.</p><p>Корове или овце обычно достаточно силы 2,5, а зомби, криперу или скелету — 5. Меньшая сила тоже сработает, но чувство со временем угаснет. Игроки сопротивляются одинаково и не могут быть связаны навсегда.</p>
+<br />
+    <p>Существа с 200 очками здоровья и более полностью отвергают заклинание. Для остальных сила выше 5 может пробить сопротивление более стойкого сердца.</p><p>Первые пять единиц чувства обходятся дёшево: действует фиксированная цена и небольшая доплата за силу. После этого каждая следующая единица обходится заметно дороже. Так цена ограничивает даже великих чудовищ, а боссы остаются недосягаемыми.</p>
+<br />
+  <h4>Что произойдёт</h4>
+    <p>Два животных одного вида не просто влюбятся, а начнут ухаживать друг за другом: подойдут ближе, постоят рядом — и вскоре у них появится много детёнышей. Животные разных видов дадут одного детёныша со смешанной кровью. Два зомби создадут одного зомби. Все остальные существа просто влюбятся и последуют за целью.</p><p>Для ухаживания нужны два целых сердца, поэтому животное с разбитым сердцем нельзя направить к партнёру. Влюбить можно кого угодно, даже того, кто переживает горе. Если дважды указать одно и то же существо, заклинание не сработает: нельзя подарить сердце самому себе.</p>
+<br />
+    <p>Как и всякое Великое заклинание, в каждом мире этот узор выглядит по-своему. Найти его можно на Древнем свитке.</p>
+<br />
+</div>
+<div id="patterns/great_spells/hexamancy_succubus_tithe" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Слеза гаста"
+      alt="Слеза гаста"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/ghast_tear.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Дань Суккуба<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/hexamancy_succubus_tithe"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/hexamancy_succubus_tithe@hexlove:succubus_tithe/great" class="">
+<h4 class="pattern-title">Дань Суккуба (entity, list, number →)<a
+    href="#patterns/great_spells/hexamancy_succubus_tithe@hexlove:succubus_tithe/great"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Рендеры</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="weweewewwweeweweeeqqqqqdqqwqeqqqd"
+        data-start="north_west"
+        data-per-world="True"
+      >Ваш браузер не поддерживает визуализацию узоров. Код паттерна: weweewewwweeweweeeqqqqqdqqwqeqqqd</canvas>
+  </details>
+      <p>На вход подаются живое существо, которое нужно исцелить, список источников и положительное количество здоровья. Заклинание ничего не возвращает.</p>
+  </div>
+<br />
+    <p>Забирает здоровье у существ, связанных любовью с указанным получателем. Источники можно перечислить вручную, но каждый из них всё ещё должен любить получателя. Пустой список означает всех активных возлюбленных из гарема, даже если они находятся в другом или ещё не загруженном мире.</p><p>Запрошенное здоровье распределяется поровну. Слабые сердца платят сколько могут, после чего оставшаяся часть снова делится между ними. Заклинание всё равно забирает полную запрошенную сумму, даже если получатель почти здоров: излишек исцеления сгорает. Доля спящего источника превращается в долг и будет выплачена при следующей загрузке, даже если получателя уже нет.</p><p>Если выбранные сердца не способны выплатить всю сумму, ритуал отменяется и не забирает ничего.</p>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>Неофициальный продукт Minecraft. Не одобрен и не связан с компанией Mojang или Microsoft.</p><p>Контент и материалы Minecraft являются интеллектуальной собственностью их соответствующих владельцев.</p><p>Сделано с ❤️ используя <a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>.</p>
+        </div>
+      </footer>
+  </body>
+</html>
