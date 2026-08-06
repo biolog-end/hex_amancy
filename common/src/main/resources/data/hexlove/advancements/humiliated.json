@@ -1,0 +1,15 @@
+{
+  "parent": "hexlove:stew_of_serenity",
+  "display": {
+    "icon": { "item": "minecraft:milk_bucket" },
+    "title": { "translate": "advancements.hexlove.humiliated.title" },
+    "description": { "translate": "advancements.hexlove.humiliated.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": { "trigger": "minecraft:impossible" }
+  }
+}

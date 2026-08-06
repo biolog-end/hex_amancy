@@ -35,9 +35,9 @@ object NatureTicker {
         ItemParticleOption(ParticleTypes.ITEM, ItemStack(Items.SNOWBALL))
     }
 
-    /** Hex conjure particle colours for the nature trail. */
-    private const val SERENE_HEX_RGB = 0x6ADB2A     // vivid leaf green
-    private const val FEROCIOUS_HEX_RGB = 0xC81020  // hot blood red
+    /** Hex conjure particles for the nature trail. Immutable, so one of each is enough forever. */
+    private val SERENE_TRAIL = ConjureParticleOptions(0x6ADB2A)     // vivid leaf green
+    private val FEROCIOUS_TRAIL = ConjureParticleOptions(0xC81020)  // hot blood red
 
     fun tick(level: ServerLevel) {
         try {
@@ -57,8 +57,8 @@ object NatureTicker {
             if (now % 4L == 0L) {
                 for (player in level.players()) {
                     when (ChimeraNatures.of(player)) {
-                        ChimeraNature.SERENE    -> emitHeadTrail(level, player, SERENE_HEX_RGB)
-                        ChimeraNature.FEROCIOUS -> emitHeadTrail(level, player, FEROCIOUS_HEX_RGB)
+                        ChimeraNature.SERENE    -> emitHeadTrail(level, player, SERENE_TRAIL)
+                        ChimeraNature.FEROCIOUS -> emitHeadTrail(level, player, FEROCIOUS_TRAIL)
                         null                    -> { /* no trail */ }
                     }
                 }
@@ -110,11 +110,11 @@ object NatureTicker {
      * active nature. Serene sheds mossy-green motes, ferocious sheds blood-red ones — even from
      * across the room another player can tell which way you turned without seeing the HUD.
      */
-    private fun emitHeadTrail(level: ServerLevel, player: ServerPlayer, rgb: Int) {
+    private fun emitHeadTrail(level: ServerLevel, player: ServerPlayer, trail: ConjureParticleOptions) {
         try {
             val cy = player.y + player.eyeHeight.toDouble() + 0.20
             level.sendParticles(
-                ConjureParticleOptions(rgb),
+                trail,
                 player.x, cy, player.z,
                 2, 0.14, 0.10, 0.14, 0.02,
             )
@@ -179,18 +179,24 @@ object NatureTicker {
      */
     private fun forgetForSerene(level: ServerLevel) {
         for (player in level.players()) {
+            val serene = ChimeraNatures.isSerene(player)
+            val ferocious = ChimeraNatures.isFerocious(player)
+            if (!serene && !ferocious) continue
+            // forgetForbiddenTarget is a no-op on a mob that is not targeting anything, so asking
+            // for those in the first place only built a big list of grazing animals to throw away.
+            // Twenty-four blocks each way around every player is a lot of cows. Ask for fewer.
             val box = player.boundingBox.inflate(24.0)
-            if (ChimeraNatures.isSerene(player)) {
-                val animals = level.getEntitiesOfClass(Animal::class.java, box) { it.isAlive }
+            if (serene) {
+                val animals = level.getEntitiesOfClass(Animal::class.java, box) { it.isAlive && it.target != null }
                 for (animal in animals) {
                     BehaviorController.forgetForbiddenTarget(animal)
                 }
             }
-            if (ChimeraNatures.isFerocious(player)) {
+            if (ferocious) {
                 // Clear any hostile mobs within 24 blocks that are targeting this ferocious player
                 // but no longer should be (i.e., they have no grudge). forgetForbiddenTarget already
                 // delegates to BondGate.forbidsTargeting, which calls NatureGate.forbidsTargeting.
-                val hostiles = level.getEntitiesOfClass(Mob::class.java, box) { it.isAlive }
+                val hostiles = level.getEntitiesOfClass(Mob::class.java, box) { it.isAlive && it.target != null }
                 for (hostile in hostiles) {
                     BehaviorController.forgetForbiddenTarget(hostile)
                 }

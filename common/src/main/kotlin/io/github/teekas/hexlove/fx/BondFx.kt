@@ -298,6 +298,8 @@ object BondFx {
         val it = active.iterator()
         while (it.hasNext()) {
             val flight = it.next()
+            // Counted from every level on purpose: an effect whose own level stops ticking would
+            // otherwise sit here forever, because advance() is the only thing that ever retires it.
             flight.wall++
             if (flight.wall > WALL_CLOCK_LIMIT) {
                 it.remove()

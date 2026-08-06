@@ -4,6 +4,8 @@ import io.github.teekas.hexlove.config.HexloveServerConfig
 import io.github.teekas.hexlove.advancement.HexloveAdvancements
 import io.github.teekas.hexlove.registry.HexloveEntities
 import io.github.teekas.hexlove.registry.HexloveItems
+import io.github.teekas.hexlove.registry.HexloveSounds
+import net.minecraft.core.BlockPos
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.syncher.EntityDataAccessor
@@ -42,7 +44,10 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.block.state.BlockState
+import net.minecraft.sounds.SoundEvent
 import net.minecraft.util.Mth
+import net.minecraft.util.RandomSource
 import java.util.UUID
 import kotlin.math.min
 
@@ -141,6 +146,7 @@ class Chimera(type: EntityType<out Chimera>, level: Level) : Animal(type, level)
         val hit = super.doHurtTarget(target)
         if (hit && !level().isClientSide) {
             level().broadcastEntityEvent(this, HEADBUTT_EVENT)
+            playSound(HexloveSounds.CHIMERA_HEADBUTT.value, soundVolume, voicePitch)
         }
         return hit
     }
@@ -195,6 +201,23 @@ class Chimera(type: EntityType<out Chimera>, level: Level) : Animal(type, level)
 
     override fun getMaxHeadYRot(): Int = 32
 
+    override fun getAmbientSound(): SoundEvent = HexloveSounds.CHIMERA_AMBIENT.value
+
+    override fun getHurtSound(source: DamageSource): SoundEvent = HexloveSounds.CHIMERA_HURT.value
+
+    override fun getDeathSound(): SoundEvent = HexloveSounds.CHIMERA_DEATH.value
+
+    /** Three feet carry the weight and the fourth is the wrong shape, so the gait reads as a lurch. */
+    override fun playStepSound(pos: BlockPos, state: BlockState) {
+        playSound(HexloveSounds.CHIMERA_STEP.value, 0.16f * soundVolume, voicePitch)
+    }
+
+    /** A chimera is only ever as large as its parents were, and it sounds it. */
+    override fun getSoundVolume(): Float = (0.6f + 0.4f * sizeFactor).coerceIn(0.5f, 1.3f)
+
+    override fun getVoicePitch(): Float =
+        (super.getVoicePitch() * (1.18f - 0.18f * sizeFactor)).coerceIn(0.55f, 1.9f)
+
     /**
      * Two chimeras can breed, but only from raw meat of ordinary animals. Their child uses the same
      * parent initialisation as a charm-created chimera, so its size and health never fall back to
@@ -204,7 +227,9 @@ class Chimera(type: EntityType<out Chimera>, level: Level) : Animal(type, level)
         val mate = other as? Chimera ?: return null
         val breeding = HexloveServerConfig.config.breeding
         return HexloveEntities.CHIMERA.value.create(level)?.apply {
-            initializeFromParents(this@Chimera, mate, breeding.chimeraMaxSize, breeding.chimeraMaxHealth)
+            initializeFromParents(this@Chimera, mate, breeding.chimeraMaxSize, breeding.chimeraMaxHealth,
+                sizeNoise = breeding.chimeraSizeNoise, healthNoise = breeding.chimeraHealthNoise,
+                rng = level.random)
         }
     }
 
@@ -247,18 +272,51 @@ class Chimera(type: EntityType<out Chimera>, level: Level) : Animal(type, level)
         else -> Items.BLACK_WOOL
     }
 
-    fun initializeFromParents(first: Animal, second: Animal, maxSize: Double, maxHealth: Double) {
+    /**
+     * The average of the parents is only the *centre* of the child's distribution. A small
+     * two-tailed scatter is applied on top, so most chimeras land near the mean but rare
+     * births come out either as an ant-sized runt or as an oversized horror. Health scatter is
+     * independent of size, so a huge chimera can still be surprisingly fragile (a farm-friendly
+     * jackpot) and vice-versa. Pass [sizeNoise] / [healthNoise] = 0.0 for the old strict-average
+     * behaviour. [rng] must be non-null whenever noise > 0.
+     */
+    fun initializeFromParents(
+        first: Animal,
+        second: Animal,
+        maxSize: Double,
+        maxHealth: Double,
+        sizeNoise: Double = 0.0,
+        healthNoise: Double = 0.0,
+        rng: RandomSource? = null,
+    ) {
         firstParentType = BuiltInRegistries.ENTITY_TYPE.getKey(first.type)
         secondParentType = BuiltInRegistries.ENTITY_TYPE.getKey(second.type)
         val averageParentSize = (first.bbWidth + first.bbHeight + second.bbWidth + second.bbHeight) / 4.0
-        sizeFactor = (averageParentSize / BASE_BODY_SIZE).toFloat().coerceIn(MIN_SIZE_FACTOR, maxSize.toFloat())
+        val baseSize = averageParentSize / BASE_BODY_SIZE
+        val scatteredSize = scatter(baseSize, sizeNoise, rng)
+        sizeFactor = scatteredSize.toFloat().coerceIn(MIN_SIZE_FACTOR, maxSize.toFloat())
         val firstHealth = first.getAttribute(Attributes.MAX_HEALTH)?.baseValue ?: first.maxHealth.toDouble()
         val secondHealth = second.getAttribute(Attributes.MAX_HEALTH)?.baseValue ?: second.maxHealth.toDouble()
+        val baseHealth = (firstHealth + secondHealth) / 2.0
+        val scatteredHealth = scatter(baseHealth, healthNoise, rng)
         getAttribute(Attributes.MAX_HEALTH)?.let { health ->
-            health.baseValue = ((firstHealth + secondHealth) / 2.0).coerceIn(0.001, maxHealth.coerceAtLeast(0.001))
+            health.baseValue = scatteredHealth.coerceIn(0.001, maxHealth.coerceAtLeast(0.001))
         }
         health = this.maxHealth
         refreshDimensions()
+    }
+
+    /**
+     * Multiplicative Gaussian-ish scatter with unit standard deviation, cheap enough to run in a
+     * mob spawn hot path. The sum of four uniforms is centred and normalised so that [noise]
+     * reads as "relative sigma" — noise=0.20 puts ~68 % of results within ±20 %.
+     */
+    private fun scatter(base: Double, noise: Double, rng: RandomSource?): Double {
+        if (noise <= 0.0 || rng == null) return base
+        var acc = 0.0
+        repeat(4) { acc += rng.nextDouble() }
+        val standardised = (acc - 2.0) / SCATTER_SIGMA_OF_IRWIN_HALL_4
+        return base * (1.0 + noise * standardised)
     }
 
     override fun defineSynchedData() {
@@ -307,6 +365,8 @@ class Chimera(type: EntityType<out Chimera>, level: Level) : Animal(type, level)
         private const val PLAYER_TRUCE_TICKS_TAG = "hexlove:player_truce_ticks"
         private const val BASE_BODY_SIZE = (0.9 + 1.4) / 2.0
         private const val MIN_SIZE_FACTOR = 0.1f
+        /** stddev of the sum of 4 U(0,1) — 1/sqrt(3) — used to normalise Irwin–Hall to unit sigma. */
+        private const val SCATTER_SIGMA_OF_IRWIN_HALL_4 = 0.5773502691896258
         private const val PLAYER_TARGET_SCAN_INTERVAL = 80
         private const val PLAYER_TRUCE_TICKS = 20 * 20
         private const val MAX_BODY_TURN_PER_TICK = 6.0f

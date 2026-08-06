@@ -7,5 +7,201 @@
         "stream": false
       }
     ]
+  },
+  "chimera_ambient": {
+    "subtitle": "subtitles.hexlove.chimera_ambient",
+    "sounds": [
+      "hexlove:chimera_ambient1",
+      "hexlove:chimera_ambient2",
+      "hexlove:chimera_ambient3"
+    ]
+  },
+  "chimera_hurt": {
+    "subtitle": "subtitles.hexlove.chimera_hurt",
+    "sounds": [
+      "hexlove:chimera_hurt1",
+      "hexlove:chimera_hurt2"
+    ]
+  },
+  "chimera_death": {
+    "subtitle": "subtitles.hexlove.chimera_death",
+    "sounds": [
+      "hexlove:chimera_death"
+    ]
+  },
+  "chimera_step": {
+    "subtitle": "subtitles.hexlove.chimera_step",
+    "sounds": [
+      "hexlove:chimera_step1",
+      "hexlove:chimera_step2"
+    ]
+  },
+  "chimera_headbutt": {
+    "subtitle": "subtitles.hexlove.chimera_headbutt",
+    "sounds": [
+      "hexlove:chimera_headbutt"
+    ]
+  },
+  "amethyst_heart_beat": {
+    "subtitle": "subtitles.hexlove.amethyst_heart_beat",
+    "sounds": [
+      "hexlove:amethyst_heart_beat"
+    ]
+  },
+  "amethyst_heart_charge": {
+    "subtitle": "subtitles.hexlove.amethyst_heart_charge",
+    "sounds": [
+      "hexlove:amethyst_heart_charge"
+    ]
+  },
+  "amethyst_heart_crystallise": {
+    "subtitle": "subtitles.hexlove.amethyst_heart_crystallise",
+    "sounds": [
+      "hexlove:amethyst_heart_crystallise"
+    ]
+  },
+  "amethyst_heart_overflow": {
+    "subtitle": "subtitles.hexlove.amethyst_heart_overflow",
+    "sounds": [
+      "hexlove:amethyst_heart_overflow"
+    ]
+  },
+  "amethyst_heart_resonate": {
+    "subtitle": "subtitles.hexlove.amethyst_heart_resonate",
+    "sounds": [
+      "hexlove:amethyst_heart_resonate"
+    ]
+  },
+  "vow_altar_offer": {
+    "subtitle": "subtitles.hexlove.vow_altar_offer",
+    "sounds": [
+      "hexlove:vow_altar_offer"
+    ]
+  },
+  "vow_altar_ritual": {
+    "subtitle": "subtitles.hexlove.vow_altar_ritual",
+    "sounds": [
+      "hexlove:vow_altar_ritual"
+    ]
+  },
+  "vow_altar_vow": {
+    "subtitle": "subtitles.hexlove.vow_altar_vow",
+    "sounds": [
+      "hexlove:vow_altar_vow"
+    ]
+  },
+  "vow_altar_sever": {
+    "subtitle": "subtitles.hexlove.vow_altar_sever",
+    "sounds": [
+      "hexlove:vow_altar_sever"
+    ]
+  },
+  "world_soul_awaken": {
+    "subtitle": "subtitles.hexlove.world_soul_awaken",
+    "sounds": [
+      "hexlove:world_soul_awaken"
+    ]
+  },
+  "world_soul_attune_start": {
+    "subtitle": "subtitles.hexlove.world_soul_attune_start",
+    "sounds": [
+      "hexlove:world_soul_attune_start"
+    ]
+  },
+  "world_soul_attune_seal": {
+    "subtitle": "subtitles.hexlove.world_soul_attune_seal",
+    "sounds": [
+      "hexlove:world_soul_attune_seal"
+    ]
+  },
+  "world_soul_attune_finish": {
+    "subtitle": "subtitles.hexlove.world_soul_attune_finish",
+    "sounds": [
+      "hexlove:world_soul_attune_finish"
+    ]
+  },
+  "world_soul_detach_start": {
+    "subtitle": "subtitles.hexlove.world_soul_detach_start",
+    "sounds": [
+      "hexlove:world_soul_detach_start"
+    ]
+  },
+  "world_soul_detach_break": {
+    "subtitle": "subtitles.hexlove.world_soul_detach_break",
+    "sounds": [
+      "hexlove:world_soul_detach_break"
+    ]
+  },
+  "world_soul_detach_finish": {
+    "subtitle": "subtitles.hexlove.world_soul_detach_finish",
+    "sounds": [
+      "hexlove:world_soul_detach_finish"
+    ]
+  },
+  "world_soul_embody_start": {
+    "subtitle": "subtitles.hexlove.world_soul_embody_start",
+    "sounds": [
+      "hexlove:world_soul_embody_start"
+    ]
+  },
+  "world_soul_embody_forge": {
+    "subtitle": "subtitles.hexlove.world_soul_embody_forge",
+    "sounds": [
+      "hexlove:world_soul_embody_forge"
+    ]
+  },
+  "world_soul_embody_finish": {
+    "subtitle": "subtitles.hexlove.world_soul_embody_finish",
+    "sounds": [
+      "hexlove:world_soul_embody_finish"
+    ]
+  },
+  "world_soul_ritual_fail": {
+    "subtitle": "subtitles.hexlove.world_soul_ritual_fail",
+    "sounds": [
+      "hexlove:world_soul_ritual_fail"
+    ]
+  },
+  "crystallized_affection_strain": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_strain",
+    "sounds": [
+      "hexlove:crystallized_affection_strain"
+    ]
+  },
+  "crystallized_affection_burst": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_burst",
+    "sounds": [
+      "hexlove:crystallized_affection_burst"
+    ]
+  },
+  "crystallized_affection_open_silence": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_open_silence",
+    "sounds": [
+      "hexlove:crystallized_affection_open_silence"
+    ]
+  },
+  "crystallized_affection_open_spark": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_open_spark",
+    "sounds": [
+      "hexlove:crystallized_affection_open_spark"
+    ]
+  },
+  "crystallized_affection_open_world": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_open_world",
+    "sounds": [
+      "hexlove:crystallized_affection_open_world"
+    ]
+  },
+  "crystallized_affection_open_echo": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_open_echo",
+    "sounds": [
+      "hexlove:crystallized_affection_open_echo"
+    ]
+  },
+  "crystallized_affection_open_legacy": {
+    "subtitle": "subtitles.hexlove.crystallized_affection_open_legacy",
+    "sounds": [
+      "hexlove:crystallized_affection_open_legacy"
+    ]
   }
 }

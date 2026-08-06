@@ -2,6 +2,43 @@
   subtitles: {
     hexlove: {
       love_heartbeat: "Heartbeat",
+
+      chimera_ambient: "Chimera moans",
+      chimera_hurt: "Chimera hurts",
+      chimera_death: "Chimera dies",
+      chimera_step: "Chimera lurches",
+      chimera_headbutt: "Chimera headbutts",
+
+      amethyst_heart_beat: "Amethyst Heart beats",
+      amethyst_heart_charge: "Amethyst Heart drinks love",
+      amethyst_heart_crystallise: "Amethyst dust forms",
+      amethyst_heart_overflow: "Amethyst Heart overflows",
+      amethyst_heart_resonate: "Amethyst Heart resonates",
+
+      vow_altar_offer: "Ring settles",
+      vow_altar_ritual: "Vows entwine",
+      vow_altar_vow: "Vow sealed",
+      vow_altar_sever: "Vow severed",
+
+      world_soul_awaken: "World Soul stirs",
+      world_soul_attune_start: "Attunement begins",
+      world_soul_attune_seal: "Shell closes",
+      world_soul_attune_finish: "Ring attuned",
+      world_soul_detach_start: "Detachment begins",
+      world_soul_detach_break: "Shell shatters",
+      world_soul_detach_finish: "Ring detached",
+      world_soul_embody_start: "Embodiment begins",
+      world_soul_embody_forge: "Affection embodied",
+      world_soul_embody_finish: "Crystal born",
+      world_soul_ritual_fail: "Ritual falters",
+
+      crystallized_affection_strain: "Crystal strains",
+      crystallized_affection_burst: "Crystal unseals",
+      crystallized_affection_open_silence: "A moment held",
+      crystallized_affection_open_spark: "Small spark answers",
+      crystallized_affection_open_world: "The world answers",
+      crystallized_affection_open_echo: "Forgotten echo returns",
+      crystallized_affection_open_legacy: "Author's legacy blooms",
     },
   },
 
@@ -200,7 +237,7 @@
             },
             crystal: {
               title: "Crystallized Affection",
-              "": "Put ordinary amethyst shards in the left slot. Embody consumes one whole charge and one shard for each crystal. Hold use to break a crystal open.$(br2)Its answer may be quiet, practical, ancient, or legendary. Forgotten echoes draw only one or two useful finds from old treasure chests.",
+              "": "Put ordinary amethyst shards in the left slot. Embody consumes one whole charge and one shard for each crystal. Hold use to coax a crystal open with the magic that made it — the shell is not shattered, only unsealed.$(br2)Its answer may be quiet, practical, ancient, or legendary. Forgotten echoes draw only one or two useful finds from old treasure chests.",
             },
           },
         },
@@ -611,6 +648,7 @@
       bizarre_gourmand: { title: "Bizarre Gourmand", description: "Eat cooked chimera meat and endure its magical aftertaste." },
       stew_of_serenity: { title: "A Quiet Meal", description: "Eat a Stew of Serenity and let a Chimera's herbivore side come out." },
       stew_of_ferocity: { title: "A Roaring Meal", description: "Eat a Stew of Ferocity and let a Chimera's predator side come out." },
+      humiliated: { title: "Humbled by a Beast", description: "Under Serenity, be led to your humiliation by a farm animal you fed." },
       both_natures: { title: "Two Faces of a Beast", description: "Try both a Stew of Serenity and a Stew of Ferocity." },
       resonant_meat: { title: "Overdose of Feeling", description: "Eat Resonant Meat and swallow a whole dust of affection at once." },
       double_mutation: { title: "Double Mutation", description: "Breed two Chimeras with ordinary raw meat." },

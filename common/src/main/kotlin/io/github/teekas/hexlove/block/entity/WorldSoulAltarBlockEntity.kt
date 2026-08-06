@@ -8,6 +8,8 @@ import io.github.teekas.hexlove.marriage.MarriageManager
 import io.github.teekas.hexlove.menu.WorldSoulAltarMenu
 import io.github.teekas.hexlove.registry.HexloveBlockEntities
 import io.github.teekas.hexlove.registry.HexloveItems
+import io.github.teekas.hexlove.registry.HexloveSounds
+import io.github.teekas.hexlove.world.HexloveWorldData
 import io.github.teekas.hexlove.worldsoul.WorldAffection
 import io.github.teekas.hexlove.advancement.HexloveAdvancements
 import net.minecraft.core.BlockPos
@@ -20,7 +22,6 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.Container
 import net.minecraft.world.ContainerHelper
@@ -84,9 +85,19 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         else -> AMETHYST_REST
     }
 
-    fun chargeMillis(): Int =
-        (RingData.worldCharge(stacks[RING_SLOT]) * CHARGE_SCALE).roundToInt()
+    fun chargeMillis(): Int {
+        // Server-authoritative charge from the soul; falls back to the ring's mirror on
+        // the client, where the block entity has no MinecraftServer reference.
+        val server = (level as? ServerLevel)?.server
+        val owner = RingData.boundTo(stacks[RING_SLOT])
+        val soulCharge = if (server != null && owner != null) {
+            HexloveWorldData.get(server).soulWorldCharge(owner)
+        } else {
+            RingData.worldCharge(stacks[RING_SLOT])
+        }
+        return (soulCharge * CHARGE_SCALE).roundToInt()
             .coerceIn(0, (RingData.MAX_WORLD_CHARGE * CHARGE_SCALE).toInt())
+    }
 
     fun isUsableBy(player: Player): Boolean =
         player.level() === level && player.distanceToSqr(Vec3.atCenterOf(worldPosition)) <= MENU_RADIUS * MENU_RADIUS
@@ -126,8 +137,10 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         ritualAmount = 0
         sync()
         serverPlayer.serverLevel().playSound(
-            null, worldPosition, SoundEvents.AMETHYST_BLOCK_RESONATE,
-            SoundSource.BLOCKS, 1.0f, if (linkedToOwner) 0.55f else 0.8f,
+            null, worldPosition,
+            if (linkedToOwner) HexloveSounds.WORLD_SOUL_DETACH_START.value
+            else HexloveSounds.WORLD_SOUL_ATTUNE_START.value,
+            SoundSource.BLOCKS, 0.9f, 1.0f,
         )
         return true
     }
@@ -144,9 +157,11 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
             message(serverPlayer, "screen.hexlove.world_soul_altar.needs_linked_ring")
             return false
         }
+        WorldAffection.migrateLegacyRing(serverPlayer.server, serverPlayer.uuid, ring)
+        val soulCharge = HexloveWorldData.get(serverPlayer.server).soulWorldCharge(serverPlayer.uuid)
         val count = minOf(
             stacks[AMETHYST_SLOT].count,
-            floor(RingData.worldCharge(ring) + 1.0e-7).toInt(),
+            floor(soulCharge + 1.0e-7).toInt(),
             HexloveItems.CRYSTALLIZED_AFFECTION.value.maxStackSize,
         )
         if (count <= 0) {
@@ -159,8 +174,8 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         ritualAmount = count
         sync()
         serverPlayer.serverLevel().playSound(
-            null, worldPosition, SoundEvents.AMETHYST_BLOCK_RESONATE,
-            SoundSource.BLOCKS, 1.0f, 0.62f,
+            null, worldPosition, HexloveSounds.WORLD_SOUL_EMBODY_START.value,
+            SoundSource.BLOCKS, 0.9f, 1.0f,
         )
         return true
     }
@@ -247,9 +262,14 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val active = result != null
         if (blockState.getValue(WorldSoulAltarBlock.ACTIVE) != active) {
             level.setBlock(worldPosition, blockState.setValue(WorldSoulAltarBlock.ACTIVE, active), 3)
+            // Only the moment the courtyard completes is worth announcing; losing it is covered
+            // by the ritual failing, or by nothing at all if no ritual was running.
+            if (active) {
+                level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_AWAKEN.value, SoundSource.BLOCKS, 0.9f, 1.0f)
+            }
         }
         if (!active && isRitualRunning) {
-            cancelRitual()
+            failRitual(level)
             sync()
         }
         return active
@@ -259,15 +279,23 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val ownerId = ritualOwner ?: return cancelRitual()
         val player = level.server.playerList.getPlayer(ownerId)
         val ring = stacks[RING_SLOT]
-        val firstAttunement = !RingData.hasWorldAttunementHistory(ring)
+        // Legacy per-ring state -- if this is a save from before the soul pool existed --
+        // is imported into the soul BEFORE we decide whether this is the first attunement.
+        // Otherwise migration would happen after firstAttunement is computed and we would
+        // still hand out a duplicate blessing exactly once.
+        val data = HexloveWorldData.get(level.server)
+        WorldAffection.migrateLegacyRing(level.server, ownerId, ring)
+        val firstAttunement = !data.hasSoulEverAttuned(ownerId)
         if (player == null || !isUsableBy(player) ||
             RingData.boundTo(ring) != ownerId ||
             !RingData.linkToWorld(ring, ownerId)
         ) {
-            cancelRitual()
+            failRitual(level)
             sync()
             return
         }
+        data.markSoulAttuned(ownerId)
+        WorldAffection.syncChargeNbt(player)
         if (firstAttunement) {
             blessThroughOfferedRing(player, ring, WorldAffection.INITIAL_EMBRACE_TICKS)
         }
@@ -282,7 +310,6 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val landing = localToWorld(RING_REST)
         level.sendParticles(PINK, landing.x, landing.y, landing.z, 14, 0.18, 0.10, 0.18, 0.025)
         level.sendParticles(ParticleTypes.END_ROD, landing.x, landing.y, landing.z, 5, 0.12, 0.08, 0.12, 0.018)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.8f, 1.7f)
         sync()
     }
 
@@ -294,16 +321,18 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
             RingData.boundTo(ring) != ownerId ||
             !RingData.unlinkFromWorld(ring, ownerId)
         ) {
-            cancelRitual()
+            failRitual(level)
             sync()
             return
         }
+        // Refresh every other ring's mirror: if the player still carries another linked
+        // ring, its NBT stays in sync; if this was the last, the sync becomes a no-op.
+        WorldAffection.syncChargeNbt(player)
         player.sendSystemMessage(Component.translatable("screen.hexlove.world_soul_altar.world_parting"))
         cancelRitual()
         val landing = localToWorld(RING_REST)
         level.sendParticles(VIOLET, landing.x, landing.y, landing.z, 18, 0.20, 0.11, 0.20, 0.022)
         level.sendParticles(PALE, landing.x, landing.y, landing.z, 7, 0.13, 0.09, 0.13, 0.014)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.75f, 0.62f)
         sync()
     }
 
@@ -312,16 +341,18 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val player = level.server.playerList.getPlayer(ownerId)
         val ring = stacks[RING_SLOT]
         val count = ritualAmount
+        val data = HexloveWorldData.get(level.server)
         if (player == null || !isUsableBy(player) || count <= 0 ||
             RingData.boundTo(ring) != ownerId || !RingData.isWorldLinked(ring, ownerId) ||
             stacks[AMETHYST_SLOT].count < count ||
-            floor(RingData.worldCharge(ring) + 1.0e-7).toInt() < count ||
-            !RingData.spendWorldCharge(ring, count)
+            !data.spendSoulWorldCharge(ownerId, count)
         ) {
-            cancelRitual()
+            failRitual(level)
             sync()
             return
         }
+        // Bring every ring's mirror back into agreement with the reduced soul charge.
+        WorldAffection.syncChargeNbt(player)
 
         stacks[AMETHYST_SLOT].shrink(count)
         if (stacks[AMETHYST_SLOT].isEmpty) stacks[AMETHYST_SLOT] = ItemStack.EMPTY
@@ -335,7 +366,6 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val crystalLanding = localToWorld(AMETHYST_REST)
         level.sendParticles(ROSE, crystalLanding.x, crystalLanding.y, crystalLanding.z, 16, 0.20, 0.11, 0.20, 0.025)
         level.sendParticles(RED, ringLanding.x, ringLanding.y, ringLanding.z, 9, 0.14, 0.08, 0.14, 0.018)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0f, 1.85f)
         sync()
     }
 
@@ -362,7 +392,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         if (progress in SPHERE_START..SPHERE_END) drawCollapsingSphere(level, ring, progress, age)
 
         if (age == ATTUNEMENT_SPHERE_SOUND_TICK) {
-            level.playSound(null, worldPosition, SoundEvents.BEACON_POWER_SELECT, SoundSource.BLOCKS, 0.75f, 1.65f)
+            level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_ATTUNE_SEAL.value, SoundSource.BLOCKS, 0.85f, 1.0f)
         }
         if (age == ATTUNEMENT_BURST_TICK) attunementBurst(level, ring)
         if (progress >= ATTUNEMENT_FALL_START) {
@@ -386,7 +416,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         }
 
         if (age == DETACHMENT_RELEASE_SOUND_TICK) {
-            level.playSound(null, worldPosition, SoundEvents.BEACON_DEACTIVATE, SoundSource.BLOCKS, 0.8f, 1.45f)
+            level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_DETACH_BREAK.value, SoundSource.BLOCKS, 0.9f, 1.0f)
         }
         if (age == DETACHMENT_BURST_TICK) detachmentBurst(level, ring)
         if (progress >= DETACHMENT_FALL_START) {
@@ -420,7 +450,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         }
 
         if (age == EMBODIMENT_TRANSFER_SOUND_TICK) {
-            level.playSound(null, worldPosition, SoundEvents.BEACON_POWER_SELECT, SoundSource.BLOCKS, 0.8f, 0.72f)
+            level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_EMBODY_FORGE.value, SoundSource.BLOCKS, 0.9f, 1.0f)
         }
         if (age == EMBODIMENT_TRANSFORM_TICK) embodimentTransformBurst(level, amethyst)
         if (progress >= EMBODIMENT_FALL_START) {
@@ -615,7 +645,9 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         level.sendParticles(PALE, centre.x, centre.y, centre.z, 34, 0.38, 0.42, 0.38, 0.055)
         level.sendParticles(ParticleTypes.END_ROD, centre.x, centre.y, centre.z, 30, 0.45, 0.48, 0.45, 0.058)
         level.sendParticles(ParticleTypes.FLASH, centre.x, centre.y, centre.z, 1, 0.0, 0.0, 0.0, 0.0)
-        level.playSound(null, worldPosition, SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.15f, 1.25f)
+        // The payoff chord lands on the flash and is still ringing when the ring settles back
+        // into its socket twelve ticks later, so the landing itself needs no sound of its own.
+        level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_ATTUNE_FINISH.value, SoundSource.BLOCKS, 1.0f, 1.0f)
     }
 
     private fun detachmentBurst(level: ServerLevel, centre: Vec3) {
@@ -624,7 +656,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         level.sendParticles(PALE, centre.x, centre.y, centre.z, 28, 0.42, 0.38, 0.42, 0.050)
         level.sendParticles(ParticleTypes.END_ROD, centre.x, centre.y, centre.z, 20, 0.46, 0.42, 0.46, 0.048)
         level.sendParticles(ParticleTypes.FLASH, centre.x, centre.y, centre.z, 1, 0.0, 0.0, 0.0, 0.0)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.BLOCKS, 1.0f, 0.72f)
+        level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_DETACH_FINISH.value, SoundSource.BLOCKS, 0.95f, 1.0f)
     }
 
     private fun embodimentTransformBurst(level: ServerLevel, centre: Vec3) {
@@ -635,8 +667,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         level.sendParticles(PALE, centre.x, centre.y, centre.z, 20, 0.22, 0.26, 0.22, 0.036)
         level.sendParticles(ParticleTypes.END_ROD, centre.x, centre.y, centre.z, 18, 0.28, 0.32, 0.28, 0.043)
         level.sendParticles(ParticleTypes.FLASH, centre.x, centre.y, centre.z, 1, 0.0, 0.0, 0.0, 0.0)
-        level.playSound(null, worldPosition, SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.0f, 0.92f)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.2f, 1.35f)
+        level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_EMBODY_FINISH.value, SoundSource.BLOCKS, 1.0f, 1.0f)
     }
 
     private fun curvedPoint(origin: Vec3, target: Vec3, progress: Double, bend: Vec3, twist: Double): Vec3 {
@@ -715,7 +746,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
             RitualKind.EMBODIMENT -> ritualAmount > 0 &&
                 RingData.isWorldLinked(ring, ownerId) &&
                 stacks[AMETHYST_SLOT].count >= ritualAmount &&
-                floor(RingData.worldCharge(ring) + 1.0e-7).toInt() >= ritualAmount
+                floor(HexloveWorldData.get(level.server).soulWorldCharge(ownerId) + 1.0e-7).toInt() >= ritualAmount
             RitualKind.NONE -> false
         }
     }
@@ -746,6 +777,17 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
         ritualOwner = null
         ritualKind = RitualKind.NONE
         ritualAmount = 0
+    }
+
+    /**
+     * Cancels a rite that was interrupted rather than completed. The distinction matters: every
+     * finish path also calls [cancelRitual] as ordinary cleanup and must stay silent there.
+     */
+    private fun failRitual(level: ServerLevel) {
+        if (isRitualRunning) {
+            level.playSound(null, worldPosition, HexloveSounds.WORLD_SOUL_RITUAL_FAIL.value, SoundSource.BLOCKS, 0.8f, 1.0f)
+        }
+        cancelRitual()
     }
 
     private fun message(player: ServerPlayer, key: String) {
@@ -834,7 +876,7 @@ class WorldSoulAltarBlockEntity(pos: BlockPos, state: BlockState) :
             ) altar.refreshStructure(level)
             if (!altar.isRitualRunning) return
             if (!altar.isStructureActive() || !altar.ritualStillValid(level)) {
-                altar.cancelRitual()
+                altar.failRitual(level)
                 altar.sync()
                 return
             }

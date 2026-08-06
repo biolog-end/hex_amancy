@@ -370,6 +370,15 @@ object HexloveServerConfig {
         @Tooltip var chimeraChance: Double = 1.0
         @Tooltip var chimeraMaxHealth: Double = 40.0
         @Tooltip var chimeraMaxSize: Double = 1.5
+
+        /**
+         * Relative Gaussian-ish scatter around the parent average, expressed as a fraction of
+         * the blended value (0 = strict average, 0.2 = one-sigma of 20 %). Two-tailed: some
+         * children come out an ant, a rare few come out a horror. Independent for size and
+         * health so a huge chimera can still be fragile.
+         */
+        @Tooltip var chimeraSizeNoise: Double = 0.18
+        @Tooltip var chimeraHealthNoise: Double = 0.22
         @Tooltip var passionCooldownReductionTicks: Int = 600
         @Tooltip var passionAgeReductionTicks: Int = 600
 
@@ -392,6 +401,11 @@ object HexloveServerConfig {
             chimeraChance = clamp("breeding.chimeraChance", chimeraChance, 0.0, 1.0, 1.0)
             chimeraMaxHealth = clamp("breeding.chimeraMaxHealth", chimeraMaxHealth, 1.0, 1024.0, 40.0)
             chimeraMaxSize = clamp("breeding.chimeraMaxSize", chimeraMaxSize, 0.1, 8.0, 1.5)
+            // Capping at 1.0 keeps the scatter interpretable as "±100 % of the average"; above
+            // that a negative pull would clip to zero and the shape would degenerate into
+            // "either the cap or an ant", losing the interesting middle range.
+            chimeraSizeNoise = clamp("breeding.chimeraSizeNoise", chimeraSizeNoise, 0.0, 1.0, 0.18)
+            chimeraHealthNoise = clamp("breeding.chimeraHealthNoise", chimeraHealthNoise, 0.0, 1.0, 0.22)
             passionCooldownReductionTicks =
                 clamp("breeding.passionCooldownReductionTicks", passionCooldownReductionTicks, 1, 1_728_000, 600)
             passionAgeReductionTicks =
@@ -412,6 +426,8 @@ object HexloveServerConfig {
             buf.writeDouble(chimeraChance)
             buf.writeDouble(chimeraMaxHealth)
             buf.writeDouble(chimeraMaxSize)
+            buf.writeDouble(chimeraSizeNoise)
+            buf.writeDouble(chimeraHealthNoise)
             buf.writeInt(passionCooldownReductionTicks)
             buf.writeInt(passionAgeReductionTicks)
             buf.writeInt(courtshipContactTicks)
@@ -428,6 +444,8 @@ object HexloveServerConfig {
             chimeraChance = buf.readDouble()
             chimeraMaxHealth = buf.readDouble()
             chimeraMaxSize = buf.readDouble()
+            chimeraSizeNoise = buf.readDouble()
+            chimeraHealthNoise = buf.readDouble()
             passionCooldownReductionTicks = buf.readInt()
             passionAgeReductionTicks = buf.readInt()
             courtshipContactTicks = buf.readInt()

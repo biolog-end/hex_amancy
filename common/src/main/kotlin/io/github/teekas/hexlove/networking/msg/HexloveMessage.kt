@@ -40,14 +40,17 @@ sealed interface HexloveMessageCompanion<T : HexloveMessage> {
         val ctx = supplier.get()
         when (ctx.env) {
             EnvType.SERVER, null -> {
-                Hexlove.LOGGER.debug("Server received packet from {}: {}", ctx.player.name.string, this)
+                // gameProfile.name is the plain string; player.name.string built a fresh Component
+                // walk for every single packet even with debug logging switched off. And the old
+                // line logged the companion instead of the message, which was never useful.
+                Hexlove.LOGGER.debug("Server received packet from {}: {}", ctx.player.gameProfile.name, msg)
                 when (msg) {
                     is HexloveMessageC2S -> msg.applyOnServer(ctx)
                     else -> Hexlove.LOGGER.warn("Message not handled on server: {}", msg::class)
                 }
             }
             EnvType.CLIENT -> {
-                Hexlove.LOGGER.debug("Client received packet: {}", this)
+                Hexlove.LOGGER.debug("Client received packet: {}", msg)
                 when (msg) {
                     is HexloveMessageS2C -> msg.applyOnClient(ctx)
                     else -> Hexlove.LOGGER.warn("Message not handled on client: {}", msg::class)

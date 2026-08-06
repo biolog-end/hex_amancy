@@ -27,6 +27,19 @@ data class HaremMember(
     fun isLoveActiveAt(gameTime: Long): Boolean = loveExpiresAt > gameTime
 }
 
+/**
+ * Requirement (bugfix): the world link belongs to the soul, not to any single ring, so
+ * unlinking one ring and attuning a fresh one cannot re-grant the first-attunement bonus,
+ * and multiple rings on the same soul share one accumulation pool instead of forking it.
+ * A ring only marks whether it currently displays that soul's bond; the ring's own NBT
+ * charge value is a mirror of this record and is authoritative only when saved into a
+ * chest with no online owner around to consult.
+ */
+data class SoulWorldMemory(val everAttuned: Boolean, val charge: Double) {
+    fun withCharge(c: Double): SoulWorldMemory = copy(charge = c.coerceIn(0.0, RingData.MAX_WORLD_CHARGE))
+    fun withEverAttuned(): SoulWorldMemory = if (everAttuned) this else copy(everAttuned = true)
+}
+
 data class MarriageRecord(
     val a: UUID,
     val b: UUID,
@@ -49,6 +62,7 @@ class HexloveWorldData : SavedData() {
     val debts: MutableMap<UUID, TitheDebt> = HashMap()
     val harems: MutableMap<UUID, MutableSet<HaremMember>> = HashMap()
     val marriages: MutableMap<UUID, MarriageRecord> = HashMap()
+    val soulWorldMemories: MutableMap<UUID, SoulWorldMemory> = HashMap()
 
     // ---- debts (Debt_Ledger) ----
 
@@ -133,6 +147,57 @@ class HexloveWorldData : SavedData() {
         return record
     }
 
+    // ---- soul world memory (attunement history + charge pool) ----
+
+    fun soulMemoryOf(owner: UUID): SoulWorldMemory? = soulWorldMemories[owner]
+
+    /** Does the soul remember ever being attuned? Once true, this never becomes false. */
+    fun hasSoulEverAttuned(owner: UUID): Boolean = soulWorldMemories[owner]?.everAttuned == true
+
+    fun markSoulAttuned(owner: UUID) {
+        val existing = soulWorldMemories[owner]
+        if (existing?.everAttuned == true) return
+        soulWorldMemories[owner] = (existing ?: SoulWorldMemory(false, 0.0)).withEverAttuned()
+        setDirty()
+    }
+
+    fun soulWorldCharge(owner: UUID): Double = soulWorldMemories[owner]?.charge ?: 0.0
+
+    /** Adds [amount] to the soul's shared pool; returns how much was actually gained after the cap. */
+    fun addSoulWorldCharge(owner: UUID, amount: Double): Double {
+        if (amount <= 0.0) return 0.0
+        val existing = soulWorldMemories[owner] ?: SoulWorldMemory(false, 0.0)
+        val before = existing.charge
+        val after = (before + amount).coerceIn(0.0, RingData.MAX_WORLD_CHARGE)
+        if (after == before) return 0.0
+        soulWorldMemories[owner] = existing.withCharge(after)
+        setDirty()
+        return after - before
+    }
+
+    fun spendSoulWorldCharge(owner: UUID, wholeUnits: Int): Boolean {
+        if (wholeUnits <= 0) return false
+        val existing = soulWorldMemories[owner] ?: return false
+        if (existing.charge + 1.0e-7 < wholeUnits.toDouble()) return false
+        soulWorldMemories[owner] = existing.withCharge((existing.charge - wholeUnits).coerceAtLeast(0.0))
+        setDirty()
+        return true
+    }
+
+    /**
+     * One-shot migration of legacy per-ring state into the soul pool. Safe to call every time
+     * a ring is presented at an altar -- it copies non-zero legacy history/charge in only when
+     * the soul has no record yet, so it never doubles anything.
+     */
+    fun migrateLegacyRing(owner: UUID, legacyAttuned: Boolean, legacyCharge: Double) {
+        val existing = soulWorldMemories[owner]
+        val everAttuned = (existing?.everAttuned == true) || legacyAttuned || legacyCharge > 0.0
+        val charge = maxOf(existing?.charge ?: 0.0, legacyCharge.coerceIn(0.0, RingData.MAX_WORLD_CHARGE))
+        if (existing != null && existing.everAttuned == everAttuned && existing.charge == charge) return
+        soulWorldMemories[owner] = SoulWorldMemory(everAttuned, charge)
+        setDirty()
+    }
+
     // ---- serialization ----
 
     override fun save(tag: CompoundTag): CompoundTag {
@@ -179,6 +244,17 @@ class HexloveWorldData : SavedData() {
         }
         tag.put("marriages", marriageList)
 
+        val soulList = ListTag()
+        for ((owner, memory) in soulWorldMemories) {
+            if (!memory.everAttuned && memory.charge <= 0.0) continue
+            soulList.add(CompoundTag().apply {
+                putUUID("owner", owner)
+                putBoolean("everAttuned", memory.everAttuned)
+                putDouble("charge", memory.charge)
+            })
+        }
+        tag.put("soulWorld", soulList)
+
         return tag
     }
 
@@ -212,6 +288,14 @@ class HexloveWorldData : SavedData() {
                     ))
                 }
                 if (members.isNotEmpty()) data.harems[sub.getUUID("player")] = members
+            }
+
+            for (element in tag.getList("soulWorld", Tag.TAG_COMPOUND.toInt())) {
+                val sub = element as CompoundTag
+                if (!sub.hasUUID("owner")) continue
+                val charge = sub.getDouble("charge").coerceIn(0.0, RingData.MAX_WORLD_CHARGE)
+                val attuned = sub.getBoolean("everAttuned") || charge > 0.0
+                data.soulWorldMemories[sub.getUUID("owner")] = SoulWorldMemory(attuned, charge)
             }
 
             for (element in tag.getList("marriages", Tag.TAG_COMPOUND.toInt())) {

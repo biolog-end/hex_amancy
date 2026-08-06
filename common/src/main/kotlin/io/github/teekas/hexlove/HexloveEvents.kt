@@ -26,10 +26,24 @@ import net.minecraft.server.level.ServerPlayer
 /** The single place this mod hooks into the game loop. */
 object HexloveEvents {
     fun init() {
-        // Persist inventory and optional accessory-slot rings every tick, so a discarded ring cannot
-        // be made active again by logging out between long polling gaps.
+        // Both of these are once-a-second housekeeping, not per-tick rules.
+        //
+        // MarriageManager.refresh persists the ring check into world data so a discarded ring cannot
+        // be made active again by logging out. It used to run twenty times a second, walking every
+        // online player's whole inventory each time. Every benefit that actually reads the marriage
+        // — damage sharing, target vetoes, the shared ambit — goes through MarriageManager.isActive,
+        // which still verifies the rings live, so nothing becomes stale at the point of use; only the
+        // saved `active` flag now settles within a second instead of within a tick.
+        //
+        // The ring-mirror refresh is a safety net for players who pick up an unlinked-then-relinked
+        // ring outside a reward event; charge deltas already sync eagerly via WorldAffection.creditSoul.
         TickEvent.SERVER_POST.register { server ->
-            MarriageManager.refresh(server)
+            if (server.tickCount % 20 == 0) {
+                MarriageManager.refresh(server)
+                for (player in server.playerList.players) {
+                    WorldAffection.syncChargeNbt(player)
+                }
+            }
         }
 
         TickEvent.SERVER_LEVEL_POST.register { level ->
@@ -133,14 +147,43 @@ object HexloveEvents {
         PlayerEvent.PLAYER_JOIN.register { player ->
             BondSync.sync(player)
             if (player.hasBonds) BondStore.restoreBehavior(player)
+            reconcileSoulRings(player)
         }
 
         PlayerEvent.PLAYER_RESPAWN.register { player, _ ->
             BondSync.sync(player)
+            reconcileSoulRings(player)
         }
 
         PlayerEvent.CHANGE_DIMENSION.register { player, _, _ ->
             BondSync.sync(player)
+            reconcileSoulRings(player)
         }
+    }
+
+    /**
+     * On join / respawn / dimension change, import any legacy per-ring world state into the
+     * soul pool and then broadcast the shared value back to every ring the player carries.
+     * The soul is authoritative; rings are mirrors. Legacy migration only ever raises the
+     * pool, never lowers it, so this is safe to run whenever a player re-enters the world.
+     */
+    private fun reconcileSoulRings(player: ServerPlayer) {
+        val server = player.server ?: return
+        for (ring in player.inventory.items) {
+            if (ring.`is`(io.github.teekas.hexlove.registry.HexloveItems.SOULBOUND_RING.value)) {
+                WorldAffection.migrateLegacyRing(server, player.uuid, ring)
+            }
+        }
+        for (ring in player.inventory.offhand) {
+            if (ring.`is`(io.github.teekas.hexlove.registry.HexloveItems.SOULBOUND_RING.value)) {
+                WorldAffection.migrateLegacyRing(server, player.uuid, ring)
+            }
+        }
+        for (equipped in io.github.teekas.hexlove.compat.AccessoryRingAccess.equippedRings(player)) {
+            if (equipped.stack.`is`(io.github.teekas.hexlove.registry.HexloveItems.SOULBOUND_RING.value)) {
+                WorldAffection.migrateLegacyRing(server, player.uuid, equipped.stack)
+            }
+        }
+        WorldAffection.syncChargeNbt(player)
     }
 }

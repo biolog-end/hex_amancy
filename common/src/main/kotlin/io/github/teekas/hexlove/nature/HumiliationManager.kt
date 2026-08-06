@@ -24,6 +24,10 @@ object HumiliationManager {
     /** Tracks animals currently pursuing a serene player. Key is the animal. */
     private val tracker = WeakHashMap<Animal, AdvanceEntry>()
 
+    /** Both colours of the courting haze. Particle options are immutable; two instances suffice. */
+    private val ADVANCE_PINK = ConjureParticleOptions(0xFF78C8)
+    private val ADVANCE_PALE = ConjureParticleOptions(0xFFAEDC)
+
     data class AdvanceEntry(
         /** UUID of the target player. */
         val targetPlayer: UUID,
@@ -93,6 +97,14 @@ object HumiliationManager {
                 )
             )
 
+            // Award the achievement. Only a real ServerPlayer can hold advancement progress;
+            // the animal-side call site passes a Player, so guard the cast.
+            (player as? net.minecraft.server.level.ServerPlayer)?.let {
+                io.github.teekas.hexlove.advancement.HexloveAdvancements.grant(
+                    it, io.github.teekas.hexlove.advancement.HexloveAdvancements.HUMILIATED,
+                )
+            }
+
             // 2. Magic damage.
             player.hurt(player.damageSources().magic(), cfg.humiliationDamage.toFloat())
 
@@ -144,8 +156,8 @@ object HumiliationManager {
             val x = animal.x
             val y = animal.y + animal.bbHeight + 0.3
             val z = animal.z
-            level.sendParticles(ConjureParticleOptions(0xFF78C8), x, y, z, 3, 0.2, 0.1, 0.2, 0.02)
-            level.sendParticles(ConjureParticleOptions(0xFFAEDC), x, y + 0.2, z, 2, 0.15, 0.1, 0.15, 0.015)
+            level.sendParticles(ADVANCE_PINK, x, y, z, 3, 0.2, 0.1, 0.2, 0.02)
+            level.sendParticles(ADVANCE_PALE, x, y + 0.2, z, 2, 0.15, 0.1, 0.15, 0.015)
         } catch (_: Throwable) { }
     }
 

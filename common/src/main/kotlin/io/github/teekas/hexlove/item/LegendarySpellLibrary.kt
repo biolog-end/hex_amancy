@@ -189,7 +189,13 @@ object LegendarySpellLibrary {
         }
     }
 
-    private fun loadProgram(definition: Definition): List<Iota> {
+    /** The bundled files never change while the game is running; parse each of them exactly once. */
+    private val programs = HashMap<String, List<Iota>>()
+
+    private fun loadProgram(definition: Definition): List<Iota> =
+        synchronized(programs) { programs.getOrPut(definition.id) { readProgram(definition) } }
+
+    private fun readProgram(definition: Definition): List<Iota> {
         val path = "assets/hexlove/spells/${definition.fileName}"
         val stream = checkNotNull(LegendarySpellLibrary::class.java.classLoader.getResourceAsStream(path)) {
             "Missing bundled spell resource $path"

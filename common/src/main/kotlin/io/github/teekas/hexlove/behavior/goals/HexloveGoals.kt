@@ -386,8 +386,6 @@ class PhantomIdealGoal(
  * The goal stops if the player is dead, logged off, or no longer serene. The actual payoff
  * (humiliation trigger at ≤2.0 blocks) is handled by NatureTicker, which already has the level
  * context needed to iterate live players. This goal only moves the animal.
- *
- * Stage 4: nothing here needs to change for ferocious mechanics.
  */
 class AnimalAdvanceGoal(
     private val mob: Mob,

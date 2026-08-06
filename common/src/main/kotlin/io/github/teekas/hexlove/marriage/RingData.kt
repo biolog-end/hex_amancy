@@ -50,47 +50,35 @@ object RingData {
         return owner == null || linked == owner
     }
 
-    /** Remains true after severing so reconnecting the same soul cannot repeat the first blessing. */
+    /**
+     * True for legacy rings that predate the soul-owned world memory. Used only during
+     * migration inside [io.github.teekas.hexlove.worldsoul.WorldAffection.migrateLegacyRing];
+     * the authoritative source of "has ever been attuned" is now
+     * [io.github.teekas.hexlove.world.HexloveWorldData.hasSoulEverAttuned].
+     */
     fun hasWorldAttunementHistory(stack: ItemStack): Boolean {
         val tag = stack.tag ?: return false
-        // A linked ring from a save made before this marker existed has necessarily been attuned.
         return tag.getBoolean(WORLD_ATTUNED_ONCE) || tag.hasUUID(WORLD_SOUL)
     }
 
+    /** Snapshot value used by tooltips and the item's client visual. Not authoritative. */
     fun worldCharge(stack: ItemStack): Double =
         stack.tag?.getDouble(WORLD_CHARGE)?.coerceIn(0.0, MAX_WORLD_CHARGE) ?: 0.0
 
+    /** Marks the ring as currently displaying this soul's world bond. Charge lives on the soul. */
     fun linkToWorld(stack: ItemStack, owner: UUID): Boolean {
         if (boundTo(stack) != owner || isWorldLinked(stack)) return false
-        val tag = stack.orCreateTag
-        tag.putUUID(WORLD_SOUL, owner)
-        tag.putBoolean(WORLD_ATTUNED_ONCE, true)
-        tag.putDouble(WORLD_CHARGE, worldCharge(stack))
+        stack.orCreateTag.putUUID(WORLD_SOUL, owner)
         return true
     }
 
-    /** Severs only the active world link; earned affection and attunement history stay with the soul. */
+    /** Removes only the ring's link marker. Soul charge and history are held by world data. */
     fun unlinkFromWorld(stack: ItemStack, owner: UUID): Boolean {
         val tag = stack.tag ?: return false
         if (!tag.hasUUID(WORLD_SOUL) || tag.getUUID(WORLD_SOUL) != owner) return false
-        tag.putBoolean(WORLD_ATTUNED_ONCE, true)
         tag.remove(WORLD_SOUL)
-        return true
-    }
-
-    fun addWorldCharge(stack: ItemStack, amount: Double): Double {
-        if (amount <= 0.0 || worldSoul(stack) == null) return 0.0
-        val before = worldCharge(stack)
-        val after = (before + amount).coerceIn(0.0, MAX_WORLD_CHARGE)
-        if (after != before) stack.orCreateTag.putDouble(WORLD_CHARGE, after)
-        return after - before
-    }
-
-    fun spendWorldCharge(stack: ItemStack, wholeUnits: Int): Boolean {
-        if (wholeUnits <= 0) return false
-        val before = worldCharge(stack)
-        if (before + 1.0e-7 < wholeUnits.toDouble()) return false
-        stack.orCreateTag.putDouble(WORLD_CHARGE, (before - wholeUnits).coerceAtLeast(0.0))
+        // The ring is no longer a mirror for this soul's charge.
+        tag.remove(WORLD_CHARGE)
         return true
     }
 
@@ -108,6 +96,8 @@ object RingData {
         tag.remove(PAIR_AURA)
         tag.remove(PAIR_AURA_OTHER)
         if (previousOwner != owner) {
+            // A ring changing hands loses the old owner's world link marker and mirror.
+            // The old owner's soul charge stays with them in world data.
             tag.remove(WORLD_SOUL)
             tag.remove(WORLD_ATTUNED_ONCE)
             tag.remove(WORLD_CHARGE)

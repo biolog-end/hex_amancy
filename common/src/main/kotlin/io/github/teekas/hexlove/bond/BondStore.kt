@@ -60,8 +60,8 @@ object BondStore {
         data.love = null
         haremRemove(subject, old.target)
         (subject as? Mob)?.let { BehaviorController.remove(it, BehaviorKind.LOVE) }
+        // BondSync.sync already ends with syncTarget, so the beloved's position is dropped here too.
         markSync(subject)
-        if (subject is ServerPlayer) BondSync.syncTarget(subject)
     }
 
     fun setJealousy(entity: Entity, bond: JealousyBond) {
@@ -162,17 +162,18 @@ object BondStore {
 
     /** Requirements 4.7, 18.3: heartbreak wipes love, jealousy and any betrothal in one operation. */
     fun setHeartbreak(entity: Entity, state: HeartbreakState) {
-        clearLove(entity, ClearReason.HEARTBREAK)
-        clearJealousy(entity)
-        clearSiren(entity)
-        clearPheromone(entity)
-        clearPhantomIdeal(entity)
-        clearCourtship(entity)
-        // and the plain vanilla mood goes with it
-        (entity as? Animal)?.resetLove()
-        entity.bonds.heartbreak = state
-        BehaviorTracker.track(entity)
-        markSync(entity)
+        batched(entity) {
+            clearLove(entity, ClearReason.HEARTBREAK)
+            clearJealousy(entity)
+            clearSiren(entity)
+            clearPheromone(entity)
+            clearPhantomIdeal(entity)
+            clearCourtship(entity)
+            // and the plain vanilla mood goes with it
+            (entity as? Animal)?.resetLove()
+            entity.bonds.heartbreak = state
+            BehaviorTracker.track(entity)
+        }
     }
 
     fun clearHeartbreak(entity: Entity) {
@@ -183,16 +184,17 @@ object BondStore {
     }
 
     fun clearAll(entity: Entity, reason: ClearReason) {
-        clearLove(entity, reason)
-        clearJealousy(entity)
-        clearSiren(entity)
-        clearPheromone(entity)
-        clearPhantomIdeal(entity)
-        clearCourtship(entity)
-        clearHeartbreak(entity)
-        (entity as? Mob)?.let { BehaviorController.removeAll(it) }
-        BehaviorTracker.untrack(entity)
-        markSync(entity)
+        batched(entity) {
+            clearLove(entity, reason)
+            clearJealousy(entity)
+            clearSiren(entity)
+            clearPheromone(entity)
+            clearPhantomIdeal(entity)
+            clearCourtship(entity)
+            clearHeartbreak(entity)
+            (entity as? Mob)?.let { BehaviorController.removeAll(it) }
+            BehaviorTracker.untrack(entity)
+        }
     }
 
     /**
@@ -239,7 +241,28 @@ object BondStore {
         HexloveWorldData.get(server).removeHaremMember(owner, subject.uuid)
     }
 
+    /**
+     * Wiping every state used to send the client one full snapshot per field, six of which described
+     * a half-cleared entity nobody ever saw. Only the finished state is worth a packet — and each of
+     * those packets asked the marriage record whether both rings were still carried.
+     *
+     * A depth counter rather than a boolean: nothing nests today, but a plain flag would silently
+     * swallow the outer batch's packet the day something does. Cheap insurance, no behaviour change.
+     */
+    private var suppressedSyncs = 0
+
+    private inline fun batched(entity: Entity, body: () -> Unit) {
+        suppressedSyncs++
+        try {
+            body()
+        } finally {
+            suppressedSyncs--
+        }
+        markSync(entity)
+    }
+
     private fun markSync(entity: Entity) {
+        if (suppressedSyncs > 0) return
         (entity as? ServerPlayer)?.let(BondSync::sync)
     }
 }

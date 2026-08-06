@@ -49,7 +49,9 @@ object ChimeraFactory {
         child.setBaby(true)
         child.moveTo(a.x, a.y, a.z, a.yRot, 0f)
 
-        child.initializeFromParents(a, b, cfg.chimeraMaxSize, cfg.chimeraMaxHealth)
+        child.initializeFromParents(a, b, cfg.chimeraMaxSize, cfg.chimeraMaxHealth,
+            sizeNoise = cfg.chimeraSizeNoise, healthNoise = cfg.chimeraHealthNoise,
+            rng = level.random)
         average(child, Attributes.MOVEMENT_SPEED, a, b, 2.0)
         average(child, Attributes.ATTACK_DAMAGE, a, b, 64.0)
         child.health = child.maxHealth

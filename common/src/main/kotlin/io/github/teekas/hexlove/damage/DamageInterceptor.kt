@@ -74,14 +74,17 @@ object DamageInterceptor {
     /** @return true if the blow must be cancelled. */
     fun onHurt(victim: LivingEntity, source: DamageSource, amount: Float): Boolean {
         val attacker = source.entity
+        if (attacker != null && attacker in reflecting) return false
+        // Re-entry from shareMarriageDamage carries the original attacker, so this has to come
+        // before the calm is broken below: a spouse who merely absorbed a tenth of somebody
+        // else's wound was never actually struck, and used to lose their pheromones for it.
+        if (victim in sharing) return false
         // A calm creature is never protected from harm. The first deliberate or indirect strike
         // breaks the spell before vanilla processes the damage, so its old hostility can return.
         if (attacker != null && BondStore.pheromone(victim) != null) {
             BondStore.clearPheromone(victim)
         }
         if (attacker === victim) return false
-        if (attacker != null && attacker in reflecting) return false
-        if (victim in sharing) return false
 
         val attackerHasBonds = attacker is BondHolder && attacker.hexloveHasBonds()
         val server = (victim.level() as? ServerLevel)?.server

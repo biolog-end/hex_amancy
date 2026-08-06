@@ -26,6 +26,7 @@ object HexloveAdvancements {
     const val SUCCUBUS = "succubus"
     const val HEART_OF_THE_WORLD = "heart_of_the_world"
     const val SECRETS_OF_THE_ANCIENTS = "secrets_of_the_ancients"
+    const val HUMILIATED = "humiliated"
 
     fun grant(player: ServerPlayer, path: String) {
         val advancement = player.server.advancements.getAdvancement(Hexlove.id(path)) ?: return

@@ -21,9 +21,29 @@ object MarriageManager {
         return record.other(player)
     }
 
-    fun isActive(server: MinecraftServer, record: MarriageRecord): Boolean =
-        record.active && holdsOwnRing(server.playerList.getPlayer(record.a), record.a, record.b) &&
-            holdsOwnRing(server.playerList.getPlayer(record.b), record.b, record.a)
+    /**
+     * The ring check walks two whole inventories, and everything from damage handling to target
+     * vetoes asks this question several times per hit. Inventories cannot change between two
+     * questions inside one server tick, so the verdict is remembered for the rest of that tick.
+     *
+     * Please do not "simplify" this into caching the whole [spouseOf] result. Only the ring part
+     * is tick-stable; `record.active` is written by [refresh] and has to stay live.
+     */
+    private var ringCheckTick = Long.MIN_VALUE
+    private val ringCheckCache = HashMap<UUID, Boolean>()
+
+    fun isActive(server: MinecraftServer, record: MarriageRecord): Boolean {
+        if (!record.active) return false
+        val tick = server.tickCount.toLong()
+        if (tick != ringCheckTick) {
+            ringCheckTick = tick
+            ringCheckCache.clear()
+        }
+        return ringCheckCache.getOrPut(record.a) {
+            holdsOwnRing(server.playerList.getPlayer(record.a), record.a, record.b) &&
+                holdsOwnRing(server.playerList.getPlayer(record.b), record.b, record.a)
+        }
+    }
 
     fun isActive(server: MinecraftServer, player: UUID): Boolean =
         record(server, player)?.let { isActive(server, it) } == true
@@ -152,7 +172,11 @@ object MarriageManager {
         }
         if (record == null) return RingSyncResult(changed = RingData.release(ring))
         spouse ?: return RingSyncResult()
+        // The name the ring already carries is consulted before the profile cache: that cache is
+        // synchronised and disk-backed, and this runs for every married ring on every server tick.
+        // Only a legacy ring with no stored name still pays for the lookup, and only once.
         val spouseName = server.playerList.getPlayer(spouse)?.gameProfile?.name
+            ?: RingData.spouseName(ring)
             ?: server.profileCache?.get(spouse)?.orElse(null)?.name
         // This also gives legacy rings their portable names, so their client tooltip stays
         // readable outside an integrated server.

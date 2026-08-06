@@ -21,6 +21,20 @@ import net.minecraft.world.entity.LivingEntity
 object InfatuationCost {
     private const val RADIUS = 8
 
+    /**
+     * One hex can hold dozens of this mod's actions, and every one of them used to sweep the whole
+     * seventeen-block cube on its own. Nobody walks anywhere between two actions of the same cast,
+     * so the answer is remembered for the caster's current tick and the sweep runs once instead.
+     *
+     * Yes, one slot. Casting is single-threaded and one caster is casting at a time; a second one
+     * simply misses and pays for their own sweep. I stared at a fancier cache for an hour and it
+     * bought nothing.
+     */
+    private class Probe(val caster: LivingEntity, val block: BlockPos, val tick: Long, val near: Boolean)
+
+    @Volatile
+    private var lastProbe: Probe? = null
+
     fun discount(env: CastingEnvironment, cost: Long): Long {
         if (cost <= 0L || !isNearCandle(env.castingEntity)) return cost
         return (cost * 4L) / 5L
@@ -30,13 +44,25 @@ object InfatuationCost {
         caster ?: return false
         val level = caster.level()
         val centre = caster.blockPosition()
+        val tick = level.gameTime
+
+        val cached = lastProbe
+        if (cached != null && cached.caster === caster && cached.tick == tick && cached.block == centre) {
+            return cached.near
+        }
+
+        var near = false
         val min = centre.offset(-RADIUS, -RADIUS, -RADIUS)
         val max = centre.offset(RADIUS, RADIUS, RADIUS)
         for (pos in BlockPos.betweenClosed(min, max)) {
             if (pos.distSqr(centre) > RADIUS.toDouble() * RADIUS) continue
-            if (level.getBlockState(pos).`is`(HexloveBlocks.CANDLES_OF_INFATUATION.value)) return true
+            if (level.getBlockState(pos).`is`(HexloveBlocks.CANDLES_OF_INFATUATION.value)) {
+                near = true
+                break
+            }
         }
-        return false
+        lastProbe = Probe(caster, centre.immutable(), tick, near)
+        return near
     }
 }
 

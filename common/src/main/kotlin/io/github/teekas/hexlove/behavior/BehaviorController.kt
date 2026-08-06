@@ -187,8 +187,6 @@ object BehaviorController {
      *
      * BehaviorKind.ADVANCE is fully torn down by the existing [remove] path: nothing special is
      * needed because ADVANCE only ever adds GOAL-selector entries, never TARGET entries.
-     *
-     * Stage 4: nothing here is ferocious-specific — ADVANCE is purely serene-side.
      */
     fun applyAdvance(mob: Mob, player: Player) {
         remove(mob, BehaviorKind.ADVANCE)

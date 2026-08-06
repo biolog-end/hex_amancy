@@ -116,10 +116,7 @@ class WorldSoulAltarScreen(
         val ownsRing = playerId != null && RingData.boundTo(ring) == playerId
         val compatibleLink = RingData.worldSoul(ring) == null || RingData.isWorldLinked(ring, playerId)
         val linked = playerId != null && RingData.isWorldLinked(ring, playerId)
-        attuneButton.message = Component.translatable(
-            if (linked) "screen.hexlove.world_soul_altar.detach"
-            else "screen.hexlove.world_soul_altar.attune",
-        )
+        attuneButton.message = if (linked) DETACH_LABEL else ATTUNE_LABEL
         attuneButton.active = menu.activeStructure && !menu.ritualRunning &&
             !ring.isEmpty && ownsRing && compatibleLink
         embodyButton.active = menu.activeStructure && !menu.ritualRunning &&
@@ -581,17 +578,28 @@ class WorldSoulAltarScreen(
             if (menu.activeStructure) ACTIVE_TEXT else INACTIVE_TEXT,
         )
         val ritualLabel = if (menu.activeStructure) LABEL else DORMANT_LABEL
-        centered(graphics, Component.translatable("screen.hexlove.world_soul_altar.amethyst"), 42, 84, ritualLabel)
-        centered(graphics, Component.translatable("screen.hexlove.world_soul_altar.ring"), 124, 84, ritualLabel)
-        val charge = String.format(Locale.ROOT, "%.2f", menu.chargeMillis / 1_000.0)
+        centered(graphics, AMETHYST_LABEL, 42, 84, ritualLabel)
+        centered(graphics, RING_LABEL, 124, 84, ritualLabel)
         centered(
             graphics,
-            Component.literal(charge),
+            chargeLabel(),
             VESSEL_CENTER_X,
             108,
             if (menu.activeStructure) CHARGE_TEXT else DORMANT_CHARGE_TEXT,
         )
-        centered(graphics, Component.translatable("container.inventory"), 116, 144, INVENTORY_TEXT)
+        centered(graphics, INVENTORY_LABEL, 116, 144, INVENTORY_TEXT)
+    }
+
+    /** The charge only ever moves in whole millis, so the string is re-cut when it actually changes. */
+    private var chargeLabelFor = Int.MIN_VALUE
+    private var chargeLabelText: Component = Component.empty()
+
+    private fun chargeLabel(): Component {
+        if (menu.chargeMillis != chargeLabelFor) {
+            chargeLabelFor = menu.chargeMillis
+            chargeLabelText = Component.literal(String.format(Locale.ROOT, "%.2f", menu.chargeMillis / 1_000.0))
+        }
+        return chargeLabelText
     }
 
     private fun structureStatus(): Component {
@@ -682,6 +690,14 @@ class WorldSoulAltarScreen(
     }
 
     private companion object {
+        // Fixed labels: renderLabels/renderBg run every frame, and a new Component for each of
+        // them was pure garbage. Nothing here depends on state, so one instance lives forever.
+        val AMETHYST_LABEL: Component = Component.translatable("screen.hexlove.world_soul_altar.amethyst")
+        val RING_LABEL: Component = Component.translatable("screen.hexlove.world_soul_altar.ring")
+        val INVENTORY_LABEL: Component = Component.translatable("container.inventory")
+        val ATTUNE_LABEL: Component = Component.translatable("screen.hexlove.world_soul_altar.attune")
+        val DETACH_LABEL: Component = Component.translatable("screen.hexlove.world_soul_altar.detach")
+
         const val AMETHYST_SLOT_X = 34
         const val RING_SLOT_X = 116
         const val ALTAR_SLOT_Y = 56

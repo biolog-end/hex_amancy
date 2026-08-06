@@ -7,6 +7,7 @@ import io.github.teekas.hexlove.advancement.HexloveAdvancements
 import io.github.teekas.hexlove.menu.VowAltarMenu
 import io.github.teekas.hexlove.registry.HexloveBlockEntities
 import io.github.teekas.hexlove.registry.HexloveItems
+import io.github.teekas.hexlove.registry.HexloveSounds
 import io.github.teekas.hexlove.world.HexloveWorldData
 import net.minecraft.core.BlockPos
 import net.minecraft.nbt.CompoundTag
@@ -17,7 +18,6 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.Container
 import net.minecraft.world.MenuProvider
@@ -145,7 +145,7 @@ class VowAltarBlockEntity(pos: BlockPos, state: BlockState) :
         val centre = Vec3.atCenterOf(worldPosition)
         serverLevel.sendParticles(ParticleTypesHolder.PINK, centre.x, centre.y + 0.8, centre.z, 18, 0.45, 0.35, 0.45, 0.02)
         serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.HEART, centre.x, centre.y + 0.65, centre.z, 8, 0.4, 0.25, 0.4, 0.02)
-        serverLevel.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.8f, 0.75f)
+        serverLevel.playSound(null, worldPosition, HexloveSounds.VOW_ALTAR_SEVER.value, SoundSource.BLOCKS, 1.0f, 1.0f)
         return true
     }
 
@@ -185,7 +185,7 @@ class VowAltarBlockEntity(pos: BlockPos, state: BlockState) :
         level.sendParticles(ParticleTypesHolder.WHITE, centre.x, centre.y + 1.1, centre.z, 32, 0.65, 0.75, 0.65, 0.045)
         level.sendParticles(net.minecraft.core.particles.ParticleTypes.HEART, centre.x, centre.y + 1.0, centre.z, 42, 1.1, 0.8, 1.1, 0.05)
         level.sendParticles(net.minecraft.core.particles.ParticleTypes.END_ROD, centre.x, centre.y + 1.05, centre.z, 24, 0.75, 0.8, 0.75, 0.04)
-        level.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.15f, 1.4f)
+        level.playSound(null, worldPosition, HexloveSounds.VOW_ALTAR_VOW.value, SoundSource.BLOCKS, 1.1f, 1.0f)
     }
 
     private fun releaseRingsOf(player: ServerPlayer?, owner: UUID) {
@@ -278,6 +278,14 @@ class VowAltarBlockEntity(pos: BlockPos, state: BlockState) :
         if (stack.isEmpty) {
             offeringApproachX[slot] = 0.0
             offeringApproachZ[slot] = 0.0
+        } else if (previous.isEmpty) {
+            // The second ring lands a little brighter than the first, so an altar that is now
+            // ready to marry sounds different from one still waiting.
+            val second = !offeringStacks[0].isEmpty && !offeringStacks[1].isEmpty
+            (level as? ServerLevel)?.playSound(
+                null, worldPosition, HexloveSounds.VOW_ALTAR_OFFER.value, SoundSource.BLOCKS,
+                0.8f, if (second) 1.18f else 1.0f,
+            )
         }
         setChanged()
     }
@@ -366,7 +374,9 @@ class VowAltarBlockEntity(pos: BlockPos, state: BlockState) :
             if (altar.ritualStartedAt == 0L) {
                 altar.ritualStartedAt = level.gameTime
                 altar.sync()
-                level.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 0.75f, 1.05f)
+                // Five seconds of two voices converging, exactly as long as RITUAL_TICKS: the
+                // braid arrives at unison on the tick the vow is sealed.
+                level.playSound(null, pos, HexloveSounds.VOW_ALTAR_RITUAL.value, SoundSource.BLOCKS, 0.85f, 1.0f)
             }
             val elapsed = level.gameTime - altar.ritualStartedAt
             ritualParticles(level, pos, elapsed)

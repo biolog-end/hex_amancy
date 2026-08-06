@@ -6,11 +6,12 @@ import io.github.teekas.hexlove.Hexlove
 import io.github.teekas.hexlove.advancement.HexloveAdvancements
 import io.github.teekas.hexlove.entity.OpeningHeartDisplay
 import io.github.teekas.hexlove.registry.HexloveItems
+import io.github.teekas.hexlove.registry.HexloveSounds
 import net.minecraft.ChatFormatting
+import net.minecraft.sounds.SoundEvent
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand
@@ -58,10 +59,10 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
             level.playSound(
                 null,
                 player.blockPosition(),
-                SoundEvents.AMETHYST_BLOCK_CHIME,
+                HexloveSounds.CRYSTALLIZED_AFFECTION_STRAIN.value,
                 SoundSource.PLAYERS,
-                0.3f,
-                1.35f + elapsed / 80.0f,
+                0.45f,
+                0.92f + elapsed / 60.0f,
             )
         }
     }
@@ -72,14 +73,7 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
 
     override fun finishUsingItem(stack: ItemStack, level: Level, entity: LivingEntity): ItemStack {
         val player = entity as? ServerPlayer ?: return stack
-        level.playSound(
-            null,
-            player.blockPosition(),
-            SoundEvents.GLASS_BREAK,
-            SoundSource.PLAYERS,
-            0.85f,
-            1.15f + level.random.nextFloat() * 0.25f,
-        )
+        // The burst is voiced from burst(), where the tier is already known.
         open(player, level.random)
         OpeningHeartDisplay.removeFor(player)
         if (!player.abilities.instabuild) stack.shrink(1)
@@ -87,14 +81,25 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
     }
 
     private fun open(player: ServerPlayer, random: RandomSource) {
+        // Legendary was 3%; the extra 3% comes from 1% of blue (was 21 → 20) and 2% of
+        // purple (was 42 → 40). The other three tiers are unchanged.
         val tier = when (random.nextInt(100)) {
-            in 0..3 -> RewardTier.SILENCE
-            in 4..33 -> RewardTier.SMALL_SPARK
-            in 34..54 -> RewardTier.WORLD_RESPONSE
-            in 55..96 -> RewardTier.FORGOTTEN_ECHO
-            else -> RewardTier.AUTHORS_LEGACY
+            in 0..3 -> RewardTier.SILENCE          // 4%
+            in 4..33 -> RewardTier.SMALL_SPARK     // 30%
+            in 34..53 -> RewardTier.WORLD_RESPONSE // 20%
+            in 54..93 -> RewardTier.FORGOTTEN_ECHO // 40%
+            else -> RewardTier.AUTHORS_LEGACY      // 6% (indices 94..99)
         }
         burst(player, tier)
+        // The tier's own voice arrives on top of the shared unsealing.
+        player.serverLevel().playSound(
+            null,
+            player.blockPosition(),
+            tier.openSoundOf(),
+            SoundSource.PLAYERS,
+            tier.volume,
+            1.0f,
+        )
         when (tier) {
             RewardTier.SILENCE -> silence(player, random)
             RewardTier.SMALL_SPARK -> smallSpark(player, random)
@@ -131,6 +136,15 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
         val level = player.serverLevel()
         val centre = OpeningHeartDisplay.targetFor(player, 1.0)
         val colour = ConjureParticleOptions(tier.colour)
+        // The richer the tier, the deeper and larger the break sounds.
+        level.playSound(
+            null,
+            player.blockPosition(),
+            HexloveSounds.CRYSTALLIZED_AFFECTION_BURST.value,
+            SoundSource.PLAYERS,
+            tier.volume,
+            tier.pitch,
+        )
         level.sendParticles(
             colour,
             centre.x,
@@ -273,7 +287,11 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
         if (!player.addItem(stack)) player.drop(stack, false)
     }
 
-    private fun isObviousJunk(stack: ItemStack): Boolean = stack.`is`(Items.ROTTEN_FLESH) ||
+    private fun isObviousJunk(stack: ItemStack): Boolean =
+        // A lore fragment on its own is a purple-tier tease with no payoff: the crystal
+        // hands you an empty page. Filter it here so the reroll finds a real reward.
+        stack.`is`(HexItems.LORE_FRAGMENT) ||
+        stack.`is`(Items.ROTTEN_FLESH) ||
         stack.`is`(Items.BONE) ||
         stack.`is`(Items.STRING) ||
         stack.`is`(Items.SPIDER_EYE) ||
@@ -342,11 +360,18 @@ class CrystallizedAffectionItem(properties: Properties) : Item(properties) {
         )
     }
 
-    private enum class RewardTier(val colour: Int, val particleCount: Int, val speed: Double) {
-        SILENCE(0xA8A8B7, 10, 0.08),
-        SMALL_SPARK(0x61E682, 18, 0.1),
-        WORLD_RESPONSE(0x58AFFF, 28, 0.12),
-        FORGOTTEN_ECHO(0xC77DFF, 42, 0.145),
-        AUTHORS_LEGACY(0xFFD45A, 64, 0.18),
+    private enum class RewardTier(
+        val colour: Int,
+        val particleCount: Int,
+        val speed: Double,
+        val volume: Float,
+        val pitch: Float,
+        val openSoundOf: () -> SoundEvent,
+    ) {
+        SILENCE(0xA8A8B7, 10, 0.08, 0.62f, 1.30f, { HexloveSounds.CRYSTALLIZED_AFFECTION_OPEN_SILENCE.value }),
+        SMALL_SPARK(0x61E682, 18, 0.1, 0.75f, 1.14f, { HexloveSounds.CRYSTALLIZED_AFFECTION_OPEN_SPARK.value }),
+        WORLD_RESPONSE(0x58AFFF, 28, 0.12, 0.85f, 1.00f, { HexloveSounds.CRYSTALLIZED_AFFECTION_OPEN_WORLD.value }),
+        FORGOTTEN_ECHO(0xC77DFF, 42, 0.145, 0.95f, 0.88f, { HexloveSounds.CRYSTALLIZED_AFFECTION_OPEN_ECHO.value }),
+        AUTHORS_LEGACY(0xFFD45A, 64, 0.18, 1.10f, 0.76f, { HexloveSounds.CRYSTALLIZED_AFFECTION_OPEN_LEGACY.value }),
     }
 }
