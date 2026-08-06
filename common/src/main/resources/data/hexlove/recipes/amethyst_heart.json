@@ -6,7 +6,11 @@
     "OGO"
   ],
   "key": {
-    "F": { "tag": "hexlove:amethyst_flowers" },
+    "F": [
+      { "item": "hexlove:amethyst_rose" },
+      { "item": "hexlove:amethyst_dandelion" },
+      { "item": "hexlove:amethyst_tulip" }
+    ],
     "C": { "item": "hexcasting:charged_amethyst" },
     "O": { "item": "minecraft:obsidian" },
     "G": { "item": "minecraft:gold_ingot" }

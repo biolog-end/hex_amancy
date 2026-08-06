@@ -24,3 +24,8 @@ dependencies {
         annotationProcessor(it)
     }
 }
+
+// PolyForm requires the licence to travel with every copy of the software.
+tasks.processResources {
+    from(rootProject.file("LICENSE"))
+}

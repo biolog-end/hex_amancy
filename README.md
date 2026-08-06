@@ -153,4 +153,19 @@ Servers can retune the prices, durations and strengths, and switch individual me
 
 ## License
 
-[MIT](LICENSE). Russian description: [README_RU.md](README_RU.md).
+Released under [LGPL-3.0-or-later](LICENSE). Play it, ship it in free or paid
+modpacks, run it on paid servers, fork it, port it to other Minecraft versions
+or modloaders, translate it - the mod is copyleft, not restricted.
+
+Two things a copyleft licence asks in return:
+
+  * If you distribute a **modified** version of the mod (a fork, a port, a
+    patched build), that modified version has to stay under LGPL-3.0-or-later
+    and its source has to be available.
+  * Keep the credit. Copyright notice for Teekas and a copy of the LICENSE
+    file must ship with whatever you distribute.
+
+Other mods that only depend on Hex: Amancy at runtime can be under any
+licence they like.
+
+Russian description: [README_RU.md](README_RU.md).

@@ -8,10 +8,11 @@
     "Teekas"
   ],
   "contact": {
-    "homepage": "https://teekas.github.io/hexlove",
-    "sources": "https://github.com/Teekas/hexlove"
+    "homepage": "https://biolog-end.github.io/hex_amancy",
+    "sources": "https://github.com/biolog-end/hex_amancy",
+    "issues": "https://github.com/biolog-end/hex_amancy/issues"
   },
-  "license": "MIT",
+  "license": "LGPL-3.0-or-later",
   "icon": "assets/hexlove/icon.png",
   "environment": "*",
   "entrypoints": {

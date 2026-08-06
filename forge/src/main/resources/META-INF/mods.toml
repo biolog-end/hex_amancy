@@ -1,6 +1,7 @@
 modLoader = "kotlinforforge"
 loaderVersion = "[${versions.kotlin_forge},)"
-license = "MIT"
+license = "LGPL-3.0-or-later"
+issueTrackerURL = "https://github.com/biolog-end/hex_amancy/issues"
 
 [[mods]]
 modId = "hexlove"
@@ -9,6 +10,7 @@ displayName = "Hex: Amancy"
 logoFile = "assets/hexlove/icon.png"
 authors = "Teekas"
 description = "Hex: Amancy addon for Hex Casting"
+displayURL = "https://biolog-end.github.io/hex_amancy"
 
 [[dependencies.hexlove]]
 modId = "forge"
