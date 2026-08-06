@@ -169,3 +169,7 @@ Other mods that only depend on Hex: Amancy at runtime can be under any
 licence they like.
 
 Russian description: [README_RU.md](README_RU.md).
+
+---
+
+If you enjoy the mod and want to say thanks: [☕ Buy me a coffee](https://buymeacoffee.com/teekas).

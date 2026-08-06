@@ -170,3 +170,7 @@ Minecraft и загрузчики, переводи - мод под copyleft, а
 могут быть под любой лицензией на их выбор.
 
 English description: [README.md](README.md).
+
+---
+
+Если мод понравился и хочется поддержать: [☕ Buy me a coffee](https://buymeacoffee.com/teekas).
